@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>テスト</title>
+<title>Insert title here</title>
 </head>
 <body>
-     坂井のテストjspです。
 
 </body>
 </html>
