@@ -5,7 +5,6 @@ import java.sql.Date;
 
 public class UserBean implements Serializable{
 	
-	//UserBean
 	
 	//ユーザID
 	private String user_id;
@@ -39,6 +38,13 @@ public class UserBean implements Serializable{
 	
 	//出身地
 	private String area;
+	
+	/*
+	 * コンストラクタ
+	 */
+	public UserBean() {
+		
+	}
 
 	/**
 	 * @return user_id
