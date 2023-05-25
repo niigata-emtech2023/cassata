@@ -47,6 +47,9 @@ header p {
     align-items: center;
 }
 
+a{
+	text-decoration:none;
+}
 .header-contents a {
     font-style: italic;
     display: block;

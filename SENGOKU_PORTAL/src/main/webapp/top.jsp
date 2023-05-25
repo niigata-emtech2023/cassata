@@ -84,7 +84,7 @@
         </div>
         <ul class="navigation-bar">
             <li class="selected-page">
-                <p>トップ</p>
+                <a href="top.jsp"><p>トップ</p></a>
             </li>
             <li>
                 <p>武将一覧</p>
