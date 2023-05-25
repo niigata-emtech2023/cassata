@@ -24,7 +24,7 @@ public class BushoBean implements Serializable{
 	private String busho_img;
 	
 	/**
-	 * BushoBeanを構築します
+	 * コンストラクタ
 	 */
 	public BushoBean() {
 	}
