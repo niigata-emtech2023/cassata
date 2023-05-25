@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("password", password);
 
 			// DAOの利用
-			if (loginDao.login()) {
+			if (loginDao.login(user_id, password)) {
 				// 認証成功
 				url = "start.html";
 

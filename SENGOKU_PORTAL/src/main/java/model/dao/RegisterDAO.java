@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 public class RegisterDAO {
 
-	public int register(String  user_id,String password,String nickname) throws ClassNotFoundException, SQLException{
+	public int register(String  user_id,String password,String nickname) 
+			throws ClassNotFoundException, SQLException{
 
 		String sql="INSERT INTO user(user_id,password,nickname) values(?,?,?)";
 

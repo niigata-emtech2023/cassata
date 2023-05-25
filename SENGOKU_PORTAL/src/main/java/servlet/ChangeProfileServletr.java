@@ -1,8 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,24 +44,12 @@ public class ChangeProfileServletr extends HttpServlet {
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
+		String new_password = request.getParameter("new_password");
 		String nickname = request.getParameter("nickname");
-		Date created_at = request.getParameter("created_at");
-		Date updated_at = request.getParameter("updated_at");
-		int authority = Integer.parseInt(request.getParameter("authority"));
-		String user_id = request.getParameter("user_id");
-		- gender : int
-		String user_id = request.getParameter("user_id");
-		- myself : String
-		String user_id = request.getParameter("user_id");
-		- busho_id : String
-		String user_id = request.getParameter("user_id");
-		- birth_date : Date
-		String user_id = request.getParameter("user_id");
-		- area_id : String
-		String code = request.getParameter("code");
-		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String section = request.getParameter("section");
+		int gender = Integer.parseInt(request.getParameter("gender"));
+		String myself = request.getParameter("myself");
+		String busho_id = request.getParameter("busho_id");
+		String area = request.getParameter("area");
 
 		EmployeeBean employee = new EmployeeBean();
 		employee.setCode(code);
