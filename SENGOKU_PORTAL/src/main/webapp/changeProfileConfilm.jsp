@@ -36,6 +36,5 @@
     以上の内容でよろしいですか
     <input type="submit" value="変更する">
     </form>
-
 </body>
 </html>
