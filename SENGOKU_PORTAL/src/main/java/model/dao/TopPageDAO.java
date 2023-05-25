@@ -8,6 +8,8 @@ import model.entity.UserBean;
 public class TopPageDAO{
 	
 	public List<UserBean> selectRanking() throws SQLException, ClassNotFoundException{
+		
+		//aaa
 		return null;
 		
 	}
