@@ -17,6 +17,9 @@ public class ChatBean implements Serializable{
 	//メッセージ
 	private String message;
 	
+	//ニックネーム
+	private String nickname;
+	
 	/**
 	 * コンストラクタ
 	 */
@@ -78,6 +81,24 @@ public class ChatBean implements Serializable{
 	 */
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	
+	//チャットのニックネーム設定
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getNickname() {
+		return nickname;
+	}
+	
+	/**
+	 * 
+	 * @param nickname 
+	 */
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 }
