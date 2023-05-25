@@ -19,12 +19,12 @@
     	value="<jsp:getPropaty name="user" property="myself" />"><br>
     性別：<input type="radio" name="gender" 
     	value="<jsp:getPropaty name="user" property="gender" />"><br>
-    生年月日：<input type="text" name="myself" 
-    	value="<jsp:getPropaty name="user" property="myself" />"><br>
+    生年月日：<input type="text" name="birth_date" 
+    	value="<jsp:getPropaty name="user" property="birth_date" />"><br>
     推しの武将：
     アイコン：
     出身地：<input type="text" name="area" 
-    	value="<jsp:getPropaty name="user" property="myself" />"><br>
+    	value="<jsp:getPropaty name="user" property="area" />"><br>
     <input type="submit" value="変更する">
     </form>
 </body>
