@@ -10,18 +10,21 @@
     <jsp:useBean id="" class="model.entity.UserBean" scope="session" />
     <form action="" method="POST">
     ニックネーム：<input type="text" name="nickname" 
-    	value="<jsp:getPropaty name="" property="nickname" />"><br>
-    ユーザーID：<input type="text" name="ID" 
-    	value="<jsp:getPropaty name="" property="ID" />"><br>
+    	value="<jsp:getPropaty name="user" property="nickname" />"><br>
+    ユーザーID：<input type="text" name="user_id" 
+    	value="<jsp:getPropaty name="user" property="user_id" />"><br>
     パスワード：<input type="password" name="password" 
-    	value="<jsp:getPropaty name="" property="password" />"><br>
-    自己紹介：<input type="password" name="password" 
-    	value="<jsp:getPropaty name="" property="password" />"><br>
-    性別：
-    生年月日：
+    	value="<jsp:getPropaty name="user" property="password" />"><br>
+    自己紹介：<input type="text" name="myself" 
+    	value="<jsp:getPropaty name="user" property="myself" />"><br>
+    性別：<input type="radio" name="gender" 
+    	value="<jsp:getPropaty name="user" property="gender" />"><br>
+    生年月日：<input type="text" name="myself" 
+    	value="<jsp:getPropaty name="user" property="myself" />"><br>
     推しの武将：
     アイコン：
-    出身地：
+    出身地：<input type="text" name="area" 
+    	value="<jsp:getPropaty name="user" property="myself" />"><br>
     <input type="submit" value="変更する">
     </form>
 </body>
