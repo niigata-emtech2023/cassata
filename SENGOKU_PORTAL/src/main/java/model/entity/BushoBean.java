@@ -22,7 +22,13 @@ public class BushoBean implements Serializable{
 	
 	//武将画像
 	private String busho_img;
-
+	
+	/**
+	 * コンストラクタ
+	 */
+	public BushoBean() {
+	}
+	
 	/**
 	 * @return busho_id
 	 */
@@ -82,28 +88,28 @@ public class BushoBean implements Serializable{
 	/**
 	 * @return birth_date
 	 */
-	public Date getBirth_date() {
+	public Date getBirthDate() {
 		return birth_date;
 	}
 
 	/**
 	 * @param birth_date セットする birth_date
 	 */
-	public void setBirth_date(Date birth_date) {
+	public void setBirthDate(Date birth_date) {
 		this.birth_date = birth_date;
 	}
 
 	/**
 	 * @return busho_img
 	 */
-	public String getBusho_img() {
+	public String getBushoImg() {
 		return busho_img;
 	}
 
 	/**
 	 * @param busho_img セットする busho_img
 	 */
-	public void setBusho_img(String busho_img) {
+	public void setBushoImg(String busho_img) {
 		this.busho_img = busho_img;
 	}
 	

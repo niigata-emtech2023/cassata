@@ -1,0 +1,412 @@
+body {
+    font-family: 'Hina Mincho', serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8999d4;
+}
+
+/* ヘッダー */
+header {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+    /* 子要素を両端に置き、上下中央揃えする */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header span {
+    font-size: 20px;
+}
+
+header p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+}
+
+.header-contents {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-contents a {
+    font-style: italic;
+    display: block;
+    padding-right: 30px;
+    color: #f5f5f5;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.header-contents a:hover {
+    color: #d2d2d2;
+}
+
+.user-icon {
+    height: 60px;
+    border-radius: 50%;
+    border: 3px #f5f5f5 solid;
+    transition: 0.5s;
+}
+
+.user-icon:hover {
+    border: 3px #878787 solid;
+}
+
+.logo {
+    height: 75px;
+}
+
+.top {
+    margin-top:75px;
+    position: relative;
+    width: 100%;
+}
+
+
+
+/* メイン */
+.top-image {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto;
+    display: block;
+}
+
+.top-contents {
+    width: 625px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.top-contents-title {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.top-contents-title-text {
+    padding-bottom: 30px;
+    color: white;
+    text-shadow: 2px 5px 5px black;
+}
+
+.top-contents-title-text h1 {
+    letter-spacing: 5px;
+    line-height: 50px;
+}
+
+.top-contents-title span {
+    font-size: 50px;
+}
+
+.top-link-box {
+    /* 子要素を両端に置き、上下中央揃えする */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-link-box a {
+    text-decoration: none;
+    color: black;
+}
+
+.top-link {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: 5px solid rgb(128, 128, 128);
+    margin-top: 15px;
+    margin: 0px 10px 0px 10px;
+    transition: 0.5s;
+}
+
+.top-link:hover {
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.top-link-icon {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+}
+
+.top-link-icon-box {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.register {
+    background-color: #CCFF99;
+}
+
+.bushou {
+    background-color: #FF9999;
+}
+
+.top-link-text {
+    padding: 10px 30px 20px 30px;
+    border-top: 2px dashed rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(190, 190, 190);
+    width: 100%;
+    background-color: white;
+}
+
+.top-link-text h2 {
+    padding: 10px 0px 10px 0px;
+}
+
+
+.top-link-click {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    transition: 0.5s;
+}
+
+
+.top-link-click-box {
+    background-color: #EEEEEE
+}
+
+
+
+/* ナビゲーションバー */
+.navigation-bar {
+    /* リストを中央揃えする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: sticky;
+    top: 75px;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 50px;
+}
+
+.navigation-bar li {
+    width: 150px;
+    display: block;
+    height: 50px;
+    font-size: 20px;
+    background-color: #999999;
+    border-top: 1px solid white;
+    margin-left: 4px;
+    transition: 0.5s;
+}
+
+.navigation-bar li:hover {
+    background-color: #777777;
+}
+
+.navigation-bar p {
+    text-align: center;
+    line-height: 50px;
+}
+
+.selected-page {
+    border-bottom: 5px solid #FF9999;
+}
+
+/*　メインコンテンツ */
+.main-contents {
+    background-color: black;
+}
+
+.about {
+    color: white;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.about h1 {
+    padding-bottom: 10px;
+}
+
+.main-contents-list {
+    /* 子要素を両端に置き、中央揃えする */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    margin: 0 auto;
+
+}
+
+.ranking {
+    width: 35%;
+    margin: 0 auto;
+    border: 5px solid rgb(190, 190, 190);
+    background-color: white;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.chat {
+    width: 55%;
+    margin: 0 auto;
+    border: 5px solid rgb(190, 190, 190);
+    background-color: white;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.contents-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 3px dashed rgb(190, 190, 190);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.bushou-h {
+    background-color: #ffcfcf;
+}
+
+.chat-h {
+    background-color: #FFFFCC;
+}
+
+.contents-head img {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    display:block;
+}
+
+.contents-head h2 {
+    font-size: 35px;
+    padding-left: 10px;
+}
+
+.main-contents-inner {
+    font-size: 20px;
+    text-align: center;
+}
+
+.main-contents-inner-header {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px dashed rgb(190, 190, 190);
+}
+
+.ranking-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.top1 {
+    color: #FFCC00;
+    font-size: 50px;
+}
+
+.top2 {
+    color: #CCCCCC;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.top3 {
+    color: #CC6600;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.chat-box {
+    width: 95%;
+    max-height:400px;
+    border: 2px solid rgb(190, 190, 190);
+    overflow-y: scroll;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.chat-list li{
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.chat-head{
+    display:flex;
+    justify-content: space-between;
+    align-items:start;
+}
+
+.chat-head p{
+    padding-left:60px;
+    font-weight:bold;
+}
+
+.chat-date{
+    padding-right:10px;
+    color:gray;
+}
+
+.chat-icon{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+
+}
+
+.chat-contents{
+    display:flex;
+    justify-content: left;
+    align-items:start;
+    text-align:left;
+
+}
+
+.chat-contents p{   
+    background-color:#d8ffd8;
+    margin-left:10px;
+    border-radius:10px;
+    padding:10px;
+    width:100%;
+}

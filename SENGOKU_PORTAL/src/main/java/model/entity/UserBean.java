@@ -5,7 +5,6 @@ import java.sql.Date;
 
 public class UserBean implements Serializable{
 	
-	//UserBean
 	
 	//ユーザID
 	private String user_id;
@@ -39,6 +38,19 @@ public class UserBean implements Serializable{
 	
 	//出身地
 	private String area;
+	
+	//武将名
+	private String busho_name;
+	
+	//ランキング用のカウント
+	private int count;
+	
+	/*
+	 * コンストラクタ
+	 */
+	public UserBean() {
+		
+	}
 
 	/**
 	 * @return user_id
@@ -194,7 +206,40 @@ public class UserBean implements Serializable{
 		this.area = area;
 	}
 	
+	//ランキング用
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getBushoName() {
+		return busho_name;
+	}
+	
+	/**
+	 * 
+	 * @param busho_name
+	 */
+	public void setBushoName(String busho_name) {
+		this.busho_name = busho_name;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public int getCount() {
+		return count;
+	}
+	
+	/**
+	 * 
+	 * @param count
+	 */
+	public void setCount(int count) {
+		this.count = count;
+	}
 	
 
 	
