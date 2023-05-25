@@ -9,7 +9,7 @@ public class TopPageDAO{
 	
 	public List<UserBean> selectRanking() throws SQLException, ClassNotFoundException{
 		
-		//aaa
+		//aaaa
 		return null;
 		
 	}
