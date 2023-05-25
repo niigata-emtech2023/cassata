@@ -84,10 +84,19 @@ public class ChatBean implements Serializable{
 	}
 	
 	//チャットのニックネーム設定
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNickname() {
 		return nickname;
 	}
 	
+	/**
+	 * 
+	 * @param nickname 
+	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}

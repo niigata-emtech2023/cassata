@@ -16,6 +16,10 @@ public class TopPageDAO{
 	
 	public List<UserBean> selectRanking() throws SQLException, ClassNotFoundException{
 		
+		/**
+		 * ランキングを取得する
+		 */
+		
 		List<UserBean> rankingList = new ArrayList<UserBean>();
 		
 		String sql = "SELECT b.busho_name AS busho_name, COUNT(*) AS count FROM user u INNER JOIN busho b ON (u.busho_id = b.busho_id) GROUP BY b.busho_name ORDER BY COUNT(*) DESC";
@@ -44,6 +48,10 @@ public class TopPageDAO{
 	}
 	
 	public List<ChatBean> select10Chat() throws SQLException, ClassNotFoundException{
+		
+		/**
+		 * チャットの最新10件を表示する
+		 */
 		
 		List<ChatBean> Chat10List = new ArrayList<ChatBean>();
 
