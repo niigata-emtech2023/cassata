@@ -7,7 +7,8 @@ import java.sql.SQLException;
 
 public class LoginDAO {
 	
-	public boolean login(String user_id, String password) throws ClassNotFoundException, SQLException{
+	public boolean login(String user_id, String password) 
+			throws ClassNotFoundException, SQLException{
 		
 		String sql="SELECT * FROM user WHERE user_id=? AND password=?";
 		
