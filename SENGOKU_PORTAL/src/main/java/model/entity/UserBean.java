@@ -5,6 +5,8 @@ import java.sql.Date;
 
 public class UserBean implements Serializable{
 	
+	//UserBean
+	
 	//ユーザID
 	private String user_id;
 	
