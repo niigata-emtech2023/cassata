@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ログアウト</title>
 </head>
 <body>
+	<form action="show-toppage-servlet" method="POST">
+    ログアウトしました<br>
+    <input type="submit" value="トップページへ">
+    
 
 </body>
 </html>
