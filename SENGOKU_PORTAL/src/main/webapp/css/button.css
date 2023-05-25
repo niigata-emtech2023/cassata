@@ -1,0 +1,108 @@
+@import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
+
+.btn,
+a.btn,
+button.btn {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    margin:0 auto;
+    margin-bottom:20px;
+}
+
+.btn-wrap-pc-sp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: justify;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between;
+}
+
+a.btn-pc-sp {
+    line-height: 1.4;
+
+    width: 50%;
+    padding: 1rem 0.8rem;
+
+    color: #ffff;
+}
+
+a.btn-pc-sp--contact {
+    color: #fff;
+}
+
+/* ボタンの色を指定する */
+.rankingbtn{
+    background:#ffcfcf;
+    border:1px solid rgb(68, 68, 68);
+}
+
+.rankingbtn:hover{
+    background:#feafaf;
+}
+
+.chatbtn{
+    background:#FFFFCC;
+    border:1px solid rgb(68, 68, 68);
+}
+
+.chatbtn:hover{
+    background:#fdfda0;
+}
+
+a.btn-pc-sp--tel {
+    color: #fff;
+    background: #094;
+}
+
+.fa-position-right {
+    position: absolute;
+    top: calc(50% - 0.5em);
+    right: 1rem;
+}
+
+a.btn-pc-sp {
+    width: 200px;
+    padding-right: 1rem;
+
+    color: #ffff;
+}
+
+a.btn-pc-sp--contact {
+    color: rgb(48, 48, 48)
+}
+
+a.btn-pc-sp--contact.btn-pc-sp--2 {
+    border-bottom: 5px solid #d25600;
+    background: #eb6100;
+}
+
+a.btn-pc-sp--tel.btn-pc-sp--2 {
+    border-bottom: 5px solid #008039;
+    background: #094;
+}
+
+a.btn-pc-sp .number {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+}
