@@ -7,12 +7,11 @@
 <title>ログイン</title>
 </head>
 <body>
-
     ログイン<br>
 	<form action="show-toppage-servlet" method="POST">
     ID：<input type="text" name="ID"><br>
 	パスワード：<input type="password" name="password"><br>
 	<input type="submit" value="ログイン">
-
+	</form>
 </body>
 </html>

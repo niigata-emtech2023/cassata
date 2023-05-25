@@ -10,7 +10,6 @@
 	<form action="show-toppage-servlet" method="POST">
     ログアウトしました<br>
     <input type="submit" value="トップページへ">
-    
-
+    </form>
 </body>
 </html>
