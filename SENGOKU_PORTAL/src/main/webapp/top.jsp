@@ -19,8 +19,14 @@
         <img class="logo" src="images/logo.jpg">
         <p><span>あ</span>でログイン中</p>
         <div class="header-contents">
-            <a href="#">新規登録</a>
-            <a href="#">ログイン</a>
+     		
+     		<!-- 新規登録リンク -->
+            <a href="register.jsp">新規登録</a>
+            
+            <!-- ログインリンク -->
+            <a href="login.jsp">ログイン</a>
+            
+            <!-- アイコン -->
             <img class="user-icon"
                 src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
         </div>
