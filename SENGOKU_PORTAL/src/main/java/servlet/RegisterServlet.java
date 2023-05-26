@@ -64,7 +64,16 @@ public class RegisterServlet extends HttpServlet {
 
 				try {
 					// DAOの利用
+
+					count = registerdao.register(user_id, password, nickname);
+					
+					if(count != 0) {
+						session.setAttribute("user_id", user_id);
+						session.setAttribute("password", password);
+						session.setAttribute("nickname", nickname);
+					}
 					count = registerdao.register(user_id,password,nickname);
+
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
@@ -74,7 +83,7 @@ public class RegisterServlet extends HttpServlet {
 				request.setAttribute("count", count);
 
 				// リクエストの転送
-				RequestDispatcher rd = request.getRequestDispatcher("changeProfileComplete.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("registerComplete.jsp");
 				rd.forward(request, response);
 
 			}
