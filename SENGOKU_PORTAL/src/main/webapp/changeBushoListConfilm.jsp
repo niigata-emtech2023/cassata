@@ -11,22 +11,16 @@
         request.setCharacterEncoding("UTF-8");
     %>
     
-    <jsp:useBean id="busho" class="model.entity.BushoBean" scope="session" />
     
-    <jsp:getProperty name="busho" property="image" />
-    <jsp:setProperty name="busho" property="bushoName" />
-    <jsp:setProperty name="busho" property="period_id" />
-    <jsp:setProperty name="busho" property="birth_date" />
-    <jsp:setProperty name="busho" property="commentary" />
     
-    顔写真：<input type="" name="image" /><br>
-    名前：<input type="text" name="bushoName" /><br>
-    年代：<input type="" name="period_id" /><br>
-    生年月日：<input type="" name="birth_date" /><br>
-    説明文：<input type="text" name="commentary" /><br>
+    顔写真：<%request.getParameter("busho_img"); %><br>
+    名前：<%request.getParameter("busho_name"); %><br>
+    年代：<%request.getParameter("period_id"); %><br>
+    生年月日：<%request.getParameter("birth_date"); %><br>
+    説明文：<%request.getParameter("commentary"); %><br>
     以上の内容でよろしいですか
     
-    <form action="" method="POST">
+    <form action="ChangeBushoServlet" method="POST">
     <input type="submit" value="変更する">
     </form>
 

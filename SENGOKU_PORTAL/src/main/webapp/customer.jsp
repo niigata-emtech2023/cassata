@@ -24,7 +24,7 @@
 			for (UserBean user : userList) {
 		%>
 		<tr>
-			<td><%=user.getImage()%></td>
+			<td><%=user.getBushoImg()%></td>
 			<td><%=user.getNickname()%></td>
 			<td><%=user.getUserID()%></td>
 			<td><%=user.getBushoName()%></td>
