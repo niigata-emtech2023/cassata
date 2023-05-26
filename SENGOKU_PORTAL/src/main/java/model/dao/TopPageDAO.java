@@ -55,7 +55,7 @@ public class TopPageDAO{
 		
 		List<ChatBean> Chat10List = new ArrayList<ChatBean>();
 
-		String sql = "SELECT u.nickname AS nickname, c.chat_id AS chat_id, c.user_id AS user_id, c.message AS message, c.created_at AS created_at, b.busho_img AS busho_img FROM chat c INNER JOIN user u ON (c.user_id = u.user_id) INNER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY created_at DESC LIMIT 10";
+		String sql = "SELECT u.nickname AS nickname, c.chat_id AS chat_id, c.user_id AS user_id, c.message AS message, c.created_at AS created_at, b.busho_img AS busho_img FROM chat c LEFT OUTER JOIN user u ON (c.user_id = u.user_id) LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY created_at DESC LIMIT 10";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
