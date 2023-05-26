@@ -29,6 +29,5 @@
     	value="<jsp:getPropaty name="user" property="area" />"><br>
     <input type="submit" value="変更する">
     </form>
-
 </body>
 </html>
