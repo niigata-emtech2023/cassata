@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.TopPageDAO;
 import model.entity.ChatBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class ShowTopPageServlet
@@ -58,7 +59,22 @@ public class ShowTopPageServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		/**
+		 * ランキングを表示する
+		 */
+		
+		List<UserBean> bushoList = null;
+		
+		try {
+			bushoList = dao.selectRanking();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		
 		request.setAttribute("chatList", chatList);
+		request.setAttribute("bushoList", bushoList);
 		
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("top.jsp");

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.List, model.entity.ChatBean"%>
+	pageEncoding="UTF-8" import="java.util.List, model.entity.ChatBean, model.entity.UserBean"%>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -59,7 +59,7 @@
 						<h1>ポータルサイト。</h1>
 					</div>
 					<div class="top-link-box">
-						<a href="#">
+						<a href="register.jsp">
 							<div class="top-link">
 								<div class="top-link-icon-box register">
 									<img class="top-link-icon" width="90" height="90"
@@ -77,7 +77,9 @@
 										alt="circled-chevron-right" />
 								</div>
 							</div>
-						</a> <a href="#">
+						</a> 
+						<form method="POST" name="bushoListTop" action="ShowBushoListServlet">
+						<a href="javascript:bushoListTop.submit()">
 							<div class="top-link">
 								<div class="top-link-icon-box bushou">
 									<img class="top-link-icon" width="90" height="90"
@@ -96,6 +98,7 @@
 								</div>
 							</div>
 						</a>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -142,11 +145,16 @@
 							<p>武将の人気ランキングを算出したものです。</p>
 						</div>
 						<!-- データベースから上位3名を取得する -->
+						<% List<UserBean> bushoList = (List<UserBean>) request.getAttribute("bushoList"); %>
+						<% int i = 1; %>
 						<div class="ranking-box">
-							<h1 class="top1">1位 織田信長</h1>
-							<h1 class="top2">2位 徳川家康</h1>
-							<h1 class="top3">3位 明智光秀</h1>
+							<% for(UserBean busho: bushoList){ %>
+								<h1 class="top<%=i%>"><%=i%>位 <%= busho.getBushoName() %></h1>
+								<p>登録者:<%= busho.getCount() %>人</p>
+								<% i++; %>
+							<% } %>
 						</div>
+						
 						<div class="btn-wrap btn-wrap-pc-sp">
 							<a href="" class="btn btn-pc-sp btn-pc-sp--contact rankingbtn">
 								武将一覧 <i class="fas fa-angle-right fa-position-right"></i>

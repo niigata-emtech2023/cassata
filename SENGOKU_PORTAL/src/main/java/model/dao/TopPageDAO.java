@@ -22,7 +22,7 @@ public class TopPageDAO{
 		
 		List<UserBean> rankingList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT b.busho_name AS busho_name, COUNT(*) AS count FROM user u INNER JOIN busho b ON (u.busho_id = b.busho_id) GROUP BY b.busho_name ORDER BY COUNT(*) DESC";
+		String sql = "SELECT b.busho_name AS busho_name, COUNT(*) AS count FROM user u INNER JOIN busho b ON (u.busho_id = b.busho_id) GROUP BY b.busho_name ORDER BY COUNT(*) DESC LIMIT 3;";
 
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
