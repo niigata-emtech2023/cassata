@@ -13,7 +13,7 @@ public class RegisterDAO {
 
 		int count = 0;
 
-		//データベースへの値の設定
+		//データベースへの値の設定、PreparedStatementの取得
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
 
