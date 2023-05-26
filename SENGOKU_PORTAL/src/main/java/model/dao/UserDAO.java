@@ -106,5 +106,36 @@ public class UserDAO{
 		return count;
 	}
 	
+	public List<UserBean> selectOtherUser(String user_id_temp) throws SQLException, ClassNotFoundException {
+
+		List<UserBean> userList = new ArrayList<UserBean>();
+
+		String sql = "SELECT u.user_id AS user_id, u.nickname AS nickname, b.busho_img AS busho_img FROM user u INNER JOIN busho b ON (u.user_id = b.user_id) WHERE user_id = ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, user_id_temp);
+
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				String user_id = res.getString("user_id");
+				String nickname = res.getString("nickname");
+				String busho_img = res.getString("busho_img");
+
+				UserBean user = new UserBean();
+				user.setUserID(user_id);
+				user.setNickname(nickname);
+				user.setBushoImg(busho_img);
+
+				userList.add(user);
+			}
+
+		}
+
+		return userList;
+	}
 
 }

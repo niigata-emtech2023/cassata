@@ -45,6 +45,9 @@ public class UserBean implements Serializable{
 	//ランキング用のカウント
 	private int count;
 	
+	//他のユーザの画像表示用の変数
+	private String busho_img;
+	
 	/*
 	 * コンストラクタ
 	 */
@@ -241,7 +244,13 @@ public class UserBean implements Serializable{
 		this.count = count;
 	}
 	
-
+	public String getBushoImg() {
+		return busho_img;
+	}
+	
+	public void setBushoImg(String busho_img) {
+		this.busho_img = busho_img;
+	}
 	
 	
 }
