@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="registerComplete.jsp" method="POST">
-		ID：<% request.getParameter("ID"); %><br>
+		ID：<% request.getParameter("user_id"); %><br>
 		パスワード：<% request.getParameter("password"); %><br>
 		ニックネーム：<% request.getParameter("nickname"); %><br>
 		<input type="submit" value="確認画面へ">
