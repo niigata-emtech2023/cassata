@@ -225,6 +225,35 @@ public class BushoDAO{
 		return periodList;
 	}
 	
+	public List<BushoBean> selectBushoNameAll() throws ClassNotFoundException, SQLException{
+		
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
+		
+		String sql = "SELECT busho_id,busho_name FROM busho";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+			PreparedStatement pstmt=con.prepareStatement(sql)){
+			
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+					
+			//結果の操作
+			while(res.next()) {
+				String busho_id=res.getString("busho_id");
+				String busho_name=res.getString("busho_name");
+				
+				BushoBean busho=new BushoBean();
+				busho.setBushoID(busho_id);
+				busho.setBushoName(busho_name);
+
+				bushoList.add(busho);
+			}
+	
+		}
+		
+		return bushoList;
+	}
 }
 
 
