@@ -7,6 +7,9 @@
 <title>武将の削除確定</title>
 </head>
 <body>
-
+	<%List<BushoBean>bushoList
+		=(List<BushoBean>) request.getAttribute("bushoList");
+	%>
+	
 </body>
 </html>
