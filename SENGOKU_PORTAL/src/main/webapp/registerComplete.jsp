@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<!--  重複したら失敗  -->
+	<!--  重複したら失敗となる  -->
 	 <% if((Integer)request.getAttribute("count") != 0){ %>
 		<p>登録が完了しました。</p>
 	<% } else { %>
