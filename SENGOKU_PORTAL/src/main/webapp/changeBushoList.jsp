@@ -13,16 +13,20 @@
 	
     <form action="changeBushoConfilm.jsp" method="POST">
     
-    顔写真：<img src="<%=busho.getBushoImg()%>">
-            <input type="" name="busho_img"><br>
-    名前：<%=busho.getBushoName()%>
-    <input type="text" name="busho_name"><br>
-    年代：<%=busho.getPeriodName()%>
-    <input type="" name="period_id"><br>
-    生年月日：<%=busho.getBirthDate()%>
-              <select name="birth_date">
-    説明文：<%=busho.getCommentary()%>
-    <input type="text" name="commentary"><br>
+    顔写真：<img src="<%=busho.getBushoImg()%>"><br>
+            <input type="" name="busho_img">
+	
+    名前：
+    <input type="text" name="busho_name" value="<%=busho.getBushoName()%>"><br>
+    
+    年代：
+    <input type="text" name="period_id" value="<%=busho.getPeriodName()%>"><br>
+    
+    生年月日：
+    <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>
+              
+    説明文：
+    <input type="textarea" name="commentary" <%=busho.getCommentary()%>><br>
     
     <input type="submit" value="変更する">
     </form>

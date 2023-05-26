@@ -8,25 +8,15 @@
 </head>
 <body>
     <%
-	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
+	List<UserBean> bushoList = (List<BushoBean>) request.getAttribute("userList");
 	%>
 	
-    <%
-		int processingNumber = (Integer) request.getAttribute("processingNumber");
-		if (processingNumber > 0) {
-	%>
-	次のデータを変更登録しました。<br>
-	<%
-		} else {
-	%>
-	次のデータを変更登録できませんでした。<br>
-	<%
-		}
-	%>
 	顔写真：<img src="<%=busho.getBushoImg()%>"><br>
 	名前：<%=busho.getBushoName()%><br>
 	年代：<%=busho.getPeriodName()%><br>
 	生年月日：<%=busho.getBirthDate()%><br>
+	
+	以上のデータを変更登録しました。<br>
 
 	<form action="bushoList.jsp" method="POST">
 		<input type="submit" value="武将一覧に戻る">

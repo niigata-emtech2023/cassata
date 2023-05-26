@@ -21,7 +21,7 @@
 	推しの武将：<%=user.getBushoID()%><br>
 	出身地：<%=user.getArea()%><br>
 	
-	次のデータを変更登録しました。<br>
+	以上のデータを変更登録しました。<br>
 
 	<form action="customer.jsp" method="POST">
 		<input type="submit" value="顧客一覧に戻る">
