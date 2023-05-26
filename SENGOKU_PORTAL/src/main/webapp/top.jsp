@@ -24,7 +24,7 @@
 		</p>
 		<div class="header-contents">
 
-			<!-- 新規登録リンク -->
+			<!-- 新規登録リンク  -->
 			<a href="register.jsp">新規登録</a>
 
 			<!-- ログインリンク -->

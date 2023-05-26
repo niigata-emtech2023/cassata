@@ -17,6 +17,7 @@
 			<th>年代</th>
 			<th>生年月日</th>
 		</tr>
+		<!-- 武将一覧の表示 -->
 		<%
 			for (BushoBean busho : bushoList) {
 		%>

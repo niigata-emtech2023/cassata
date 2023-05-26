@@ -26,7 +26,7 @@ public class BushoDAO{
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 
-			//SQLステートメントの実行
+			//SQLステートメントの実行!
 			ResultSet res=pstmt.executeQuery();
 
 			//結果の操作
