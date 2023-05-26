@@ -19,8 +19,13 @@
 <body>
 	<header>
 		<img class="logo" src="images/logo.jpg">
+		<!-- ログイン状態であれば、「ニックネーム」でログイン中と表示する -->
 		<p>
-			<span>あ</span>でログイン中
+		<% if(session.getAttribute("nickname") == null){ %>
+			ログインしていません
+		<% } else { %>
+			<span><%= session.getAttribute("nickname") %></span>でログイン中
+		<% } %>
 		</p>
 		<div class="header-contents">
 
@@ -28,7 +33,14 @@
 			<a href="register.jsp">新規登録</a>
 
 			<!-- ログインリンク -->
-			<a href="login.jsp">ログイン</a>
+			<% if(session.getAttribute("nickname") == null){ %>
+				<a href="login.jsp">ログイン</a>
+			<% } else { %>
+				<form method="POST" name="logout" action="LogoutServlet">
+					<a href="javascript:logout.submit()">ログアウト</a>
+				</form>
+			<% } %>
+			
 
 			<!-- アイコン -->
 			<img class="user-icon"

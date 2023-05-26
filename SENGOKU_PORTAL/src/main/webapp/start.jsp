@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>トップページを表示</title>
 </head>
 <body>
-ログイン成功
+<form name="postTop" action="ShowTopPageServlet" method="POST">
+<input type="hidden" name="valname1" value="val1">
+<script language="JavaScript">document.postTop.submit();</script>
 </body>
 </html>

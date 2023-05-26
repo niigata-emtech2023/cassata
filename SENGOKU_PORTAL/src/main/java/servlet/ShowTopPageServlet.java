@@ -39,6 +39,8 @@ public class ShowTopPageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
+		
+		
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("top.jsp");
 		rd.forward(request, response);

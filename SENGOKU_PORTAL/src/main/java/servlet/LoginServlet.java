@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.LoginDAO;
+import model.dao.UserDAO;
 
 /**
  * Servlet implementation class LoginServlet
@@ -67,15 +69,27 @@ public class LoginServlet extends HttpServlet {
 		if (result) {
 			// 認証成功
 			url = "start.jsp";
+			// セッションスコープへの属性の設定
+			session.setAttribute("user_id", user_id);
+			session.setAttribute("password", password);
+			
+			/**
+			 * ユーザ名を取得
+			 */
+			UserDAO dao = new UserDAO();
+			try {
+				String nickname = dao.selectUserName(user_id);
+				session.setAttribute("nickname", nickname);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 
 		} else {
 			// 認証失敗
 			url = "login.jsp";
 		}
 		
-		// セッションスコープへの属性の設定
-		session.setAttribute("user_id", user_id);
-		session.setAttribute("password", password);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);

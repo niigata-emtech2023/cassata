@@ -13,6 +13,74 @@ import model.entity.UserBean;
 
 public class UserDAO{
 	
+	public String selectUserName(String user_id) throws ClassNotFoundException, SQLException{
+		
+		String nickname = "";
+		
+		String sql = "SELECT nickname FROM user WHERE user_id = ?";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				nickname = res.getString("nickname");
+			}
+		
+		}
+		
+		return nickname;
+		
+	}
+	
+	public List<UserBean> selectAllUser() throws ClassNotFoundException, SQLException{
+		
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT * AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u INNER JOIN busho b ON (u.busho_id = b.busho_id)";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				String user_id = res.getString("user_id");
+				String password = res.getString("password");
+				String nickname = res.getString("nickname");
+				String myself = res.getString("myself");
+				int gender = res.getInt("gender");
+				String busho_id = res.getString("busho_id");
+				String busho_name = res.getString("busho_name");
+				Date birth_date = res.getDate("birth_date");
+				String area = res.getString("area");
+						
+				UserBean user = new UserBean();
+				user.setUserID(user_id);
+				user.setBushoName(busho_name);
+				user.setPassword(password);
+				user.setNickname(nickname);
+				user.setMyself(myself);
+				user.setGender(gender);
+				user.setBushoID(busho_id);
+				user.setBushoName(busho_name);
+				user.setBirthDate(birth_date);
+				user.setArea(area);
+
+				userList.add(user);
+			}
+		}
+		
+		return userList;
+		
+	}
+	
 	public List<UserBean> selectProfile(String user_id_temp) throws ClassNotFoundException, SQLException{
 		
 		List<UserBean> profileList = new ArrayList<UserBean>();
