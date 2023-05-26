@@ -46,7 +46,7 @@ public class ChatDAO {
 
 		String sql="INSERT INTO chat(user_id,message) values(?,?)";
 
-				int count = 0;
+		int count = 0;
 
 		//データベースへの値の設定
 		try(Connection con=ConnectionManager.getConnection();
@@ -57,12 +57,10 @@ public class ChatDAO {
 			pstmt.setString(2, message);
 
 			//SQlステートメントの実行
-			count = pstmt.executeUpdate();
-
-			return count;
+			count = pstmt.executeUpdate();			
 		}
 
-
+		return count;
 	}
 
 }
