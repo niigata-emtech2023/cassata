@@ -15,6 +15,7 @@
 	名前：<%=busho.getBushoName()%><br>
 	年代：<%=busho.getPeriodName()%><br>
 	生年月日：<%=busho.getBirthDate()%><br>
+	生年月日：<%=busho.getBirthDate()%><br>
 	
 	以上のデータを変更登録しました。<br>
 

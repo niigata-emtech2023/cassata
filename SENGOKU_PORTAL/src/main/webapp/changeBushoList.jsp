@@ -26,7 +26,7 @@
     <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>
               
     説明文：
-    <input type="textarea" name="commentary" <%=busho.getCommentary()%>><br>
+    <input type="text" name="commentary" <%=busho.getCommentary()%>><br>
     
     <input type="submit" value="変更する">
     </form>
