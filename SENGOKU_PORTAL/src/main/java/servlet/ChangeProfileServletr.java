@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.UserDAO;
 
 /**
  * Servlet implementation class ChangeProfileServletr
@@ -40,6 +43,8 @@ public class ChangeProfileServletr extends HttpServlet {
 
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
 
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
@@ -50,21 +55,37 @@ public class ChangeProfileServletr extends HttpServlet {
 		String myself = request.getParameter("myself");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-
-		EmployeeBean employee = new EmployeeBean();
-		employee.setCode(code);
-		employee.setName(name);
-		employee.setAge(age);
-		employee.setSection(section);
+		String birth_date = request.getParameter("birth_date");
+		String  = request.getParameter("アイコン");
+		
+		// リクエストスコープへの属性の設定
+		session.setAttribute("user_id", user_id);
+		session.setAttribute("password", password);
+		session.setAttribute("new_password", new_password);
+		session.setAttribute("nickname", nickname);
+		session.setAttribute("gender", gender);
+		session.setAttribute("myself", myself);
+		session.setAttribute("busho_id", busho_id);
+		session.setAttribute("area", area);
+		session.setAttribute("birth_date", birth_date);
+		session.setAttribute("アイコン", アイコン);
+		
+		String url = null;
 
 		// DAOの生成
-		EmployeeDAO dao = new EmployeeDAO();
+		UserDAO userdao = new UserDAO();
 
 		int count = 0;	// 処理件数
 
 		try {
 			// DAOの利用
-			count = dao.insert(employee);
+			count = userdao.changeProfile();
+			
+			if(count > 0) {
+				url = "changeProfileComplete.jsp";
+			}else {
+				url = "changeProfile.jsp";
+			}
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -72,10 +93,9 @@ public class ChangeProfileServletr extends HttpServlet {
 
 		// リクエストスコープへの属性の設定
 		request.setAttribute("count", count);
-		request.setAttribute("employee", employee);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("employee-registration-result.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("url");
 		rd.forward(request, response);
 
 	}
