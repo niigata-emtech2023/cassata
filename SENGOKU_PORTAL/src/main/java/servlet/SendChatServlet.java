@@ -65,7 +65,7 @@ public class SendChatServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			count = chatdao.sendChat ();
+			count = chatdao.sendChat (user_id,message);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
