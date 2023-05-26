@@ -13,7 +13,9 @@
 	
     <form action="changeBushoConfilm.jsp" method="POST">
     
-    <!--顔写真：--><img src="<%=busho.getBushoImg()%>"><br>
+    <% for(BushoBean busho : bushoList){ %>
+    
+    <!--顔写真：--><img src="<%=busho.getBushoImg()%>" alt="武将の顔写真"><br>
             <input type="" name="busho_img">
 	
     名前：
@@ -27,6 +29,7 @@
               
     説明文：
     <input type="text" name="commentary" <%=busho.getCommentary()%>><br>
+    <% } %>
     
     <input type="submit" value="変更する">
     </form>

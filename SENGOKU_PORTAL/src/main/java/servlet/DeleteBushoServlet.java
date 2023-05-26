@@ -59,7 +59,7 @@ public class DeleteBushoServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			count = bushodao.deleteBusho (busho_id);
+			count = bushodao.deleteBusho(busho_id);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
