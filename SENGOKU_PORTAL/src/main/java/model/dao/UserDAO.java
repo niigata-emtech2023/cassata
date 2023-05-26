@@ -1,12 +1,12 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import model.entity.UserBean;
@@ -59,53 +59,52 @@ public class UserDAO{
 		
 	}
 	
-	public int changeProfile(String user_id_temp) throws ClassNotFoundException, SQLException{
+	public int changeProfile(String user_id, String new_password, String nickname, int gender, String busho_id, Date birth_date, String area, String myself) throws ClassNotFoundException, SQLException{
 		
 		int count = 0;
 		
-		String sql = "UPDATE user SET ";
+		String sql = "UPDATE user SET password = ?, nickname = ?, gender = ?, busho_id = ?, birth_date = ?, area = ?, myself = ? WHERE user_id = ?";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
-			pstmt.setString(1, user_id_temp);
+			pstmt.setString(1, new_password);
+			pstmt.setString(2, nickname);
+			pstmt.setInt(3, gender);
+			pstmt.setString(4, busho_id);
+			pstmt.setDate(5, birth_date);
+			pstmt.setString(6, area);
+			pstmt.setString(7, myself);
+			pstmt.setString(8,  user_id);
 			
-			ResultSet res = pstmt.executeQuery();
+			count = pstmt.executeUpdate();
 
-			// 結果の操作
-			while (res.next()) {
-				String user_id = res.getString("user_id");
-				String password = res.getString("password");
-				String nickname = res.getString("nickname");
-				String myself = res.getString("myself");
-				int gender = res.getInt("gender");
-				String busho_id = res.getString("busho_id");
-				String busho_name = res.getString("busho_name");
-				Date birth_date = res.getDate("birth_date");
-				String area = res.getString("area");
-						
-				UserBean user = new UserBean();
-				user.setUserID(user_id);
-				user.setBushoName(busho_name);
-				user.setPassword(password);
-				user.setNickname(nickname);
-				user.setMyself(myself);
-				user.setGender(gender);
-				user.setBushoID(busho_id);
-				user.setBushoName(busho_name);
-				user.setBirthDate(birth_date);
-				user.setArea(area);
 
-				profileList.add(user);
-			}
 		}
 		
-		return profileList;
+		return count;
 		
 	}
 	
-	
+	public int deleteProfile(String user_id) throws ClassNotFoundException, SQLException{
+		
+		int count = 0;
+		
+		String sql = "DELETE FROM user WHERE user_id = ?";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			count = pstmt.executeUpdate();
+			
+		}
+		
+		return count;
+	}
 	
 
 }

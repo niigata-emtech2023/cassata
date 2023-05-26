@@ -10,6 +10,12 @@ public class FollowBean implements Serializable{
 	//フォローユーザID
 	private String follow_user_id;
 	
+	//ニックネーム
+	private String nickname;
+	
+	//武将画像
+	private String busho_img;
+	
 	/**
 	 * コンストラクタ
 	 */
@@ -45,6 +51,22 @@ public class FollowBean implements Serializable{
 		this.follow_user_id = follow_user_id;
 	}
 	
+	//DAOでの追加
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
+	public String getNickname() {
+		return nickname;
+	}
+	
+	public void setBushoImg(String busho_img) {
+		this.busho_img = busho_img;
+	}
+	
+	public String getBushoImg() {
+		return busho_img;
+	}
 	
 
 }
