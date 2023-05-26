@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.entity.BushoBean;
+import model.entity.PeriodBean;
 
 public class BushoDAO{
 
 	public List<BushoBean> selectBusho() throws ClassNotFoundException, SQLException{
 
-		List<BushoBean> BushoList=new ArrayList<BushoBean>();
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
 
 		String sql="SELECT * FROM busho";
 
@@ -45,11 +46,11 @@ public class BushoDAO{
 				busho.setBirthDate(birth_date);
 				busho.setBushoImg(busho_img);
 
-				BushoList.add(busho);
+				bushoList.add(busho);
 			}
 
 		}
-		return BushoList;
+		return bushoList;
 	}
 
 	public int deleteBusho(String busho_id) 
@@ -98,9 +99,98 @@ public class BushoDAO{
 
 		}
 		return count;
-
-
 	}
+	
+	public List<BushoBean> selectBushoName(String busho_id) throws ClassNotFoundException, SQLException{
+		
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
+		
+		String sql = "SELECT busho_name FROM busho WHERE busho_id = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, busho_id);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				String busho_name = res.getString("busho_name");
+
+				BushoBean busho=new BushoBean();
+				busho.setBushoImg(busho_name);
+
+				bushoList.add(busho);
+			}
+	
+		}
+		
+		return bushoList;
+	}
+	
+	public List<BushoBean> selectBushoImage(String busho_id) throws ClassNotFoundException, SQLException{
+		
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
+		
+		String sql = "SELECT busho_img FROM busho WHERE busho_id = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, busho_id);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				String busho_img=res.getString("busho_img");
+
+				BushoBean busho=new BushoBean();
+				busho.setBushoImg(busho_img);
+
+				bushoList.add(busho);
+			}
+	
+		}
+		
+		return bushoList;
+	}
+	
+	public List<PeriodBean> selectPeriod(String period_id) throws ClassNotFoundException, SQLException{
+		
+		List<PeriodBean> periodList=new ArrayList<PeriodBean>();
+		
+		String sql = "SELECT period_name FROM period WHERE period_id = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, period_id);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				String period_name = res.getString("period_name");
+
+				PeriodBean period = new PeriodBean();
+				period.setPeriodName(period_name);
+
+				periodList.add(period);
+			}
+	
+		}
+		
+		return periodList;
+	}
+	
 }
 
 
