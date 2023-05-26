@@ -24,7 +24,7 @@
 			for (BushoBean busho : bushoList) {
 		%>
 		<tr>
-			<td><%=busho.getImg()%></td>
+			<td><%=busho.getImage()%></td>
 			<td><%=busho.getName()%></td>
 			<td><%=busho.get()%></td>
 			<td><%=busho.get()%></td>
