@@ -44,41 +44,29 @@ public class ShowChatServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// リクエストオブジェクトのエンコーディング方式の指定
-				request.setCharacterEncoding("UTF-8");
-				// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
+		request.setCharacterEncoding("UTF-8");
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
 
-				// リクエストパラメータの取得
-				int chat_id = Integer.parseInt(request.getParameter("chat_id"));
-				String user_id = request.getParameter("user_id");
-				String created_at = request.getParameter("created_at");
-				String message = request.getParameter("message");
+		List<ChatBean> chatList = null;
 
-				// リクエストスコープへの属性の設定
-				session.setAttribute("chat_id", chat_id);
-				session.setAttribute("user_id", user_id);
-				session.setAttribute("created_at", created_at);
-				session.setAttribute("message", message);
+		// DAOの生成
+		ChatDAO chatdao = new ChatDAO();
 
-				List<ChatBean> chatList = null;
-
-				// DAOの生成
-				ChatDAO chatdao = new ChatDAO();
-
-				try {
-					// DAOの利用
-					chatList = chatdao.selectChat();
-				} catch (SQLException | ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-
-				// セッションスコープへの属性の設定
-				session.setAttribute("chatList", chatList);
-
-				// リクエストの転送
-				RequestDispatcher rd = request.getRequestDispatcher("chat.jsp");
-				rd.forward(request, response);
-				
-			}
-
+		try {
+			// DAOの利用
+			chatList = chatdao.selectChat();
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
 		}
+
+		// セッションスコープへの属性の設定
+		request.setAttribute("chatList", chatList);
+
+		// リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("chat.jsp");
+		rd.forward(request, response);
+		
+	}
+
+}

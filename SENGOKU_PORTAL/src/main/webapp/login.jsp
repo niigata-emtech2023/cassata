@@ -8,8 +8,8 @@
 </head>
 <body>
     ログイン<br>
-	<form action="login-servlet" method="POST">
-    ID：<input type="text" name="ID"><br>
+	<form action="LoginServlet" method="POST">
+    ID：<input type="text" name="user_id"><br>
 	パスワード：<input type="password" name="password"><br>
 	<input type="submit" value="ログイン">
 	</form>

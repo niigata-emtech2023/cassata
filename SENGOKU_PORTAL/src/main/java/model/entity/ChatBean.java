@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ChatBean implements Serializable{
@@ -12,7 +13,7 @@ public class ChatBean implements Serializable{
 	private String user_id;
 	
 	//日付
-	private Date created_at;
+	private Timestamp created_at;
 	
 	//メッセージ
 	private String message;
@@ -65,7 +66,7 @@ public class ChatBean implements Serializable{
 	/**
 	 * @param created_at セットする created_at
 	 */
-	public void setCreatedAt(Date created_at) {
+	public void setCreatedAt(Timestamp created_at) {
 		this.created_at = created_at;
 	}
 

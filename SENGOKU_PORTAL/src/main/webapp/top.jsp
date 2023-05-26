@@ -92,12 +92,14 @@
 		<ul class="navigation-bar">
 			<li class="selected-page"><a href="top.jsp"><p>トップ</p></a></li>
 			<li>
-				<form method="POST" name="bushoList" action="ShowBushoListServlet">
-					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
+				<form method="POST" name="chatList" action="ShowChatServlet">
+					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
 				</form>
 			</li>
 			<li>
-				<p>全体チャット</p>
+				<form method="POST" name="bushoList" action="ShowBushoListServlet">
+					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
+				</form>
 			</li>
 			<li>
 				<p>マイページ</p>

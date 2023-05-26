@@ -43,42 +43,39 @@ public class LoginServlet extends HttpServlet {
 
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
+		
+		boolean result = false;
 
 		String url = null;
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
+		
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
 
 		try {
 			// DAOの生成
 			LoginDAO loginDao = new LoginDAO();
+			result = loginDao.login(user_id, password);
 			
-			// セッションオブジェクトの取得
-			HttpSession session = request.getSession();
-
-			// セッションスコープへの属性の設定
-			session.setAttribute("user_id", user_id);
-			session.setAttribute("password", password);
-
-			// DAOの利用
-			if (loginDao.login(user_id, password)) {
-				// 認証成功
-				url = "start.html";
-
-				// セッションオブジェクトの取得
-				//HttpSession session = request.getSession();
-
-				// セッションスコープへの属性の設定
-				//session.setAttribute("user_id", user_id);
-
-			} else {
-				// 認証失敗
-				url = "login.jsp";
-			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		// DAOの利用
+		if (result) {
+			// 認証成功
+			url = "start.jsp";
+
+		} else {
+			// 認証失敗
+			url = "login.jsp";
+		}
+		
+		// セッションスコープへの属性の設定
+		session.setAttribute("user_id", user_id);
+		session.setAttribute("password", password);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
