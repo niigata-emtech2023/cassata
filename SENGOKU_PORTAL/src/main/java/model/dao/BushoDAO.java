@@ -255,5 +255,3 @@ public class BushoDAO{
 		return bushoList;
 	}
 }
-
-
