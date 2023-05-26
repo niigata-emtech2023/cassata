@@ -56,7 +56,6 @@ public class ChangeProfileServlet extends HttpServlet {
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
 		String birth_date = request.getParameter("birth_date");
-		String  = request.getParameter("アイコン");
 		
 		// リクエストスコープへの属性の設定
 		session.setAttribute("user_id", user_id);
@@ -68,7 +67,6 @@ public class ChangeProfileServlet extends HttpServlet {
 		session.setAttribute("busho_id", busho_id);
 		session.setAttribute("area", area);
 		session.setAttribute("birth_date", birth_date);
-		session.setAttribute("アイコン", アイコン);
 		
 		String url = null;
 
@@ -79,7 +77,7 @@ public class ChangeProfileServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			count = userdao.changeProfile();
+			count = userdao.changeProfile(user_id,new_password,nickname,gender,busho_id, birth_date, area, myself);
 			
 			if(count > 0) {
 				url = "changeProfileComplete.jsp";
