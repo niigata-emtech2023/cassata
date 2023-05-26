@@ -17,11 +17,13 @@
     	value="<jsp:getProperty name="user" property="password" />"><br>
     自己紹介：<input type="text" name="myself" 
     	value="<jsp:getProperty name="user" property="myself" />"><br>
-    性別：<input type="radio" name="gender" 
-    	value="<jsp:getProperty name="user" property="gender" />"><br>
+    性別：<input type="radio" name="gender" value="1">不明
+          <input type="radio" name="gender" value="2">男性
+          <input type="radio" name="gender" value="3">女性<br>
     生年月日：<input type="text" name="birth_date" 
     	value="<jsp:getPropery name="user" property="birth_date" />"><br>
-    推しの武将：
+    推しの武将：<input type="text" name="busho_id" 
+    	value="<jsp:getPropaty name="user" property="busho_id" />"><br>
     アイコン：
     出身地：<input type="text" name="area" 
     	value="<jsp:getPropaty name="user" property="area" />"><br>

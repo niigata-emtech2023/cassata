@@ -20,8 +20,8 @@
 		}
 	%>
 	<jsp:useBean id="busho" scope="session" class="model.entity.BushoBean" />
-	顔写真：<input type="" name="image" /><br>
-    名前：<input type="text" name="bushoName" /><br>
+	顔写真：<input type="" name="busho_img" /><br>
+    名前：<input type="text" name="busho_name" /><br>
     年代：<input type="" name="period_id" /><br>
     生年月日：<input type="" name="birth_date" /><br>
     説明文：<input type="text" name="commentary" /><br>
