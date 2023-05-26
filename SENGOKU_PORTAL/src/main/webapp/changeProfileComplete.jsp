@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.List,model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,33 +8,23 @@
 </head>
 <body>
     <%
-		int processingNumber = (Integer) request.getAttribute("processingNumber");
-		if (processingNumber > 0) {
+	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
-	次のデータを変更登録しました。<br>
-	<%
-		} else {
-	%>
-	次のデータを変更登録できませんでした。<br>
-	<%
-		}
-	%>
-	<jsp:useBean id="user" scope="session" class="model.entity.UserBean" />
-	ニックネーム：<jsp:getProperty name="user" property="nickname" /><br>
-    ユーザーID：<jsp:getProperty name="user" property="user_id" /><br>
-    パスワード：<jsp:getProperty name="user" property="password" /><br>
-    自己紹介：<jsp:getProperty name="user" property="myself" /><br>
-    性別：<jsp:getProperty name="user" property="gender" /><br>
-    生年月日：<jsp:getProperty name="user" property="birth_date" /><br>
-    推しの武将：<jsp:getProperty name="user" property="busho_id" /><br>
-    アイコン：
-    出身地：<jsp:getProperty name="user" property="area" /><br>
+	
+	顔写真：<img src="<%=user.getBushoImg()%>"><br>
+	ニックネーム：<%=user.getNickname()%><br>
+	ID：<%=user.getUserID()%><br>
+	パスワード：<%=user.getPassword()%><br>
+	自己紹介：<%=user.getMyself()%><br>
+	性別：<%=user.getGender()%><br>
+	生年月日：<%=user.getBirthDate()%><br>
+	推しの武将：<%=user.getBushoID()%><br>
+	出身地：<%=user.getArea()%><br>
+	
+	以上のデータを変更登録しました。<br>
 
-	<form action="show-myprofile-servlet" method="POST">
-		<input type="submit" value="マイページへ">
+	<form action="customer.jsp" method="POST">
+		<input type="submit" value="顧客一覧に戻る">
 	</form>
-
-	<% session.invalidate(); %>
-
 </body>
 </html>

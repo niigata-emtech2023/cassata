@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.List,model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +7,44 @@
 <title>プロフィール変更</title>
 </head>
 <body>
-    <jsp:useBean id="user" class="model.entity.UserBean" scope="session" />
-    <form action="" method="POST">
-    ニックネーム：<input type="text" name="nickname" 
-    	value="<jsp:getProperty name="user" property="nickname" />"><br>
-    ユーザーID：<input type="text" name="user_id" 
-    	value="<jsp:getProperty name="user" property="user_id" />"><br>
-    パスワード：<input type="password" name="password" 
-    	value="<jsp:getProperty name="user" property="password" />"><br>
-    自己紹介：<input type="text" name="myself" 
-    	value="<jsp:getProperty name="user" property="myself" />"><br>
-    性別：<input type="radio" name="gender" 
-    	value="<jsp:getProperty name="user" property="gender" />"><br>
-    生年月日：<input type="text" name="birth_date" 
-    	value="<jsp:getPropery name="user" property="birth_date" />"><br>
+    
+    <%
+	List<UserBean> bushoList = (List<UserBean>) request.getAttribute("userList");
+	%>
+	
+    顔写真：
+    <img src="<%=user.getBushoImg()%>">
+    
+    
+    ニックネーム：
+    <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
+    
+    ID：
+    <input type="text" name="user_id" value="<%=user.getUserID()%>"><br>
+    
+    パスワード：
+    <input type="password" name="password" ><br>
+    
+    自己紹介：
+    
+    <input type="text" name="myself" value="<%=user.getMyself()%>"><br>
+    
+    性別：
+    <input type="radio" name="gender" value="1">不明
+    <input type="radio" name="gender" value="2">男性
+    <input type="radio" name="gender" value="3">女性<br>
+    
+    生年月日：
+    <input type="text" name="birth_date" <%=user.getBirthDate()%>><br>
+    
     推しの武将：
-    アイコン：
-    出身地：<input type="text" name="area" 
-    	value="<jsp:getPropaty name="user" property="area" />"><br>
+    <select name="busho_id">
+    </select>
+    
+    出身地：
+    <input type="text" name="area" <%=user.getArea()%>><br>
+    
+    <form action="changeCustomerConfilm.jsp" method="POST">
     <input type="submit" value="変更する">
     </form>
 </body>
