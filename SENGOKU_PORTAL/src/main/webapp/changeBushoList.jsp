@@ -13,7 +13,7 @@
 	
     <form action="changeBushoConfilm.jsp" method="POST">
     
-    顔写真：<img src="<%=busho.getBushoImg()%>"><br>
+    <!--顔写真：--><img src="<%=busho.getBushoImg()%>"><br>
             <input type="" name="busho_img">
 	
     名前：
