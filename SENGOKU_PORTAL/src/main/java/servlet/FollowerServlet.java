@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.ChatDAO;
-import model.entity.ChatBean;
+import model.dao.FollowDAO;
 
 /**
- * Servlet implementation class ShowChatServlet
+ * Servlet implementation class FollowerServlet
  */
-@WebServlet("/ShowChatServlet")
-public class ShowChatServlet extends HttpServlet {
+@WebServlet("/FollowerServlet")
+public class FollowerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowChatServlet() {
+    public FollowerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,43 +40,43 @@ public class ShowChatServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		// リクエストオブジェクトのエンコーディング方式の指定
 				request.setCharacterEncoding("UTF-8");
+
+				// リクエストパラメータの取得
+				String user_id = request.getParameter("user_id");
+				String follow_user_id = request.getParameter("follow_user_id");
+
+				request.setCharacterEncoding("UTF-8");
+
 				// セッションオブジェクトの取得
 				HttpSession session = request.getSession();
 
-				// リクエストパラメータの取得
-				int chat_id = Integer.parseInt(request.getParameter("chat_id"));
-				String user_id = request.getParameter("user_id");
-				String created_at = request.getParameter("created_at");
-				String message = request.getParameter("message");
-
-				// リクエストスコープへの属性の設定
-				session.setAttribute("chat_id", chat_id);
+				// セッションスコープへの属性の設定
 				session.setAttribute("user_id", user_id);
-				session.setAttribute("created_at", created_at);
-				session.setAttribute("message", message);
-
-				List<ChatBean> chatList = null;
+				session.setAttribute("follow_user_id", follow_user_id);
 
 				// DAOの生成
-				ChatDAO chatdao = new ChatDAO();
+				FollowDAO followdao = new FollowDAO();
+
+				int count = 0;	// 処理件数
 
 				try {
 					// DAOの利用
-					chatList = chatdao.selectChat();
-				} catch (SQLException | ClassNotFoundException e) {
+					count = followdao.removeFollow();
+
+				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
 
-				// セッションスコープへの属性の設定
-				session.setAttribute("chatList", chatList);
+				// リクエストスコープへの属性の設定
+				request.setAttribute("count", count);
 
 				// リクエストの転送
-				RequestDispatcher rd = request.getRequestDispatcher("chat.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("otherProfile.jsp");
 				rd.forward(request, response);
-				
+
 			}
 
 		}
