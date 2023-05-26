@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"import="java.util.List, model.entity.UserBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,8 @@
 			<th></th>
 			<th></th>
 		</tr>
+		<!-- 顧客一覧の表示 -->
+		
 		<%
 			for (UserBean user : userList) {
 		%>
