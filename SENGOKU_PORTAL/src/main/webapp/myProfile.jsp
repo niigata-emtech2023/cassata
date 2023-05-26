@@ -12,7 +12,12 @@
     		=(List<UserBean>) request.getAttribute("userList");
     %>
 	<% for(UserBean user: userList){ %>
-	<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">
+	
+	<% if(user.getBushoImg() != null) {%>
+		<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">
+	<% } else { %>
+		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+	<% } %>
     フォロー フォロワー<br>
 	フォロワー<br>
 	<!--ニックネーム--><%=user.getNickname() %><br>

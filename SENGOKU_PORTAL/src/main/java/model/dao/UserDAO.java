@@ -115,7 +115,7 @@ public class UserDAO{
 		
 		List<UserBean> profileList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u INNER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();

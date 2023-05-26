@@ -67,7 +67,7 @@ public class ShowMyProfileServlet extends HttpServlet {
 		}
 		
 		// セッションスコープへの属性の設定
-		session.setAttribute("userList", userList);
+		request.setAttribute("userList", userList);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("myProfile.jsp");

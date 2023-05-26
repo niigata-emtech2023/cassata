@@ -117,7 +117,11 @@
 				</form>
 			</li>
 			<li>
-				<p>マイページ</p>
+				<form method="POST" name="myProfile" action="ShowMyProfileServlet">
+					<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
+					<a href="javascript:myProfile.submit()"><p>マイページ</p></a>
+				</form>
+				
 			</li>
 			<li>
 				<p>ユーザ検索</p>
