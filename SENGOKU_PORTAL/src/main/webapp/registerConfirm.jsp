@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>新規会員登録の確認</title>
 </head>
 <body>
-
+	<p>以下の情報でよろしいですか？</p>
+		ID：<%= request.getAttribute("user_id") %><br>
+		パスワード：<%= request.getAttribute("password") %><br>
+		ニックネーム：<%= request.getAttribute("nickname") %><br>
+	<form action="RegisterServlet" method="POST">
+		<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
+		<input type="hidden" name="password" value="<%= request.getAttribute("password") %>">
+		<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname") %>">
+	<input type="submit" value="確定">
+	</form>
 </body>
 </html>
