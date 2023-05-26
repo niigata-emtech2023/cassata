@@ -109,7 +109,7 @@ public class BushoDAO{
 
 	}
 
-	public int changeBusho(String busho_id, String busho_name, String period_id, String commentary, Date birth_date, String busho_img)
+	public int changeBusho(String busho_id, String busho_name, String period_id, String commentary, String birth_date, String busho_img)
 			throws ClassNotFoundException, SQLException{
 
 		int count = 0;
@@ -124,7 +124,7 @@ public class BushoDAO{
 			pstmt.setString(1, busho_name);
 			pstmt.setString(2, period_id);
 			pstmt.setString(3, commentary);
-			pstmt.setDate(4, birth_date);
+			pstmt.setString(4, birth_date);
 			pstmt.setString(5, busho_img);
 			pstmt.setString(6, busho_id);
 			

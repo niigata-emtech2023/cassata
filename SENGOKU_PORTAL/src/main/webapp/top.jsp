@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.List, model.entity.ChatBean"%>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -170,56 +170,28 @@
 						</div>
 						<div class="chat-box">
 							<ul class="chat-list">
+							
+							<!-- 最新10件を受け取る -->
+							<% List<ChatBean> chatList = (List<ChatBean>) request.getAttribute("chatList"); %>
+							
+							<% for(ChatBean chat: chatList) {%>
 								<li>
 									<div class="chat-head">
-										<p>山田太郎</p>
-										<p class="chat-date">2023/05/24 12:00</p>
+										<p><%= chat.getNickname() %></p>
+										<p class="chat-date"><%= chat.getCreatedAt() %></p>
 									</div>
 									<div class="chat-contents">
-										<img class="chat-icon" src="images/akechi_mitsuhide.jpg">
-										<p>ハンバーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーグ</p>
+										
+										<!-- 推しの武将が設定されていなければデフォルトの画像を設定する -->
+										<% if(chat.getBushoImg() == null) {%>
+											<img class="chat-icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k">
+										<% } else { %>
+											<img class="chat-icon" src="<%= chat.getBushoImg()%>">
+										<% } %>
+										<p><%= chat.getMessage() %></p>
 									</div>
 								</li>
-								<li>
-									<div class="chat-head">
-										<p>山田太郎2</p>
-										<p class="chat-date">2023/05/24 12:00</p>
-									</div>
-									<div class="chat-contents">
-										<img class="chat-icon" src="images/akechi_mitsuhide.jpg">
-										<p>こんにちは</p>
-									</div>
-								</li>
-								<li>
-									<div class="chat-head">
-										<p>山田太郎2</p>
-										<p class="chat-date">2023/05/24 12:00</p>
-									</div>
-									<div class="chat-contents">
-										<img class="chat-icon" src="images/akechi_mitsuhide.jpg">
-										<p>こんにちは</p>
-									</div>
-								</li>
-								<li>
-									<div class="chat-head">
-										<p>山田太郎2</p>
-										<p class="chat-date">2023/05/24 12:00</p>
-									</div>
-									<div class="chat-contents">
-										<img class="chat-icon" src="images/akechi_mitsuhide.jpg">
-										<p>こんにちは</p>
-									</div>
-								</li>
-								<li>
-									<div class="chat-head">
-										<p>山田太郎2</p>
-										<p class="chat-date">2023/05/24 12:00</p>
-									</div>
-									<div class="chat-contents">
-										<img class="chat-icon" src="images/akechi_mitsuhide.jpg">
-										<p>こんにちは</p>
-									</div>
-								</li>
+							<% } %>
 							</ul>
 						</div>
 						<a href="" class="btn btn-pc-sp btn-pc-sp--contact chatbtn">

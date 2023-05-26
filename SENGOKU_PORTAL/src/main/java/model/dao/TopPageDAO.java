@@ -55,7 +55,7 @@ public class TopPageDAO{
 		
 		List<ChatBean> Chat10List = new ArrayList<ChatBean>();
 
-		String sql = "SELECT c.chat_id AS chat_id, u.nickname AS nickname, c.created_at AS created_at, c.message AS message FROM chat c INNER JOIN user u ON (c.user_id = u.user_id) LIMIT 10 ORDER BY c.created_at DESC";
+		String sql = "SELECT u.nickname AS nickname, c.chat_id AS chat_id, c.user_id AS user_id, c.message AS message, c.created_at AS created_at, b.busho_img AS busho_img FROM chat c INNER JOIN user u ON (c.user_id = u.user_id) INNER JOIN busho b ON (u.busho_id = b.busho_id) LIMIT 10 ORDER BY c.created_at DESC";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -65,16 +65,20 @@ public class TopPageDAO{
 
 			// 結果の操作
 			while (res.next()) {
-				int chat_id = res.getInt("chat_id");
 				String nickname = res.getString("nickname");
-				Timestamp created_at = res.getTimestamp("created_at");
-				String message = res.getString("message");
-				
-				ChatBean chat = new ChatBean();
-				chat.setChatID(chat_id);
+				int chat_id=res.getInt("chat_id");
+				String user_id=res.getString("user_id");
+				String message=res.getString("message");
+				Timestamp created_at=res.getTimestamp("created_at");
+				String busho_img = res.getString("busho_img");
+
+				ChatBean chat=new ChatBean();
 				chat.setNickname(nickname);
-				chat.setCreatedAt(created_at);
+				chat.setChatID(chat_id);
+				chat.setUserID(user_id);
 				chat.setMessage(message);
+				chat.setCreatedAt(created_at);
+				chat.setBushoImg(busho_img);
 
 				Chat10List.add(chat);
 			}

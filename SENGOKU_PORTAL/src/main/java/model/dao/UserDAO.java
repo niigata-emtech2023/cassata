@@ -157,7 +157,7 @@ public class UserDAO{
 		
 	}
 	
-	public int changeProfile(String user_id, String new_password, String nickname, int gender, String busho_id, Date birth_date, String area, String myself) throws ClassNotFoundException, SQLException{
+	public int changeProfile(String user_id, String new_password, String nickname, int gender, String busho_id, String birth_date, String area, String myself) throws ClassNotFoundException, SQLException{
 		
 		int count = 0;
 		
@@ -171,7 +171,7 @@ public class UserDAO{
 			pstmt.setString(2, nickname);
 			pstmt.setInt(3, gender);
 			pstmt.setString(4, busho_id);
-			pstmt.setDate(5, birth_date);
+			pstmt.setString(5, birth_date);
 			pstmt.setString(6, area);
 			pstmt.setString(7, myself);
 			pstmt.setString(8,  user_id);
