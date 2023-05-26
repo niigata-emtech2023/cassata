@@ -7,6 +7,7 @@
 <title>新規会員登録完了</title>
 </head>
 <body>
+	<!--  重複したら失敗  -->
 	 <% if((Integer)request.getAttribute("count") != 0){ %>
 		<p>登録が完了しました。</p>
 	<% } else { %>

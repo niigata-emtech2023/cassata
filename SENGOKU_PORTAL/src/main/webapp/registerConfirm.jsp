@@ -7,6 +7,7 @@
 <title>新規会員登録の確認</title>
 </head>
 <body>
+	<!--  ログイン情報の確認をする -->
 	<p>以下の情報でよろしいですか？</p>
 		ID：<%= request.getAttribute("user_id") %><br>
 		パスワード：<%= request.getAttribute("password") %><br>

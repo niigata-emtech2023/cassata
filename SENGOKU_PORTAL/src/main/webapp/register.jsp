@@ -17,6 +17,7 @@
 <body>
     <header>
     </header>
+    <!--  会員登録 -->
     	<form action="RegisterSendServlet" method="POST">
 		ID：<input type="text" name="user_id"><br>
 		パスワード：<input type="password" name="password">8桁以上<br>
