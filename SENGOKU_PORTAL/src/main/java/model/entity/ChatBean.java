@@ -21,6 +21,8 @@ public class ChatBean implements Serializable{
 	//ニックネーム
 	private String nickname;
 	
+	//武将画像
+	private String busho_img;
 	/**
 	 * コンストラクタ
 	 */
@@ -101,5 +103,13 @@ public class ChatBean implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
+	
+	//チャットに画像を送信するため
+	public String getBushoImg() {
+		return busho_img;
+	}
+	
+	public void setBushoImg(String busho_img) {
+		this.busho_img = busho_img;
+	}
 }

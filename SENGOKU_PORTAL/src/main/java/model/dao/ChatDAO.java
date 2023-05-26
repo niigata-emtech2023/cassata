@@ -20,7 +20,7 @@ public class ChatDAO {
 		//データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try(Connection con=ConnectionManager.getConnection();
 				Statement stmt=con.createStatement();
-				ResultSet res=stmt.executeQuery("SELECT chat_id, user_id, message, created_at FROM chat")){
+				ResultSet res=stmt.executeQuery("SELECT c.chat_id AS chat_id, c.user_id AS user_id, c.message AS message, c.created_at b.busho_img AS created_At FROM chat c INNER JOIN user u ON (c.user_id = u.user_id INNER JOIN busho b ON (u.busho_id = b.busho_id)")){
 
 			//結果の操作
 			while(res.next()) {
@@ -28,6 +28,7 @@ public class ChatDAO {
 				String user_id=res.getString("user_id");
 				String message=res.getString("message");
 				Timestamp created_at=res.getTimestamp("created_at");
+				String busho_img = res.getString("busho_img");
 
 				ChatBean chat=new ChatBean();
 				chat.setChatID(chat_id);

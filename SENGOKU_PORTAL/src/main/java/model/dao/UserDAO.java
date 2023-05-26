@@ -80,9 +80,33 @@ public class UserDAO{
 		return userList;
 	}
 	
+	/**
+	 * ユーザIDから権限を取得する
+	 * @param user_id
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	
 	public int selectAuthority(String user_id) throws ClassNotFoundException, SQLException{
 	
 		int authority = 1;
+		
+		String sql = "SELECT authority FROM user WHERE user_id = ?";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				authority = res.getInt("authority");
+			}
+		
+		}
 		
 		return authority;
 	}

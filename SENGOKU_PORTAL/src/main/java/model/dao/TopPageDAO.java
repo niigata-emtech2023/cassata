@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import model.entity.ChatBean;
@@ -67,7 +67,7 @@ public class TopPageDAO{
 			while (res.next()) {
 				int chat_id = res.getInt("chat_id");
 				String nickname = res.getString("nickname");
-				Date created_at = res.getDate("created_at");
+				Timestamp created_at = res.getTimestamp("created_at");
 				String message = res.getString("message");
 				
 				ChatBean chat = new ChatBean();
