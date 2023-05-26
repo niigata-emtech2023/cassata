@@ -23,6 +23,9 @@ public class BushoBean implements Serializable{
 	//武将画像
 	private String busho_img;
 	
+	//年代（period表との結合）
+	private String period_name;
+	
 	/**
 	 * コンストラクタ
 	 */
@@ -113,6 +116,11 @@ public class BushoBean implements Serializable{
 		this.busho_img = busho_img;
 	}
 	
+	public String getPeriodName() {
+		return period_name;
+	}
 	
-	
+	public void setPeriodName(String period_name) {
+		this.period_name = period_name;
+	}
 }

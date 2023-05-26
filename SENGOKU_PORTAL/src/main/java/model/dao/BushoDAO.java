@@ -13,8 +13,42 @@ import model.entity.BushoBean;
 import model.entity.PeriodBean;
 
 public class BushoDAO{
-
+	
 	public List<BushoBean> selectBusho() throws ClassNotFoundException, SQLException{
+
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
+
+		String sql="SELECT b.busho_name AS busho_name, p.period_name AS period_name, b.busho_img AS busho_img, b.birth_date AS birth_date FROM busho b INNER JOIN period p ON(b.period_id = p.period_id)";
+
+		//データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+
+			//SQLステートメントの実行
+			ResultSet res=pstmt.executeQuery();
+
+			//結果の操作
+			while(res.next()) {
+				String busho_name=res.getString("busho_name");
+				String busho_img=res.getString("busho_img");
+				String period_name =res.getString("period_name");
+				Date birth_date = res.getDate("birth_date");
+
+				BushoBean busho=new BushoBean();
+				busho.setBushoName(busho_name);
+				busho.setBushoImg(busho_img);
+				busho.setPeriodName(period_name);
+				busho.setBirthDate(birth_date);
+
+				bushoList.add(busho);
+			}
+
+		}
+		return bushoList;
+	}
+	public List<BushoBean> selectBushoAll() throws ClassNotFoundException, SQLException{
 
 		List<BushoBean> bushoList=new ArrayList<BushoBean>();
 
