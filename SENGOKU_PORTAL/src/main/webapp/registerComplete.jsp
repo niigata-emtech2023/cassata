@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規会員登録の確定</title>
+<title>新規会員登録完了</title>
 </head>
 <body>
-
+	 <% if((Integer)request.getAttribute("count") != 0){ %>
+		<p>登録が完了しました。</p>
+	<% } else { %>
+		<p>登録に失敗しました。IDが重複している可能性があります。</p>
+	<% } %>
+	<form action="ShowTopPageServlet" method="POST">
+		<input type="submit" value="トップぺージへ">
+	</form>
 </body>
 </html>

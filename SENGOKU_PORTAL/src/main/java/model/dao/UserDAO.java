@@ -78,7 +78,13 @@ public class UserDAO{
 		}
 		
 		return userList;
+	}
+	
+	public int selectAuthority(String user_id) throws ClassNotFoundException, SQLException{
+	
+		int authority = 1;
 		
+		return authority;
 	}
 	
 	public List<UserBean> selectProfile(String user_id_temp) throws ClassNotFoundException, SQLException{
