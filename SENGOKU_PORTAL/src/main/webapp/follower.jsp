@@ -17,7 +17,5 @@
 	<img src="<%=follow.getBushoImg() %>"  alt="プロフィール写真">
 	<!-- ニックネーム--><%=follow.getNickname()%><br>
 	ID：<%=follow.getFollowUserID() %><br>
-	<!-- 好きな武将のFollwBeanがまだない -->
-	好きな武将<%=follow.get??????()%><br>
 </body>
 </html>
