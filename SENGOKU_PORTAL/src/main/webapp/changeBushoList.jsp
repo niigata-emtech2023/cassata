@@ -11,8 +11,8 @@
     <form action="changeBushoConfilm.jsp" method="POST">
     顔写真：<input type="" name="image" 
     	value="<jsp:getProperty name="busho" property="image" />"><br>
-    名前：<input type="text" name="bushoName" 
-    	value="<jsp:getProperty name="busho" property="bushoName" />"><br>
+    名前：<input type="text" name="busho_name" 
+    	value="<jsp:getProperty name="busho" property="busho_name" />"><br>
     年代：<input type="" name="period_id" 
     	value="<jsp:getProperty name="busho" property="period_id" />"><br>
     生年月日：<input type="" name="birth_date" 

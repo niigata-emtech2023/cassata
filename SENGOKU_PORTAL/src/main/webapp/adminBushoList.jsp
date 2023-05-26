@@ -16,7 +16,7 @@
 			<th>顔写真</th>
 			<th>名前</th>
 			<th>年代</th>
-			<th>出身地</th>
+			<th>生年月日</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -24,10 +24,10 @@
 			for (BushoBean busho : bushoList) {
 		%>
 		<tr>
-			<td><%=busho.getImage()%></td>
-			<td><%=busho.getName()%></td>
-			<td><%=busho.get()%></td>
-			<td><%=busho.get()%></td>
+			<td><%=busho.getBushoImg()%></td>
+			<td><%=busho.getBushoName()%></td>
+			<td><%=busho.getPeriodID()%></td>
+			<td><%=busho.getBirthDate()%></td>
 			<td>
 				<form action="changeBushoList.jsp" method="POST">
 					<input type="hidden" name="code" value="<%=busho.getCode()%>">

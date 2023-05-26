@@ -16,16 +16,16 @@
 			<th>顔写真</th>
 			<th>名前</th>
 			<th>年代</th>
-			<th>出身地</th>
+			<th>生年月日</th>
 		</tr>
 		<%
 			for (BushoBean busho : bushoList) {
 		%>
 		<tr>
-			<td><%=busho.getImg()%></td>
-			<td><%=busho.getName()%></td>
-			<td><%=busho.getName()%></td>
-			<td><%=busho.getName()%></td>
+			<td><%=busho.getBushoImg()%></td>
+			<td><%=busho.getBushoName()%></td>
+			<td><%=busho.getPeriodID()%></td>
+			<td><%=busho.getBirthDate()%></td>
 		</tr>
 		<%
 			}

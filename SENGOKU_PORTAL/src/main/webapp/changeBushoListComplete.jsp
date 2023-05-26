@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>武将の変更確定（管理者専用画面）</title>
 </head>
 <body>
     <%
