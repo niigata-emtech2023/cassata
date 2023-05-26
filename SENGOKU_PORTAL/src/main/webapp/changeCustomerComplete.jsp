@@ -11,6 +11,7 @@
 	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
 	
+	<%for(UserBean user: userList) { %>
 	顔写真：<img src="<%=user.getBushoImg()%>"><br>
 	ニックネーム：<%=user.getNickname()%><br>
 	ID：<%=user.getUserID()%><br>
@@ -22,7 +23,7 @@
 	出身地：<%=user.getArea()%><br>
 	
 	以上のデータを変更登録しました。<br>
-
+	<%} %>
 	<form action="customer.jsp" method="POST">
 		<input type="submit" value="顧客一覧に戻る">
 	</form>

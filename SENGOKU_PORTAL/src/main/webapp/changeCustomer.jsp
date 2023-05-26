@@ -7,7 +7,10 @@
 <title>プロフィール変更（管理者専用画面）</title>
 </head>
 <body>
-    
+	<%
+	List<UserBean> userList=(List<UserBean>) request.getAttribute("userList");
+	%>
+    <%for(UserBean user : userList) {%>
     顔写真：
     <img src="<%=user.getBushoImg()%>">
     
@@ -39,6 +42,7 @@
     
     出身地：
     <input type="text" name="area" <%=user.getArea()%>><br>
+    <% } %>
     
     <form action="changeCustomerConfilm.jsp" method="POST">
     <input type="submit" value="変更する">
