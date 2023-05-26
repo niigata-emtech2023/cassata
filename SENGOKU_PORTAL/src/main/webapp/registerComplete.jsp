@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>新規会員登録の完了</title>
 
 </head>
@@ -18,6 +19,11 @@
 	<form action="ShowTopPageServlet" method="POST">
 		<input type="submit" value="トップぺージへ">
 	</form>
+=======
+<title>Insert title here</title>
+</head>
+<body>
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 
 </body>
 </html>

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>新規会員登録の確認</title>
 </head>
 <body>
@@ -18,5 +19,11 @@
 		<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname") %>">
 	<input type="submit" value="確定">
 	</form>
+=======
+<title>Insert title here</title>
+</head>
+<body>
+
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 </body>
 </html>

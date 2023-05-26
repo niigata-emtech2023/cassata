@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.List, model.entity.BushoBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,7 @@
 			<th></th>
 			<th></th>
 		</tr>
+		<!-- 武将一覧の表示 -->
 		<%
 			for (BushoBean busho : bushoList) {
 		%>
@@ -30,13 +31,13 @@
 			<td><%=busho.getBirthDate()%></td>
 			<td>
 				<form action="changeBushoList.jsp" method="POST">
-					<input type="hidden" name="code" value="<%=busho.getCode()%>">
+					<input type="hidden" name="busho_name" value="<%=busho.getBushoName()%>">
 					<input type="submit" value="変更">
 				</form>
 			</td>
 			<td>
 				<form action="deleteBushoListConfilm.jsp" method="POST">
-					<input type="hidden" name="code" value="<%=busho.getCode()%>">
+					<input type="hidden" name="busho_name" value="<%=busho.getBushoName()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
