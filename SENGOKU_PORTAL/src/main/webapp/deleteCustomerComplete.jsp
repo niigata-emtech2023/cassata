@@ -8,10 +8,10 @@
 </head>
 <body>
 	<%List<UserBean>UserList
-		=(List<UserBean>) request.getAttribute("UserList");
+		=(List<UserBean>) request.getAttribute("userList");
 	%>
 	
-	プロフィール写真：<img src="<%=user.getBushoImg() %>" alt="プロフィール写真">	
+	<!--プロフィール写真：--><img src="<%=user.getBushoImg() %>" alt="プロフィール写真">	
 	ニックネーム：<%=user.getNickname() %><br>
 	ID：<%=user.getUserID() %><br>
 	自己紹介：<%=user.getMyself() %><br>	

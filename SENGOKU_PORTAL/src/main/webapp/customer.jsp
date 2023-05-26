@@ -32,13 +32,13 @@
 			<td><%=user.getBushoName()%></td>
 			<td>
 				<form action="changeCustomer.jsp" method="POST">
-					<input type="hidden" name="code" value="<%=user.getCode()%>">
+					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
 					<input type="submit" value="変更">
 				</form>
 			</td>
 			<td>
 				<form action="deleteCustomerConfilm.jsp" method="POST">
-					<input type="hidden" name="code" value="<%=user.getCode()%>">
+					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
