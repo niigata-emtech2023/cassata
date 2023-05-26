@@ -14,16 +14,16 @@ import javax.servlet.http.HttpSession;
 import model.dao.UserDAO;
 
 /**
- * Servlet implementation class ChangeProfileServletr
+ * Servlet implementation class ChangeProfileServlet
  */
-@WebServlet("/ChangeProfileServletr")
-public class ChangeProfileServletr extends HttpServlet {
+@WebServlet("/ChangeProfileServlet")
+public class ChangeProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangeProfileServletr() {
+    public ChangeProfileServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
