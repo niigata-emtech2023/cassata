@@ -9,10 +9,17 @@
 <body>
     <jsp:useBean id="user" class="model.entity.UserBean" scope="session" />
     <form action="changeCustomerConfilm.jsp" method="POST">
+    
     顔写真：
-    ニックネーム：<input type="text" name="nickname" ><br>
-    ID：<input type="text" name="user_id" ><br>
-    パスワード：<input type="password" name="password" ><br>
+    ニックネーム：
+    <%=busho.getNickname()%>
+    <input type="text" name="nickname" ><br>
+    ID：
+    <%=busho.getNickname()%>
+    <input type="text" name="user_id" ><br>
+    パスワード：
+    <%=busho.getPassword()%>
+    <input type="password" name="password" ><br>
     自己紹介：<input type="text" name="myself" ><br>
     性別：<input type="radio" name="gender" value="1">不明
           <input type="radio" name="gender" value="2">男性

@@ -11,8 +11,6 @@
         request.setCharacterEncoding("UTF-8");
     %>
     
-    
-    
     顔写真：<%request.getParameter("busho_img"); %><br>
     名前：<%request.getParameter("busho_name"); %><br>
     年代：<%request.getParameter("period_id"); %><br>
