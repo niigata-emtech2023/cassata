@@ -11,22 +11,17 @@
     	List<UserBean> userList
     		=(List<UserBean>) request.getAttribute("userList");
     %>
-	<img src=""  alt="プロフィール写真">
+	<% for(UserBean user: userList){ %>
+	<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">
     フォロー フォロワー<br>
 	フォロワー<br>
-	ニックネーム<br>
-	ID<br>
-	<% for(UserBean user: userList){ %>
-	自己紹介：
-	<%=user.getMyself()%>
-	性別：
-	<%=user.getGender()%>
-	生年月日：
-	<%=user.getBirthDate()%>
-	推しの武将
-	<%=user.getBushoID()%>
-	出身地：
-	<%=user.getArea()%>
+	<!--ニックネーム--><%=user.getNickname() %><br>
+	ID：<%=user.getUserID() %><br>
+	自己紹介：<%=user.getMyself()%><br>
+	性別：<%=user.getGender()%><br>
+	生年月日：<%=user.getBirthDate()%><br>
+	推しの武将：<%=user.getBushoID()%><br>
+	出身地：<%=user.getArea()%><br>
 	<% } %>	
 	<input type="submit" value="プロフィール変更">		
 </body>
