@@ -8,7 +8,7 @@
 </head>
 <body>
     <%
-	List<UserBean> bushoList = (List<BushoBean>) request.getAttribute("userList");
+	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 	%>
 	
 	顔写真：<img src="<%=busho.getBushoImg()%>"><br>
