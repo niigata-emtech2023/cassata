@@ -43,16 +43,14 @@ public class RegisterServlet extends HttpServlet {
 		
 		// リクエストオブジェクトのエンコーディング方式の指定
 				request.setCharacterEncoding("UTF-8");
+				
+				// セッションオブジェクトの取得
+				HttpSession session = request.getSession();
 
 				// リクエストパラメータの取得
 				String user_id = request.getParameter("user_id");
 				String password = request.getParameter("password");
 				String nickname = request.getParameter("nickname");
-
-				request.setCharacterEncoding("UTF-8");
-
-				// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
 
 				// セッションスコープへの属性の設定
 				request.setAttribute("user_id", user_id);
@@ -66,6 +64,7 @@ public class RegisterServlet extends HttpServlet {
 
 				try {
 					// DAOの利用
+<<<<<<< HEAD
 					count = registerdao.register(user_id, password, nickname);
 					
 					if(count != 0) {
@@ -73,6 +72,9 @@ public class RegisterServlet extends HttpServlet {
 						session.setAttribute("password", password);
 						session.setAttribute("nickname", nickname);
 					}
+=======
+					count = registerdao.register(user_id,password,nickname);
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();

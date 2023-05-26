@@ -52,36 +52,20 @@ public class ShowMyProfileServlet extends HttpServlet {
 
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
-		String nickname = request.getParameter("nickname");
-		int gender = Integer.parseInt(request.getParameter("gender"));
-		String myself = request.getParameter("myself");
-		String busho_id = request.getParameter("busho_id");
-		String area = request.getParameter("area");
-		String birth_date = request.getParameter("birth_date");
-		String  = request.getParameter("アイコン");
 
 		// リクエストスコープへの属性の設定
 		session.setAttribute("user_id", user_id);
-		session.setAttribute("nickname", nickname);
-		session.setAttribute("gender", gender);
-		session.setAttribute("myself", myself);
-		session.setAttribute("busho_id", busho_id);
-		session.setAttribute("area", area);
-		session.setAttribute("birth_date", birth_date);
-		session.setAttribute("アイコン", アイコン);
 
 		// DAOの生成
 		UserDAO userdao = new UserDAO();
 
 		try {
 			// DAOの利用
-			userList = userdao.selectProfile();
+			userList = userdao.selectProfile(user_id);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		// セッションオブジェクトの取得
-		HttpSession session = request.getSession();
-
+		
 		// セッションスコープへの属性の設定
 		session.setAttribute("userList", userList);
 
