@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>プロフィール変更（管理者専用画面）</title>
 </head>
 <body>
     <jsp:useBean id="user" class="model.entity.UserBean" scope="session" />
