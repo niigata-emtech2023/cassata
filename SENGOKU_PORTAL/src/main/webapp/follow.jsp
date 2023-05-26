@@ -17,5 +17,6 @@
 	<img src="<%=follow.getBushoImg() %>"  alt="プロフィール写真">
 	<!-- ニックネーム--><%=follow.getNickname()%><br>
 	ID：<%=follow.getFollowUserID() %><br>
+	<%} %>
 </body>
 </html>
