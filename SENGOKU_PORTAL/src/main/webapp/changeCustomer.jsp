@@ -31,7 +31,7 @@
     <input type="radio" name="gender" value="3">女性<br>
     
     生年月日：
-    <input type="text" name="birth_date" <%=user.getGender()%>><br>
+    <input type="text" name="birth_date" <%=user.getBirthDate()%>><br>
     
     推しの武将：
     <select name="busho_id">
