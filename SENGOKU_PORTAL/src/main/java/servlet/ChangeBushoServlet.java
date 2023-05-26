@@ -1,9 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,8 +52,7 @@ public class ChangeBushoServlet extends HttpServlet {
 		String busho_name = request.getParameter("busho_name");
 		String period_id = request.getParameter("period_id");
 		String commentary = request.getParameter("commentary");
-		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-		Date birth_date = sdFormat.parse(birth_date);
+		String birth_date = request.getParameter("birth_date");
 		String busho_img = request.getParameter("busho_img");
 
 		// リクエストスコープへの属性の設定
