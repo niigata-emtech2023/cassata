@@ -11,7 +11,7 @@
 		=(List<BushoBean>) request.getAttribute("bushoList");
 	%>
 	
-	顔写真：<img src="<%=busho.getBushoImg()%>"><br>
+	顔写真：<img src="<%=busho.getBushoImg()%>" alt="武将の顔写真">
 	名前：<%=busho.getBushoName() %><br>
 	年代：<%=busho.getPeriodID() %><br>
 	生年月日：<%=busho.getBirthDate() %><br>
