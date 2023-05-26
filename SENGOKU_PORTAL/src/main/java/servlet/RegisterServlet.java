@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.RegisterDAO;
+
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -53,9 +55,9 @@ public class RegisterServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 
 				// セッションスコープへの属性の設定
-				session.setAttribute("user_id", user_id);
-				session.setAttribute("password", password);
-				session.setAttribute("nickname", nickname);
+				request.setAttribute("user_id", user_id);
+				request.setAttribute("password", password);
+				request.setAttribute("nickname", nickname);
 
 				// DAOの生成
 				RegisterDAO registerdao = new RegisterDAO();

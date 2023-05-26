@@ -53,10 +53,10 @@ public class SendChatServlet extends HttpServlet {
 		String message = request.getParameter("message");
 
 		// リクエストスコープへの属性の設定
-		session.setAttribute("chat_id", chat_id);
-		session.setAttribute("user_id", user_id);
-		session.setAttribute("created_at", created_at);
-		session.setAttribute("message", message);
+		request.setAttribute("chat_id", chat_id);
+		request.setAttribute("user_id", user_id);
+		request.setAttribute("created_at", created_at);
+		request.setAttribute("message", message);
 
 		// DAOの生成
 		ChatDAO chatdao = new ChatDAO();

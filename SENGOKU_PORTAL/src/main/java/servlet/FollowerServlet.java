@@ -54,8 +54,8 @@ public class FollowerServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 
 				// セッションスコープへの属性の設定
-				session.setAttribute("user_id", user_id);
-				session.setAttribute("follow_user_id", follow_user_id);
+				request.setAttribute("user_id", user_id);
+				request.setAttribute("follow_user_id", follow_user_id);
 
 				// DAOの生成
 				FollowDAO followdao = new FollowDAO();
@@ -64,7 +64,7 @@ public class FollowerServlet extends HttpServlet {
 
 				try {
 					// DAOの利用
-					count = followdao.removeFollow();
+					count = followdao.removeFollow(user_id);
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();

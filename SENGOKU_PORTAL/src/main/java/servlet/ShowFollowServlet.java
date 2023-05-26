@@ -56,8 +56,8 @@ public class ShowFollowServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		// セッションスコープへの属性の設定
-		session.setAttribute("user_id", user_id);
-		session.setAttribute("follow_user_id", follow_user_id);
+		request.setAttribute("user_id", user_id);
+		request.setAttribute("follow_user_id", follow_user_id);
 
 		List<FollowBean> followList = null;
 
@@ -66,13 +66,13 @@ public class ShowFollowServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			followList = followdao.selectFollow();
+			followList = followdao.selectFollow(user_id);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
 		// セッションスコープへの属性の設定
-		session.setAttribute("followList", followList);
+		request.setAttribute("followList", followList);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("follow.jsp");

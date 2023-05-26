@@ -64,7 +64,7 @@ public class FollowServlet extends HttpServlet {
 
 				try {
 					// DAOの利用
-					count = followdao.follow();
+					count = followdao.follow(user_id,follow_user_id);
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
