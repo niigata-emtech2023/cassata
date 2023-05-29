@@ -27,8 +27,8 @@
 	
 	以上のデータを変更登録しました。<br>
 
-	<form action="customer.jsp" method="POST">
-		<input type="submit" value="顧客一覧に戻る">
+	<form action="ShowMyProfileServlet" method="POST">
+		<input type="submit" value="マイページへ">
 	</form>
 </body>
 </html>
