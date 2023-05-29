@@ -21,7 +21,7 @@
 	生年月日：<%=busho.getBirthDate() %><br>
 	紹介文：<%=busho.getCommentary() %><br>	
 	
-	削除してよろしいですか？
+	以上の武将を削除してもよろしいですか？
 	<input type="hidden" name="busho_id" value="<%= busho.getBushoID() %>">
 	<%} %>
 	<input type="submit" value="削除">	
