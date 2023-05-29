@@ -23,7 +23,10 @@
     以上の内容でよろしいですか
     
     <form action="ChangeCustomerServlet" method="POST">
-    <input type="submit" value="変更する">
+    	<input type="submit" value="確定">
+    </form>
+    <form action="changeCustomer.jsp" method="POST">
+    	<input type="submit" value="修正する">
     </form>
 
 </body>

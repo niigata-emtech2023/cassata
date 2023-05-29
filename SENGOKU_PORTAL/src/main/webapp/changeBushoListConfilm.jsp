@@ -19,8 +19,10 @@
     以上の内容でよろしいですか
     
     <form action="ChangeBushoServlet" method="POST">
-    <input type="submit" value="変更する">
+    	<input type="submit" value="確定">
     </form>
-
+	<form action="changeBushoList.jsp" method="POST">
+		<input type="submit" value="修正する">
+	</form>
 </body>
 </html>
