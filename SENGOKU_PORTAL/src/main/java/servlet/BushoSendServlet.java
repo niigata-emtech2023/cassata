@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.PeriodDAO;
 
 /**
  * Servlet implementation class BushoSendServlet
@@ -40,12 +43,25 @@ public class BushoSendServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得
-		String busho_img = request.getParameter("busho_img");
+		String busho_name_img = request.getParameter("busho_name_img");
 		String busho_name = request.getParameter("busho_name");
-		String period_id = request.getParameter("period_id");
+		String period_name = request.getParameter("period_name");
 		String birth_date = request.getParameter("birth_date");
 		String commentary = request.getParameter("commentary");	
 		
+		/**
+		 * period_nameからperiod_idを特定する
+		 */
+		PeriodDAO periodDAO = new PeriodDAO();
+		String period_id;
+		try {
+			period_id = periodDAO.selectPeriodID(period_name);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("busho_name_img", busho_name_img);
 		request.setAttribute("busho_name",busho_name );
 		request.setAttribute("period_id",period_id );
 		request.setAttribute("birth_date",birth_date);

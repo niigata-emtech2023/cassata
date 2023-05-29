@@ -18,7 +18,7 @@
 		<% for(BushoBean busho : bushoList){ %>
 		<img src="<%= busho.getBushoImg() %>"><br>
 		画像：
-	    <select name="busho_name">
+	    <select name="busho_name_img">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
 	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>

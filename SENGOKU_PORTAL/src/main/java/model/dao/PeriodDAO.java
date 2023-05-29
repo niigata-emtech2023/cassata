@@ -41,4 +41,29 @@ public class PeriodDAO {
 		return periodList;
 	}
 	
+	public String selectPeriodID(String period_name) throws ClassNotFoundException, SQLException{
+		
+		String period_id = "";
+		
+		String sql="SELECT period_id FROM period WHERE period_name = ?";
+		
+		//データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, period_name);
+
+			//SQLステートメントの実行!
+			ResultSet res=pstmt.executeQuery();
+
+			//結果の操作
+			while(res.next()) {
+				period_id = res.getString("period_id");
+			}
+
+		}
+		return period_id;
+	}
+	
 }
