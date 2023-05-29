@@ -39,7 +39,7 @@ public class FollowDAO {
 
 		List<FollowBean> followList = new ArrayList<FollowBean>();
 
-		String sql = "SELECT f.user_id AS user_id, u.nickname AS nickname, b.busho_img AS busho_img FROM follow f INNER JOIN user u ON (f.user_id = u.user_id) INNER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
+		String sql = "SELECT f.follow_user_id AS user_id, u.nickname AS nickname, b.busho_img AS busho_img FROM follow f INNER JOIN user u ON (f.follow_user_id = u.user_id) LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE f.user_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -71,7 +71,7 @@ public class FollowDAO {
 
 		List<FollowBean> followList = new ArrayList<FollowBean>();
 
-		String sql = "SELECT f.follow_user_id AS user_id, u.nickname AS nickname, b.busho_img AS busho_img FROM follow f INNER JOIN user u ON (f.user_id = u.user_id) INNER JOIN busho b ON (u.busho_id = b.busho_id) WHERE follow_user_id = ?";
+		String sql = "SELECT f.user_id AS user_id, u.nickname AS nickname, b.busho_img AS busho_img FROM follow f LEFT OUTER JOIN user u ON (f.user_id = u.user_id) LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE f.follow_user_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -82,12 +82,12 @@ public class FollowDAO {
 			ResultSet res = pstmt.executeQuery();
 
 			while (res.next()) {
-				String follow_user_id = res.getString("follow_user_id");
+				String user_id = res.getString("user_id");
 				String nickname = res.getString("nickname");
 				String busho_img = res.getString("busho_img");
 
 				FollowBean follow = new FollowBean();
-				follow.setFollowUserID(follow_user_id);
+				follow.setFollowUserID(user_id);
 				follow.setNickname(nickname);
 				follow.setBushoImg(busho_img);
 
