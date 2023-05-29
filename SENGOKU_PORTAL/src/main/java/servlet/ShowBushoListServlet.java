@@ -66,7 +66,7 @@ public class ShowBushoListServlet extends HttpServlet {
 			}else {
 				url = "adminBushoList.jsp";
 			}
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException | ClassNotFoundException e) { 
 			e.printStackTrace();
 		}
 		
