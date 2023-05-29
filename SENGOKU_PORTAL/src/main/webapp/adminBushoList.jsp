@@ -31,7 +31,7 @@
 			<td><%=busho.getPeriodName()%></td>
 			<td><%=busho.getBirthDate()%></td>
 			<td>
-				<form action="changeBushoList.jsp" method="POST">
+				<form action="BushoChangeSendServlet" method="POST">
 					<input type="hidden" name="busho_name" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="変更">
 				</form>
