@@ -37,7 +37,7 @@
 				</form>
 			</td>
 			<td>
-				<form action="deleteCustomerConfilm.jsp" method="POST">
+				<form action="DeleteCustomerSelectServlet" method="POST">
 					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
 					<input type="submit" value="削除">
 				</form>

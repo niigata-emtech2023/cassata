@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class DeleteCustomerServlet
@@ -52,29 +54,40 @@ public class DeleteCustomerServlet extends HttpServlet {
 				String password = request.getParameter("password");
 				String nickname = request.getParameter("nickname");
 
+				UserDAO userdao = new UserDAO();
+				
+				List<UserBean> userList = null;
+				
+				try {
+					// DAOの利用
+					userList = userdao.selectProfile(user_id);
+				} catch (SQLException | ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
 				// セッションスコープへの属性の設定
-				request.setAttribute("user_id", user_id);
-				request.setAttribute("password", password);
-				request.setAttribute("nickname", nickname);
+				request.setAttribute("userList", userList);
 
 				// DAOの生成
-				UserDAO registerdao = new UserDAO();
+				
 
 				int count = 0;	// 処理件数
 
 				try {
 					// DAOの利用
-					count = registerdao.deleteProfile(user_id);
+					count = userdao.deleteProfile(user_id);
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
+				
 
 				// リクエストスコープへの属性の設定
 				request.setAttribute("count", count);
+				request.setAttribute("userList", userList);
 
 				// リクエストの転送
-				RequestDispatcher rd = request.getRequestDispatcher("deleteCustomercomplete.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("deleteCustomerComplete.jsp");
 				rd.forward(request, response);
 
 			}
