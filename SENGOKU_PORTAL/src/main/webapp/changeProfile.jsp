@@ -9,20 +9,26 @@
 <body>
     
     <%
-	List<UserBean> bushoList = (List<UserBean>) request.getAttribute("userList");
+		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
-	
+	<% 
+		for(UserBean user: userList){ 
+	%>
     顔写真：
-    <img src="<%=user.getBushoImg()%>">
-    
+    <img src="<%=user.getBushoImg()%>" alt="武将の顔写真">
     
     ニックネーム：
     <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
     
     ID：
-    <input type="text" name="user_id" value="<%=user.getUserID()%>"><br>
+    <%=user.getUserID()%><br>
     
-    パスワード：
+    旧パスワードを入力：
+    <input type="password" name="password" ><br>
+    
+    新しいパスワードを入力：
+    <input type="password" name="password" ><br>
+    もう一度入力：
     <input type="password" name="password" ><br>
     
     自己紹介：
@@ -43,6 +49,7 @@
     
     出身地：
     <input type="text" name="area" <%=user.getArea()%>><br>
+    <% }%>
     
     <form action="changeCustomerConfilm.jsp" method="POST">
     <input type="submit" value="変更する">

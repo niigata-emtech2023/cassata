@@ -115,7 +115,7 @@ public class UserDAO{
 		
 		List<UserBean> profileList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, b.busho_img AS busho_img, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -134,6 +134,7 @@ public class UserDAO{
 				int gender = res.getInt("gender");
 				String busho_id = res.getString("busho_id");
 				String busho_name = res.getString("busho_name");
+				String busho_img = res.getString("busho_img");
 				Date birth_date = res.getDate("birth_date");
 				String area = res.getString("area");
 						
@@ -146,6 +147,7 @@ public class UserDAO{
 				user.setGender(gender);
 				user.setBushoID(busho_id);
 				user.setBushoName(busho_name);
+				user.setBushoImg(busho_img);
 				user.setBirthDate(birth_date);
 				user.setArea(area);
 
@@ -233,6 +235,42 @@ public class UserDAO{
 
 		}
 
+		return userList;
+	}
+	
+	public List<UserBean> searchUser(String keyword) throws SQLException, ClassNotFoundException {
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT b.busho_img AS busho_img, u.nickname AS nickname, u.user_id AS user_id, b.busho_name AS busho_name FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE u.user_id LIKE ? OR u.nickname LIKE ? OR b.busho_name LIKE ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(2, "%" + keyword + "%");
+			pstmt.setString(3, "%" + keyword + "%");
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			
+			while (res.next()) {
+				String busho_img = res.getString("busho_img");
+				String nickname = res.getString("nickname");
+				String user_id = res.getString("user_id");
+				String busho_name = res.getString("busho_name");							
+
+				UserBean user = new UserBean();
+				user.setBushoImg(busho_img);
+				user.setUserID(user_id);
+				user.setNickname(nickname);
+				user.setBushoName(busho_name);
+
+				userList.add(user);
+			}
+			
+		}
+		
 		return userList;
 	}
 

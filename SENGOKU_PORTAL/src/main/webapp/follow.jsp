@@ -8,13 +8,14 @@
 </head>
 <body>
 	<% 
-		List<FollowBean> followList
-			=(List<FollowBean>) request.getAttribute("followList");
+		List<FollowBean> followList=(List<FollowBean>) request.getAttribute("followList");
 	%>
 	
 	フォロー一覧
-	<% for(FollowBean follow: followList){ %>
-	<img src="<%=follow.getBushoImg() %>"  alt="プロフィール写真">
+	<%
+		for(FollowBean follow: followList){ 
+	%>
+	<img src="<%=follow.getBushoImg() %>"  alt="武将の顔写真">
 	<!-- ニックネーム--><%=follow.getNickname()%><br>
 	ID：<%=follow.getFollowUserID() %><br>
 	<%} %>

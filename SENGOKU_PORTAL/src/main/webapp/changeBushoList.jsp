@@ -8,13 +8,14 @@
 </head>
 <body>
     <%
-	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
+		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 	%>
 	
     <form action="changeBushoConfilm.jsp" method="POST">
     
-    <% for(BushoBean busho : bushoList){ %>
-    
+    <% 
+    	for(BushoBean busho : bushoList){ 
+    %>
     <!--顔写真：--><img src="<%=busho.getBushoImg()%>" alt="武将の顔写真"><br>
             <input type="" name="busho_img">
 	
@@ -23,6 +24,7 @@
     
     年代：
     <input type="text" name="period_id" value="<%=busho.getPeriodName()%>"><br>
+    
     
     生年月日：
     <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>

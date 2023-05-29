@@ -7,11 +7,14 @@
 <title>顧客の削除確認（管理者専用画面）</title>
 </head>
 <body>
-	<%List<UserBean>userList=(List<UserBean>) request.getAttribute("userList");%>
-	<% for(UserBean user : userList){ %>
+	<%
+		List<UserBean>userList=(List<UserBean>) request.getAttribute("userList");
+	%>
+	<%
+		for(UserBean user : userList){ 
+	%>
 	<!--プロフィール写真：-->
-	<form action="DeleteCustomerServlet" method="POST">
-	<img src="<%=user.getBushoImg() %>" alt="プロフィール写真">	
+	<img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
 	ニックネーム：<%=user.getNickname() %><br>
 	ID：<%=user.getUserID() %><br>
 	自己紹介：<%=user.getMyself() %><br>	
@@ -20,7 +23,8 @@
 	推しの武将：<%=user.getBushoName() %>
 	出身地：<%=user.getArea() %>
 	
-	以上のユーザーを削除しました。
+	以上のユーザを削除してもよろしいですか？
+	<form action="DeleteCustomerServlet" method="POST">
 	<input type="hidden" name="user_id" value="<%=user.getUserID() %>">
 	<%} %>
 	<input type="submit" value="削除">

@@ -123,8 +123,8 @@
 				</form>
 				
 			</li>
-			<li>
-				<p>ユーザ検索</p>
+			<li>				
+				<a href="searchUser.jsp"><p>ユーザ検索</p></a>
 			</li>
 		</ul>
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>他ユーザのページ</title>
+<title>マイページ</title>
 </head>
 <body>
     <% 
@@ -19,14 +19,14 @@
 		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
 	<% } %>
     フォロー フォロワー<br>
-	<!--ニックネーム --><%=user.getNickname() %><br>
+	<!--ニックネーム--><%=user.getNickname() %><br>
 	ID：<%=user.getUserID() %><br>
 	自己紹介：<%=user.getMyself()%><br>
 	性別：<%=user.getGender()%><br>
 	生年月日：<%=user.getBirthDate()%><br>
-	推しの武将：<%=user.getBushoName()%><br>
+	推しの武将：<%=user.getBushoID()%><br>
 	出身地：<%=user.getArea()%><br>
 	<% } %>	
-	<input type="submit" value="フォローする">	
+	<input type="submit" value="プロフィール変更">		
 </body>
 </html>

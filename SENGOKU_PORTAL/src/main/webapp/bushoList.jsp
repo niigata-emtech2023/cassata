@@ -22,7 +22,7 @@
 			for (BushoBean busho : bushoList) {
 		%>
 		<tr>
-			<td><img src="<%=busho.getBushoImg()%>"></td>
+			<td><img src="<%=busho.getBushoImg()%>" alt="武将の顔写真"></td>
 			<td><%=busho.getBushoName()%></td>
 			<td><%=busho.getPeriodName()%></td>
 			<td><%=busho.getBirthDate()%></td>
