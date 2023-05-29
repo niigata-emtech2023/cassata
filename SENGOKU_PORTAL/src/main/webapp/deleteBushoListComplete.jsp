@@ -17,7 +17,7 @@
 	名前：<%=busho.getBushoName() %><br>
 	年代：<%=busho.getPeriodID() %><br>
 	生年月日：<%=busho.getBirthDate() %><br>
-	紹介文：<%=busho.getCommentary() %><br>
+	<!--  紹介文：<%=busho.getCommentary() %> <br>-->
 	<%} %>
 	以上の武将を削除しました
 	<form action="ShowBushoListServlet" method="POST">
