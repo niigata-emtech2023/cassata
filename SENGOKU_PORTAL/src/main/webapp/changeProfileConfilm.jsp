@@ -23,8 +23,11 @@
     以上の内容でよろしいですか
     
     <form action="ChangeProfileServlet" method="POST">
-    <input type="submit" value="変更する">
+    	<input type="submit" value="確定">
     </form>
+    <form action="changeProfile" method="POST">
+    	<input type="submit" value="修正する">
+    </form> 
 
 </body>
 </html>
