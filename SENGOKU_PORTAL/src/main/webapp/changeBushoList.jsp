@@ -17,18 +17,8 @@
     <form action="BushoSendServlet" method="POST">
 		<% for(BushoBean busho : bushoList){ %>
 		<img src="<%= busho.getBushoImg() %>"><br>
-		画像：
-	    <select name="busho_name_img">
-	    	<% for(BushoBean bushoName : bushoNameList) { %>
-	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
-	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
-	    		<% } else { %>
-	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
-	    		<% } %>
-	    	<% } %>
-		</select>
-		<!-- 武将ID -->
 		<input type="hidden" name="busho_id" value="<%=busho.getBushoID() %>"><br>
+		<input type="hidden" name="busho_img" value="<%=busho.getBushoImg() %>"><br>
 	    名前：
 	    <input type="text" name="busho_name" value="<%=busho.getBushoName()%>"><br>
 	    年代：

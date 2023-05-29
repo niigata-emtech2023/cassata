@@ -7,18 +7,16 @@
 <title>武将の変更確定（管理者専用画面）</title>
 </head>
 <body>
+
     <%
-		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
-	%>
-	<%
-		for(BushoBean busho: bushoList) {
-	%>
-	顔写真：<img src="<%=busho.getBushoImg()%>" alt="武将の顔写真"><br>
-	名前：<%=busho.getBushoName()%><br>
-	年代：<%=busho.getPeriodName()%><br>
-	生年月日：<%=busho.getBirthDate()%><br>
-	説明文：<%=busho.getCommentary()%><br>
-	<%} %>
+        request.setCharacterEncoding("UTF-8");
+    %>
+    
+	顔写真：<img src="<%= request.getAttribute("busho_img") %>" alt="武将の顔写真"><br>
+	名前：<%= request.getAttribute("busho_name") %><br>
+	年代：<%= request.getAttribute("period_name") %><br>
+	生年月日：<%= request.getAttribute("birth_date") %><br>
+	説明文：<%= request.getAttribute("commentary") %><br>
 	
 	以上のデータを変更登録しました。<br>
 
