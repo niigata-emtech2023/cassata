@@ -26,9 +26,10 @@
     旧パスワードを入力：
     <input type="password" name="password" ><br>
     
-    新しいパスワードを入力<br>
-    
-    
+    新しいパスワードを入力：
+    <input type="password" name="password" ><br>
+    もう一度入力：
+    <input type="password" name="password" ><br>
     
     自己紹介：
     
