@@ -22,7 +22,7 @@
     出身地：<%request.getParameter("area"); %><br>
     以上の内容でよろしいですか
     
-    <form action="ChangeBushoServlet" method="POST">
+    <form action="ChangeCustomerServlet" method="POST">
     <input type="submit" value="変更する">
     </form>
 
