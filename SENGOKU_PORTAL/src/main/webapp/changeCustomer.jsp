@@ -51,7 +51,7 @@
     <input type="text" name="area" <%=user.getArea()%>><br>
     <% } %>
     
-    <form action="changeCustomerConfilm.jsp" method="POST">
+    <form action="CustomerSendServlet" method="POST">
     <input type="submit" value="変更する">
     </form>
 </body>
