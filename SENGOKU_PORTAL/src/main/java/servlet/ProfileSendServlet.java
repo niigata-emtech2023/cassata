@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ProfileSend
  */
-//changeProfile.jsp
+//myProfile.jspから転送
 @WebServlet("/ProfileSendServlet")
 public class ProfileSendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -7,7 +7,7 @@
 <title>プロフィール変更</title>
 </head>
 <body>
-    <!-- ProfileSendServletから転送 -->
+    <!-- ProfileChangeSe -->
     <%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
