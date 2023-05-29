@@ -21,9 +21,14 @@
     <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
     
     ID：
-    <input type="text" name="user_id" value="<%=user.getUserID()%>"><br>
+    <%=user.getUserID()%><br>
     
-    パスワード：
+    旧パスワードを入力：
+    <input type="password" name="password" ><br>
+    
+    新しいパスワードを入力：
+    <input type="password" name="password" ><br>
+    もう一度入力：
     <input type="password" name="password" ><br>
     
     自己紹介：
