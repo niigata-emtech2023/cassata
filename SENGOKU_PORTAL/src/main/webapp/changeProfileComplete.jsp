@@ -11,7 +11,8 @@
 	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
 	
-	顔写真：<img src="<%=user.getBushoImg()%>"><br>
+	<% for(UserBean user: userList){ %>
+	顔写真：<img src="<%=user.getBushoImg()%>" alt="顔写真"><br>
 	ニックネーム：<%=user.getNickname()%><br>
 	ID：<%=user.getUserID()%><br>
 	パスワード：<%=user.getPassword()%><br>
@@ -20,6 +21,7 @@
 	生年月日：<%=user.getBirthDate()%><br>
 	推しの武将：<%=user.getBushoID()%><br>
 	出身地：<%=user.getArea()%><br>
+	<%} %>
 	
 	以上のデータを変更登録しました。<br>
 
