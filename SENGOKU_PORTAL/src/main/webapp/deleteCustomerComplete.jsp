@@ -22,8 +22,8 @@
 	推しの武将：<%=user.getBushoName() %>
 	出身地：<%=user.getArea() %>
 	<%} %>
-	以上の武将を削除しました
-	<form action="ShowCustomerServlet" method="POST">
+	以上のユーザを削除しました
+	<form action="customer.jsp" method="POST">
 		<input type="submit" value="一覧へ">
 	</form>
 </body>

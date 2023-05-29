@@ -24,7 +24,8 @@
 	推しの武将：<%=user.getBushoName() %>
 	出身地：<%=user.getArea() %>
 	
-	以上のユーザーを削除しました。
+	以上のユーザを削除してもよろしいですか？
+	<form action="DeleteCustomerServlet" method="POST">
 	<input type="hidden" name="user_id" value="<%=user.getUserID() %>">
 	<%} %>
 	<input type="submit" value="削除">
