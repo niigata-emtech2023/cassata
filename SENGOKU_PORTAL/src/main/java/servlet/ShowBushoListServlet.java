@@ -59,7 +59,7 @@ public class ShowBushoListServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			bushoList = bushodao.selectBusho();
+			bushoList = bushodao.selectBushoAll();
 			int authority = userdao.selectAuthority(user_id);
 			if(authority == 1) {
 				url = "bushoList.jsp";

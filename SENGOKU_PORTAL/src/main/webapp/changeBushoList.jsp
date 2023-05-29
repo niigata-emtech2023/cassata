@@ -19,14 +19,16 @@
 	
 	<% for(BushoBean busho : bushoList){ %>
     <!--顔写真：-->
-    <select name="">
+    <select name="busho">
     	<option value="<%=busho.getBushoImg()%>"></option>
 	</select>
+	<!-- 武将ID -->
+	<input type="hidden" name="busho_id" value="<%=busho.getBushoID() %>">
     名前：
     <input type="text" name="busho_name" value="<%=busho.getBushoName()%>"><br>
     
     年代：
-    <input type="text" name="period_id" value="<%=busho.getPeriodID()%>"><br>
+    <input type="text" name="period_id" value="<%=busho.getPeriodName()%>"><br>
     
     生年月日：
     <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>
