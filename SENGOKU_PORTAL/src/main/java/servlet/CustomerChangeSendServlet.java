@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +11,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.BushoDAO;
+import model.dao.PeriodDAO;
+import model.entity.BushoBean;
+import model.entity.PeriodBean;
+
 /**
  * Servlet implementation class RegisterSendServlet
  */
 @WebServlet("/CustomerChangeSendServlet")
 public class CustomerChangeSendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomerChangeSendServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CustomerChangeSendServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,27 +47,31 @@ public class CustomerChangeSendServlet extends HttpServlet {
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
 
-		// リクエストパラメータの取得
-		String busho_img = request.getParameter("busho_img");
-		String nickname = request.getParameter("nickname");
-		String password = request.getParameter("password");
-		String myself = request.getParameter("myself");
-		String gender = request.getParameter("gender");
-		String birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
-		String area = request.getParameter("area");
-		
-		request.setAttribute("busho_img", busho_img);
-		request.setAttribute("nickname", nickname);
-		request.setAttribute("password", password);
-		request.setAttribute("myself", myself);
-		request.setAttribute("gender", gender);
-		request.setAttribute("birth_date", birth_date);
-		request.setAttribute("busho_id", busho_id);
-		request.setAttribute("area", area);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("changeCustomer.jsp");
-		rd.forward(request, response);
-	}
 
+		List<BushoBean> bushoList = null;
+		List<BushoBean> bushoNameList = null;
+		List<PeriodBean> periodList = null;
+
+		BushoDAO bushoDAO = new BushoDAO();
+		PeriodDAO periodDAO = new PeriodDAO();
+
+		try {
+			bushoList = bushoDAO.selectBushoAll(busho_id);
+			bushoNameList = bushoDAO.selectBushoNameAll();
+			periodList = periodDAO.selectPeriodAll();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		request.setAttribute("bushoList", bushoList);
+		request.setAttribute("bushoNameList", bushoNameList);
+		request.setAttribute("periodList", periodList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("changeBushoList.jsp");
+		rd.forward(request, response);
+
+
+	}
 }
