@@ -25,6 +25,7 @@
     年代：
     <input type="text" name="period_id" value="<%=busho.getPeriodName()%>"><br>
     
+    
     生年月日：
     <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>
               

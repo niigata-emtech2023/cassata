@@ -22,7 +22,7 @@
 	
 	以上のデータを変更登録しました。<br>
 
-	<form action="bushoList.jsp" method="POST">
+	<form action="ShowBushoListServlet" method="POST">
 		<input type="submit" value="武将一覧に戻る">
 	</form>
 
