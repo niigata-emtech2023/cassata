@@ -61,10 +61,10 @@ public class ShowBushoListServlet extends HttpServlet {
 			// DAOの利用
 			bushoList = bushodao.selectBusho();
 			int authority = userdao.selectAuthority(user_id);
-			if(authority == 2) {
-				url = "adminBushoList.jsp";
-			}else {
+			if(authority == 1) {
 				url = "bushoList.jsp";
+			}else {
+				url = "adminBushoList.jsp";
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -74,7 +74,7 @@ public class ShowBushoListServlet extends HttpServlet {
 		request.setAttribute("bushoList", bushoList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("url");
+		RequestDispatcher rd = request.getRequestDispatcher("adminBushoList.jsp");
 		rd.forward(request, response);
 		
 	}
