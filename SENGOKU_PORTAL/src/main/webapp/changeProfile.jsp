@@ -21,7 +21,7 @@
     <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
     
     ID：
-    <input type="text" name="user_id" value="<%=user.getUserID()%>"><br>
+    <%=user.getUserID()%><br>
     
     パスワード：
     <input type="password" name="password" ><br>
