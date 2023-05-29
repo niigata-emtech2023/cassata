@@ -7,6 +7,7 @@
 <title>武将一覧（管理者専用画面）</title>
 </head>
 <body>
+	<!-- ShowBushoListServlet -->
     	<%
 		List<BushoBean> bushoList
 			= (List<BushoBean>) request.getAttribute("bushoList");
@@ -31,13 +32,13 @@
 			<td><%=busho.getBirthDate()%></td>
 			<td>
 				<form action="changeBushoList.jsp" method="POST">
-					<input type="hidden" name="busho_name" value="<%=busho.getBushoName()%>">
+					<input type="hidden" name="busho_name" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="変更">
 				</form>
 			</td>
 			<td>
 				<form action="deleteBushoListConfilm.jsp" method="POST">
-					<input type="hidden" name="busho_name" value="<%=busho.getBushoName()%>">
+					<input type="hidden" name="busho_name" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
