@@ -84,7 +84,7 @@ public class DeleteBushoServlet extends HttpServlet {
 		request.setAttribute("count", count);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("customer.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("deleteBushoListComplete.jsp");
 		rd.forward(request, response);
 
 

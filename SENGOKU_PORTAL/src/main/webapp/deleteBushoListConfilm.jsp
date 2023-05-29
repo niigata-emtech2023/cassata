@@ -15,13 +15,13 @@
 	%>
 	<!--顔写真-->
 	<form action="DeleteBushoServlet" method="POST">
-	<img src="<%=busho.getBushoImg() %>" alt="武将の顔写真">
-	名前：<%=busho.getBushoName() %>
+	<img src="<%=busho.getBushoImg() %>" alt="武将の顔写真"><br>
+	名前：<%=busho.getBushoName() %><br>
 	年代：<%=busho.getPeriodID() %><br>	
 	生年月日：<%=busho.getBirthDate() %><br>
 	紹介文：<%=busho.getCommentary() %><br>	
 	
-	以上の武将を削除してもよろしいですか？
+	以上の武将を削除してもよろしいですか？<br>
 	<input type="hidden" name="busho_id" value="<%= busho.getBushoID() %>">
 	<%} %>
 	<input type="submit" value="削除">	
