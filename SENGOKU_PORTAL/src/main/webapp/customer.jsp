@@ -31,7 +31,7 @@
 			<td><%=user.getUserID()%></td>
 			<td><%=user.getBushoName()%></td>
 			<td>
-				<form action="changeCustomer.jsp" method="POST">
+				<form action="CustomerChangeSendServlet" method="POST">
 					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
 					<input type="submit" value="変更">
 				</form>
