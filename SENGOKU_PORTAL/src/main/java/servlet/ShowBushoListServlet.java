@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.BushoDAO;
+import model.dao.UserDAO;
 import model.entity.BushoBean;
 
 /**
@@ -47,15 +48,24 @@ public class ShowBushoListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
+		String user_id = request.getParameter("user_id");
 
 		List<BushoBean> bushoList = null;
 
 		// DAOの生成
 		BushoDAO bushodao = new BushoDAO();
+		UserDAO userdao = new UserDAO();
+		String url = null;
 
 		try {
 			// DAOの利用
 			bushoList = bushodao.selectBusho();
+			int authority = userdao.selectAuthority(user_id);
+			if(authority == 2) {
+				url = "adminBushoList.jsp";
+			}else {
+				url = "bushoList.jsp";
+			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -64,9 +74,8 @@ public class ShowBushoListServlet extends HttpServlet {
 		request.setAttribute("bushoList", bushoList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("bushoList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("url");
 		rd.forward(request, response);
 		
 	}
-
 }
