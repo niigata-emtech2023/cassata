@@ -11,15 +11,15 @@
         request.setCharacterEncoding("UTF-8");
     %>
     
-    顔写真：<%request.getParameter("busho_img"); %><br>
-    ニックネーム：<%request.getParameter("nickname"); %><br>
-    ID：<%request.getParameter("user_id"); %><br>
-    パスワード：<%request.getParameter("password"); %><br>
-    自己紹介：<%request.getParameter("myself"); %><br>
-    性別：<%request.getParameter("gender"); %><br>
-    生年月日：<%request.getParameter("birth_date"); %><br>
-    推しの武将：<%request.getParameter("busho_id"); %><br>
-    出身地：<%request.getParameter("area"); %><br>
+    顔写真：<%= request.getAttribute("busho_img") %><br>
+    ニックネーム：<%= request.getAttribute("nickname") %><br>
+    ID：<%= request.getAttribute("user_id") %><br>
+    パスワード：<%= request.getAttribute("password") %><br>
+    自己紹介：<%= request.getAttribute("myself") %><br>
+    性別：<%= request.getAttribute("gender") %><br>
+    生年月日：<%= request.getAttribute("birth_date") %><br>
+    推しの武将：<%= request.getAttribute("busho_id") %><br>
+    出身地：<%= request.getAttribute("area") %><br>
     以上の内容でよろしいですか
     
     <form action="ChangeCustomerServlet" method="POST">
