@@ -115,7 +115,7 @@ public class UserDAO{
 		
 		List<UserBean> profileList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, b.busho_img AS busho_img, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -134,6 +134,7 @@ public class UserDAO{
 				int gender = res.getInt("gender");
 				String busho_id = res.getString("busho_id");
 				String busho_name = res.getString("busho_name");
+				String busho_img = res.getString("busho_img");
 				Date birth_date = res.getDate("birth_date");
 				String area = res.getString("area");
 						
@@ -146,6 +147,7 @@ public class UserDAO{
 				user.setGender(gender);
 				user.setBushoID(busho_id);
 				user.setBushoName(busho_name);
+				user.setBushoImg(busho_img);
 				user.setBirthDate(birth_date);
 				user.setArea(area);
 
