@@ -69,7 +69,7 @@ public class CustomerChangeSendServlet extends HttpServlet {
 		request.setAttribute("bushoNameList", bushoNameList);
 		request.setAttribute("periodList", periodList);
 
-		RequestDispatcher rd = request.getRequestDispatcher("changeBushoList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("changeCustomer.jsp");
 		rd.forward(request, response);
 
 
