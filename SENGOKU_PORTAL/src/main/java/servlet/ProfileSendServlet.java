@@ -43,6 +43,7 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		// リクエストパラメータの取得
+		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
 		String user_id = request.getParameter("user_id");
 		String myself = request.getParameter("myself");
@@ -50,7 +51,8 @@ public class ProfileSendServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-
+		
+		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("user_id", user_id);
 		request.setAttribute("myself", myself);
@@ -58,6 +60,8 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
+		
+		
 
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfile.jsp");
 		rd.forward(request, response);

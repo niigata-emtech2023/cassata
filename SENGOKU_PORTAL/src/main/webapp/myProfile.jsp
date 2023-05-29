@@ -26,16 +26,24 @@
 			<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
 			<a href="javascript:follower.submit()"><p>フォロワー</p></a>
 		</form>
-	<form action="ProfileSendServlet.java" method="POST">
-		<%=user.getNickname()%><br> 
-		ID：<%=user.getUserID()%><br> 
-		自己紹介：<%=user.getMyself()%><br>
-		性別：<%=user.getGender()%><br> 
-		生年月日：<%=user.getBirthDate()%><br> 
-		推しの武将：<%=user.getBushoID()%><br>
-		出身地：<%=user.getArea()%><br>
-		<%}%>
+		 	<%=user.getNickname()%><br> 
+			ID：<%=user.getUserID()%><br> 
+			自己紹介：<%=user.getMyself()%><br>
+			性別：<%=user.getGender()%><br> 
+			生年月日：<%=user.getBirthDate()%><br> 
+			推しの武将：<%=user.getBushoID()%><br>
+			出身地：<%=user.getArea()%><br>
+		<form action="ProfileSendServlet" method="POST">
+			<input type="hidden" name="busho_img" value="<%= user.getBushoImg() %>">
+			<input type="hidden" name="nickname" value="<%=user.getNickname() %>">
+			<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
+			<input type="hidden" name="myself" value="<%=user.getMyself() %>">
+			<input type="hidden" name="gender" value="<%=user.getGender() %>">
+			<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
+			<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
+			<input type="hidden" name="area" value="<%=user.getArea()%>">
+	<% } %>
 		<input type="submit" value="プロフィール変更">
-	</form>	
+		</form>	
 </body>
 </html>

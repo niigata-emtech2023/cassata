@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,6 +39,7 @@ public class ProfileChangeSendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
 
@@ -47,7 +49,7 @@ public class ProfileChangeSendServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
-		String birth_date = request.getParameter("birth_date");
+		Date birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
 		
