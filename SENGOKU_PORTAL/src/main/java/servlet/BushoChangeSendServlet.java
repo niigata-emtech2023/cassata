@@ -57,7 +57,7 @@ public class BushoChangeSendServlet extends HttpServlet {
 		
 		try {
 			bushoList = bushoDAO.selectBushoAll(busho_id);
-			bushoList = bushoDAO.selectBushoNameAll();
+			bushoNameList = bushoDAO.selectBushoNameAll();
 			periodList = periodDAO.selectPeriodAll();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック

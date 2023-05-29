@@ -16,30 +16,40 @@
 	
     <form action="BushoSendServlet" method="POST">
 		<% for(BushoBean busho : bushoList){ %>
-	    <!--顔写真：-->
+		<img src="<%= busho.getBushoImg() %>"><br>
+		画像：
 	    <select name="busho_name">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
-	    		<option value="<%=bushoName.getBushoName()%>"></option>
+	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
+	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
+	    		<% } else { %>
+	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
+	    		<% } %>
 	    	<% } %>
 		</select>
 		<!-- 武将ID -->
-		<input type="hidden" name="busho_id" value="<%=busho.getBushoID() %>">
+		<input type="hidden" name="busho_id" value="<%=busho.getBushoID() %>"><br>
 	    名前：
 	    <input type="text" name="busho_name" value="<%=busho.getBushoName()%>"><br>
-	    
 	    年代：
-	   	<select name="busho_name">
+	   	<select name="period_name">
 	    	<% for(PeriodBean periodName : periodList) { %>
-	    		<option value="<%=periodName.getPeriodName()%>"></option>
+	    	
+	    		<% if(periodName.getPeriodName().equals(busho.getPeriodName())){ %>
+	    			<option value="<%=periodName.getPeriodName()%>" selected><%=periodName.getPeriodName()%></option>
+	    		<% } else { %>
+	    			<option value="<%=periodName.getPeriodName()%>"><%=periodName.getPeriodName()%></option>
+	    		<% } %>
 	    	<% } %>
-		</select>
+	    	
+		</select><br>
 	    
 	    
 	    生年月日：
 	    <input type="text" name="birth_date" value="<%=busho.getBirthDate()%>"><br>
 	              
 	    説明文：
-	    <input type="text" name="commentary" <%=busho.getCommentary()%>><br>
+	    <textarea name="commentary"><%=busho.getCommentary()%></textarea><br>
 	    
 
 	    <% } %>
