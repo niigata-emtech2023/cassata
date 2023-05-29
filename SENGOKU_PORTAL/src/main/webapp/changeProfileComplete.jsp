@@ -8,7 +8,7 @@
 </head>
 <body>
     <%
-	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
+		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
 	<% 
 		for(UserBean user: userList){ 
