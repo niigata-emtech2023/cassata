@@ -23,8 +23,12 @@
     ID：
     <%=user.getUserID()%><br>
     
-    パスワード：
+    旧パスワードを入力：
     <input type="password" name="password" ><br>
+    
+    新しいパスワードを入力<br>
+    
+    
     
     自己紹介：
     
