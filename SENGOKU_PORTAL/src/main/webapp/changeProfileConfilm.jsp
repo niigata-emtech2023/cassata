@@ -7,6 +7,7 @@
 <title>プロフィール変更確認</title>
 </head>
 <body>
+	<!--ProfileChangeSendServlet-->
     <%
         request.setCharacterEncoding("UTF-8");
     %>

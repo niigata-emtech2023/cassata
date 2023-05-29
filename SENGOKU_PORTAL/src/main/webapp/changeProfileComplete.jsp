@@ -7,6 +7,7 @@
 <title>プロフィール変更の確定</title>
 </head>
 <body>
+	<!--ChangeProfileServlet-->
     <%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
