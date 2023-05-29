@@ -48,7 +48,7 @@ public class ShowBushoListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
-		String user_id = request.getParameter("user_id");
+		String user_id = (String) session.getAttribute("user_id");
 
 		List<BushoBean> bushoList = null;
 
@@ -74,7 +74,7 @@ public class ShowBushoListServlet extends HttpServlet {
 		request.setAttribute("bushoList", bushoList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("adminBushoList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 		
 	}

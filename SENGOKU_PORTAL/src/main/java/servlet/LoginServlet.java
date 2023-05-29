@@ -53,8 +53,8 @@ public class LoginServlet extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
 		
-		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
+
 
 		try {
 			// DAOの生成
