@@ -1,12 +1,20 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.BushoDAO;
+import model.dao.PeriodDAO;
+import model.entity.BushoBean;
+import model.entity.PeriodBean;
 
 /**
  * Servlet implementation class BushoChangeSendServlet
@@ -36,7 +44,34 @@ public class BushoChangeSendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
+		request.setCharacterEncoding("UTF-8");
+		
+		String busho_id = request.getParameter("busho_id");
+		
+		List<BushoBean> bushoList = null;
+		List<BushoBean> bushoNameList = null;
+		List<PeriodBean> periodList = null;
+		
+		BushoDAO bushoDAO = new BushoDAO();
+		PeriodDAO periodDAO = new PeriodDAO();
+		
+		try {
+			bushoList = bushoDAO.selectBushoAll(busho_id);
+			bushoList = bushoDAO.selectBushoNameAll();
+			periodList = periodDAO.selectPeriodAll();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("bushoList", bushoList);
+		request.setAttribute("bushoNameList", bushoNameList);
+		request.setAttribute("periodList", periodList);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("changeBushoList.jsp");
+		rd.forward(request, response);
+
+		
 	}
 
 }
