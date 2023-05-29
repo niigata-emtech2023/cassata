@@ -48,6 +48,9 @@ public class ShowBushorServlet extends HttpServlet {
 				// セッションオブジェクトの取得
 				HttpSession session = request.getSession();
 
+				// リクエストパラメータの取得
+				String busho_id = request.getParameter("busho_id");
+
 				List<BushoBean> bushoList = null;
 
 				// DAOの生成
@@ -55,7 +58,7 @@ public class ShowBushorServlet extends HttpServlet {
 
 				try {
 					// DAOの利用
-					bushoList = bushodao.selectBusho();
+					bushoList = bushodao.selectBushoAll(busho_id);
 				} catch (SQLException | ClassNotFoundException e) {
 					e.printStackTrace();
 				}

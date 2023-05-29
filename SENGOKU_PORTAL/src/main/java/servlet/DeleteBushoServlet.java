@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.BushoDAO;
+import model.entity.BushoBean;
 
 /**
  * Servlet implementation class DeleteBushoServlet
@@ -54,6 +56,19 @@ public class DeleteBushoServlet extends HttpServlet {
 
 		// DAOの生成
 		BushoDAO bushodao = new BushoDAO();
+		
+		List<BushoBean> bushoList = null;
+		
+		try {
+			// DAOの利用
+			bushoList = bushodao.selectBushoAll(busho_id);
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// セッションスコープへの属性の設定
+		request.setAttribute("bushoList", bushoList);
+
 		
 		int count = 0;	// 処理件数
 

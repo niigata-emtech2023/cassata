@@ -17,13 +17,13 @@
 	<img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
 	ニックネーム：<%=user.getNickname() %><br>
 	ID：<%=user.getUserID() %><br>
-	自己紹介：<%=user.getMyself() %><br>	
+	自己紹介：<%=user.getMyself() %><br>
 	性別：<%=user.getGender() %><br>
-	生年月日：<%=user.getBirthDate() %>	
-	推しの武将：<%=user.getBushoName() %>
-	出身地：<%=user.getArea() %>
+	生年月日：<%=user.getBirthDate() %>	<br>
+	推しの武将：<%=user.getBushoName() %><br>
+	出身地：<%=user.getArea() %><br>
 	
-	以上のユーザを削除してもよろしいですか？
+	以上のユーザを削除してもよろしいですか？<br>
 	<form action="DeleteCustomerServlet" method="POST">
 	<input type="hidden" name="user_id" value="<%=user.getUserID() %>">
 	<%} %>
