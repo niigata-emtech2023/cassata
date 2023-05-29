@@ -7,7 +7,7 @@
 <title>武将一覧（管理者専用画面）</title>
 </head>
 <body>
-	<!-- ShowBushoListServlet -->
+	<!-- ShowBushoListServlet  -->
 	
     	<%
 		List<BushoBean> bushoList
