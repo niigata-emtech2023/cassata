@@ -16,7 +16,7 @@
     <%
     	for(UserBean user : userList) {
     %>
-    
+    <!-- 顔写真 -->
     <% for(BushoBean busho : bushoList){ %>
 		<img src="<%= busho.getBushoImg() %>" alt="武将の顔写真"><br>
 		画像：
