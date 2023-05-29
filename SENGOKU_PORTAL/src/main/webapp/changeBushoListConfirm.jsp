@@ -8,6 +8,8 @@
 </head>
 <body>
 
+	<!-- CustomerSendServlet -->
+
     <%
         request.setCharacterEncoding("UTF-8");
     %>
