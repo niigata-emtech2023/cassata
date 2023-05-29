@@ -32,13 +32,13 @@
 			<td><%=busho.getBirthDate()%></td>
 			<td>
 				<form action="BushoChangeSendServlet" method="POST">
-					<input type="hidden" name="busho_name" value="<%=busho.getBushoID()%>">
+					<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="変更">
 				</form>
 			</td>
 			<td>
-				<form action="ShowBushorServlet" method="POST">
-					<input type="hidden" name="busho_name" value="<%=busho.getBushoID()%>">
+				<form action="ShowBushoServlet" method="POST">
+					<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="削除">
 				</form>
 			</td>
