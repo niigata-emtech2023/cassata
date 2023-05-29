@@ -26,7 +26,7 @@
 			<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
 			<a href="javascript:follower.submit()"><p>フォロワー</p></a>
 		</form>
-	<form action="ProfileSendServlet" method="POST">
+	<form action="" method="POST">
 		<%=user.getNickname() %><br>
 		ID：<%=user.getUserID() %><br>
 		自己紹介：<%=user.getMyself()%><br>
