@@ -28,6 +28,9 @@
 		<% } %>
 		</p>
 		<div class="header-contents">
+		
+			<!-- 管理者のユーザ管理画面（仮） -->
+			<a href="customer.jsp">ユーザ管理
 
 			<!-- 新規登録リンク  -->
 			<a href="register.jsp">新規登録</a>
