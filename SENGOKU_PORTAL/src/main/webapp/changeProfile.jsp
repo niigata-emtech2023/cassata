@@ -11,8 +11,9 @@
     <%
 	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
-	<% for(UserBean user: userList){ %>
-	
+	<% 
+		for(UserBean user: userList){ 
+	%>
     顔写真：
     <img src="<%=user.getBushoImg()%>" alt="顔写真">
     
