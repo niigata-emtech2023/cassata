@@ -12,7 +12,7 @@
 	%>
     <%for(UserBean user : userList) {%>
     顔写真：
-    <img src="<%=user.getBushoImg()%>">
+    <img src="<%=user.getBushoImg()%>" alt="武将の顔写真">
     
     
     ニックネーム：

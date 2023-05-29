@@ -12,7 +12,7 @@
     		=(List<UserBean>) request.getAttribute("userList");
     %>
     <% for(UserBean user: userList){ %>
-	<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">
+	<img src="<%=user.getBushoImg()%>"  alt="武将の顔写真">
     フォロー フォロワー<br>
 	フォロワー<br>
 	<!--ニックネーム--><%=user.getNickname() %><br>

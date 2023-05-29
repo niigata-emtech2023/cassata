@@ -11,7 +11,7 @@
 	<% for(UserBean user : userList){ %>
 	<!--プロフィール写真：-->
 	<form action="DeleteCustomerServlet" method="POST">
-	<img src="<%=user.getBushoImg() %>" alt="プロフィール写真">	
+	<img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
 	ニックネーム：<%=user.getNickname() %><br>
 	ID：<%=user.getUserID() %><br>
 	自己紹介：<%=user.getMyself() %><br>	
