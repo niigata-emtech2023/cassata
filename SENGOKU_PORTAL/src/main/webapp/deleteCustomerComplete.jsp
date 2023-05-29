@@ -18,12 +18,12 @@
 	ID：<%=user.getUserID() %><br>
 	自己紹介：<%=user.getMyself() %><br>	
 	性別：<%=user.getGender() %><br>
-	生年月日：<%=user.getBirthDate() %>	
-	推しの武将：<%=user.getBushoName() %>
-	出身地：<%=user.getArea() %>
+	生年月日：<%=user.getBirthDate() %>	<br>
+	推しの武将：<%=user.getBushoName() %><br>
+	出身地：<%=user.getArea() %><br>
 	<%} %>
 	以上のユーザを削除しました
-	<form action="customer.jsp" method="POST">
+	<form action="ShowCustomerServlet" method="POST">
 		<input type="submit" value="一覧へ">
 	</form>
 </body>
