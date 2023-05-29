@@ -220,7 +220,7 @@ public class BushoDAO{
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
 
-			//プレースホルダへの値の設定
+			//プレースホルダへの値の設定!
 			pstmt.setString(1, busho_id);
 
 			//SQlステートメントの実行

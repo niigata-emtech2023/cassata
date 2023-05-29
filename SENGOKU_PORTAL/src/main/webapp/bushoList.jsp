@@ -7,6 +7,8 @@
 <title>武将一覧</title>
 </head>
 <body>
+
+
    	<%
 	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 	%>

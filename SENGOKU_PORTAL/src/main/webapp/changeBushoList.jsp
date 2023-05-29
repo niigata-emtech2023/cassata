@@ -7,7 +7,7 @@
 <title>武将の変更（管理者専用画面）</title>
 </head>
 <body>
-	<!--adminBushoList.jsp-->
+	<!-- adminBushoList.jsp -->
     <%
 		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
     	List<BushoBean> bushoNameList = (List<BushoBean>) request.getAttribute("bushoNameList");

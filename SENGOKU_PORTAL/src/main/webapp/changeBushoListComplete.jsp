@@ -7,6 +7,7 @@
 <title>武将の変更確定（管理者専用画面）</title>
 </head>
 <body>
+	<!-- ChangeBushoServlet -->
 
     <%
         request.setCharacterEncoding("UTF-8");

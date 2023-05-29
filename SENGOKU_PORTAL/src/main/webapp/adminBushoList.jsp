@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!-- ShowBushoListServlet -->
+	
     	<%
 		List<BushoBean> bushoList
 			= (List<BushoBean>) request.getAttribute("bushoList");
