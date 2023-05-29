@@ -8,8 +8,8 @@
 </head>
 <body>
     <% 
-    	List<UserBean> userList
-    		=(List<UserBean>) request.getAttribute("userList");
+    	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
+    	boolean followCheck = (boolean)request.getAttribute("followCheck");
     %>
 	<% for(UserBean user: userList){ %>
 	
@@ -26,7 +26,22 @@
 	生年月日：<%=user.getBirthDate()%><br>
 	推しの武将：<%=user.getBushoName()%><br>
 	出身地：<%=user.getArea()%><br>
-	<% } %>	
-	<input type="submit" value="フォローする">	
+	
+
+		<% if(followCheck) {%>
+			<form action="FollowRemoveServlet" method="POST">
+				<input type="hidden" name="otherUserID" value="<%= user.getUserID() %>">
+				<input type="hidden" name="myUserID" value="<%= (String)session.getAttribute("user_id") %>">
+				<input type="submit" value="フォロー解除">	
+			</form>
+		<% } else {%>	
+			<form action="FollowSubmitServlet" method="POST">
+				<input type="hidden" name="otherUserID" value="<%= user.getUserID() %>">
+				<input type="hidden" name="myUserID" value="<%= (String)session.getAttribute("user_id") %>">
+				<input type="submit" value="フォローする">	
+			</form>
+		<% } %>
+	
+	<% } %>
 </body>
 </html>

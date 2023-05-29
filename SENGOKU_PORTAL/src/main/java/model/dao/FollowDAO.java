@@ -11,6 +11,29 @@ import java.util.List;
 import model.entity.FollowBean;
 
 public class FollowDAO {
+	
+	public boolean checkFollow(String user_id_temp, String follow_user_id_temp) throws SQLException, ClassNotFoundException {
+
+		String sql = "SELECT user_id, follow_user_id FROM follow WHERE user_id = ? AND follow_user_id = ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, user_id_temp);
+			pstmt.setString(2, follow_user_id_temp);
+
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+			if(res.next()) {
+				return true;
+			}
+
+		}
+
+		return false;
+	}
 
 	public List<FollowBean> selectFollow(String user_id_temp) throws SQLException, ClassNotFoundException {
 
@@ -98,11 +121,11 @@ public class FollowDAO {
 		return count;
 	}
 	
-	public int removeFollow(String user_id) throws SQLException, ClassNotFoundException{
+	public int removeFollow(String user_id, String follow_user_id) throws SQLException, ClassNotFoundException{
 		
 		int count = 0;
 		
-		String sql="DELETE FROM follow WHERE user_id = ?";
+		String sql="DELETE FROM follow WHERE user_id = ? AND follow_user_id = ?";
 
 
 		//データベースへの値の設定
@@ -111,6 +134,7 @@ public class FollowDAO {
 		
 			//プレースホルダへの値の設定
 			pstmt.setString(1, user_id);
+			pstmt.setString(2, follow_user_id);
 			
 			//SQlステートメントの実行
 			count = pstmt.executeUpdate();
