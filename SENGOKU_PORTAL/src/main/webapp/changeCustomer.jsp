@@ -15,7 +15,6 @@
     顔写真：
     <img src="<%=user.getBushoImg()%>" alt="武将の顔写真">
     
-    
     ニックネーム：
     <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
     
