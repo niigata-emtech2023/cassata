@@ -8,7 +8,7 @@
 </head>
 <body>
     <%
-	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
+		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 	%>
 	
     <form action="changeBushoConfilm.jsp" method="POST">
