@@ -155,12 +155,12 @@ public class BushoDAO{
 
 	}
 
-	public int changeBusho(String busho_id, String busho_name, String period_id, String commentary, String birth_date, String busho_img)
+	public int changeBusho(String busho_id, String busho_name, String period_id, String commentary, String birth_date)
 			throws ClassNotFoundException, SQLException{
 
 		int count = 0;
 
-		String sql="UPDATE busho SET busho_name=?,period_id=?,commentery=?,birth_date=?,busho_img=? WHERE busho_id = ?";
+		String sql="UPDATE busho SET busho_name=?,period_id=?,commentary=?,birth_date=? WHERE busho_id = ?";
 
 		//データベースへの値の設定、PreparedStatementの取得
 		try(Connection con=ConnectionManager.getConnection();
@@ -171,8 +171,7 @@ public class BushoDAO{
 			pstmt.setString(2, period_id);
 			pstmt.setString(3, commentary);
 			pstmt.setString(4, birth_date);
-			pstmt.setString(5, busho_img);
-			pstmt.setString(6, busho_id);
+			pstmt.setString(5, busho_id);
 			
 			//SQLステートメントの実行
 			count=pstmt.executeUpdate();
@@ -221,7 +220,7 @@ public class BushoDAO{
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
 
-			//プレースホルダへの値の設定
+			//プレースホルダへの値の設定!
 			pstmt.setString(1, busho_id);
 
 			//SQlステートメントの実行
@@ -269,6 +268,31 @@ public class BushoDAO{
 		}
 		
 		return bushoList;
+	}
+	
+	public String selectBushoNameImageString(String busho_name) throws ClassNotFoundException, SQLException{
+		
+		String busho_img = "";
+		
+		String sql = "SELECT busho_img FROM busho WHERE busho_name = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, busho_name);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				busho_img = res.getString("busho_img");
+			}
+	
+		}
+		
+		return busho_img;
 	}
 	
 	

@@ -7,7 +7,11 @@
 <title>プロフィール変更</title>
 </head>
 <body>
+<<<<<<< HEAD
     <!-- ProfileChangeSendServlet.javaから転送 -->
+=======
+    <!-- ProfileChangeServlet -->
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
     <%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>

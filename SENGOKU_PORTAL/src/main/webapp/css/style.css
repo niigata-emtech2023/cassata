@@ -418,3 +418,8 @@ a{
 	padding:10px;
 	border:2px solid black;
 }
+
+.other-contents{
+	position:relative;
+	top:125px;
+}

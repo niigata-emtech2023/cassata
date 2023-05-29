@@ -39,12 +39,14 @@ public class BushoSendServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得
+		String busho_id = request.getParameter("busho_id");
 		String busho_name_img = request.getParameter("busho_name_img");
 		String busho_name = request.getParameter("busho_name");
+		String busho_img= request.getParameter("busho_img");
 		String period_name = request.getParameter("period_name");
 		String birth_date = request.getParameter("birth_date");
 		String commentary = request.getParameter("commentary");	
@@ -53,7 +55,7 @@ public class BushoSendServlet extends HttpServlet {
 		 * period_nameからperiod_idを特定する
 		 */
 		PeriodDAO periodDAO = new PeriodDAO();
-		String period_id;
+		String period_id = "";
 		try {
 			period_id = periodDAO.selectPeriodID(period_name);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -61,13 +63,17 @@ public class BushoSendServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		
 		request.setAttribute("busho_name_img", busho_name_img);
+		request.setAttribute("busho_img", busho_img);
+		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("busho_name",busho_name );
-		request.setAttribute("period_id",period_id );
+		request.setAttribute("period_id", period_id);
+		request.setAttribute("period_name", period_name);
 		request.setAttribute("birth_date",birth_date);
 		request.setAttribute("commentary",commentary);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("changeBushoListConfilm");
+		RequestDispatcher rd = request.getRequestDispatcher("changeBushoListConfirm.jsp");
 		rd.forward(request, response);
 	}
 

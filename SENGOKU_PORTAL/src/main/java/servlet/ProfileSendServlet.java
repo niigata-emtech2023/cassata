@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ProfileSend
@@ -41,6 +42,9 @@ public class ProfileSendServlet extends HttpServlet {
 		
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
+		
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
 		
 		// リクエストパラメータの取得
 		String busho_img = request.getParameter("busho_img");

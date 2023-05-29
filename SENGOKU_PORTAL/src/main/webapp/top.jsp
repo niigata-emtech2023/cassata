@@ -121,6 +121,7 @@
 					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
 				</form>
 			</li>
+			<% if(session.getAttribute("user_id") != null){ %>
 			<li>
 				<form method="POST" name="myProfile" action="ShowMyProfileServlet">
 					<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
@@ -128,6 +129,9 @@
 				</form>
 				
 			</li>
+			<% } else { %>
+			
+			<% } %>
 			<li>				
 				<a href="searchUser.jsp"><p>ユーザ検索</p></a>
 			</li>

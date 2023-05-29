@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.BushoDAO;
 
@@ -42,23 +41,23 @@ public class ChangeBushoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		// リクエストオブジェクトのエンコーディング方式の指定
+		// リクエストオブジェクトのエンコーディング方式の指定をする
 		request.setCharacterEncoding("UTF-8");
-		// セッションオブジェクトの取得
-		HttpSession session = request.getSession();
 
 		// リクエストパラメータの取得
 		String busho_id = request.getParameter("busho_id");
 		String busho_name = request.getParameter("busho_name");
 		String period_id = request.getParameter("period_id");
+		String period_name = request.getParameter("period_name");
 		String commentary = request.getParameter("commentary");
 		String birth_date = request.getParameter("birth_date");
 		String busho_img = request.getParameter("busho_img");
 
 		// リクエストスコープへの属性の設定
 		request.setAttribute("busho_id", busho_id);
-		request.setAttribute("busho_name", busho_id);
+		request.setAttribute("busho_name", busho_name);
 		request.setAttribute("period_id", period_id);
+		request.setAttribute("period_name", period_name);
 		request.setAttribute("commentary", commentary);
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_img", busho_img);
@@ -71,7 +70,7 @@ public class ChangeBushoServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			count = bushodao.changeBusho (busho_id, busho_name, period_id, commentary, birth_date, busho_img);
+			count = bushodao.changeBusho (busho_id, busho_name, period_id, commentary, birth_date);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
