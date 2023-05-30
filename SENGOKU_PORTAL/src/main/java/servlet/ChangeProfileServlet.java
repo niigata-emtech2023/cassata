@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.UserDAO;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class ChangeProfileServlet
@@ -48,10 +50,14 @@ public class ChangeProfileServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
 		int gender = Integer.parseInt(request.getParameter("gender"));
+		String birth_date = request.getParameter("birth_date");
 		String myself = request.getParameter("myself");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-		String birth_date = request.getParameter("birth_date");
+		
+		java.sql.Date sqlDate= java.sql.Date.valueOf(birth_date);
+		
+		
 		
 
 		// DAOの生成
@@ -61,12 +67,20 @@ public class ChangeProfileServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			count = userdao.changeProfile(user_id, password,nickname,gender,busho_id, birth_date, area, myself);
+			count = userdao.changeProfile(password, nickname, gender, busho_id, sqlDate, area, myself, user_id );
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
+		
+		List<UserBean> userList = null;
+		
+		try {
+			userList = userdao.selectProfile(user_id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		// リクエストスコープへの属性の設定
 		request.setAttribute("count", count);
 

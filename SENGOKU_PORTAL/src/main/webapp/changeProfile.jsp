@@ -76,9 +76,9 @@
     
     生年月日：
     <% if(request.getAttribute("birth_date").equals("null")){ %>
-    	<input type="text" name="birth_date" placeholder="例:2000-01-01"><br>
+    	<input type="text" name="birth_date" placeholder="例:2000/01/01"><br>
     <% } else { %>
-    	<input type="text" name="birth_date" placeholder="例:2000-01-01" value="<%=request.getAttribute("birth_date")%>"><br>
+    	<input type="text" name="birth_date" placeholder="例:2000/01/01" value="<%=request.getAttribute("birth_date")%>"><br>
     <% } %>
     
     推しの武将：

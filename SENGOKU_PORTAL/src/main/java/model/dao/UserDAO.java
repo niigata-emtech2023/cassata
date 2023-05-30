@@ -202,7 +202,7 @@ public class UserDAO{
 		
 	}
 	
-	public int changeProfile(String user_id, String new_password, String nickname, int gender, String busho_id, String birth_date, String area, String myself) throws ClassNotFoundException, SQLException{
+	public int changeProfile(String password, String nickname, int gender, String busho_id, Date birth_date, String area, String myself, String user_id) throws ClassNotFoundException, SQLException{
 		
 		int count = 0;
 		
@@ -212,14 +212,14 @@ public class UserDAO{
 				Statement stmt = con.createStatement();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
-			pstmt.setString(1, new_password);
+			pstmt.setString(1, password);
 			pstmt.setString(2, nickname);
 			pstmt.setInt(3, gender);
 			pstmt.setString(4, busho_id);
-			pstmt.setString(5, birth_date);
+			pstmt.setDate(5, birth_date);
 			pstmt.setString(6, area);
 			pstmt.setString(7, myself);
-			pstmt.setString(8,  user_id);
+			pstmt.setString(8, user_id);
 			
 			count = pstmt.executeUpdate();
 
