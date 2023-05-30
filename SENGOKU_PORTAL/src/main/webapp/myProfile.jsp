@@ -8,6 +8,7 @@
 </head>
 <body>
     <% 
+    	request.setCharacterEncoding("UTF-8");
     	List<UserBean> userList
     		=(List<UserBean>) request.getAttribute("userList");
     %>
@@ -20,11 +21,11 @@
 	<% } %>
     	<form method="POST" name="follow" action="FollowServlet">
 			<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
-			<a href="javascript:follow.submit()"><p>フォロー </p></a>
+			<a href="javascript:follow.submit()">フォロー</a>
 		</form>
 	    <form method="POST" name="follower" action="FollowerServlet">
 			<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
-			<a href="javascript:follower.submit()"><p>フォロワー</p></a>
+			<a href="javascript:follower.submit()">フォロワー</a>
 		</form>
 		 	<%=user.getNickname()%><br> 
 			ID：<%=user.getUserID()%><br> 
@@ -46,10 +47,14 @@
 			<% } %>
 			
 			生年月日：<%=user.getBirthDate()%><br> 
-			推しの武将：<%=user.getBushoName()%><br>
+			
+			<% if(user.getBushoName() == null) {%>
+				推しの武将：未設定<br>
+			<% } else { %>
+				推しの武将：<%=user.getBushoName()%><br>
+			<% } %>
 			
 			<!--  出身地 -->
-			
 			<% if(user.getArea() == null){%>
 				出身地：未設定<br>
 			<% } else { %>
@@ -65,8 +70,9 @@
 			<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
 			<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
 			<input type="hidden" name="area" value="<%=user.getArea()%>">
-	<% } %>
-		<input type="submit" value="プロフィール変更">
+	
+			<input type="submit" value="プロフィール変更">
 		</form>	
+	<% } %>
 </body>
 </html>

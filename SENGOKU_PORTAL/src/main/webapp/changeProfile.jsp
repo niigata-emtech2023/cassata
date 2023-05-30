@@ -10,9 +10,17 @@
 <!--ProfileSendServletから転送-->
     <%
     	request.setCharacterEncoding("UTF-8");
+    
+    	String error = null;
+    	
+    	if(request.getAttribute("error") != null){
+    		error = (String)request.getAttribute("error");
+    	}
+    	
     	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
     	
 	%>
+	
 	<form action="ProfileChangeSendServlet" method="POST">
 	
     顔写真：
@@ -38,14 +46,14 @@
     <input type="password" name="new_password_2"><br>
     
     <!-- パスワードが一致しなかったら戻される -->
-    <% if(request.getAttribute("error").equals("null")) { %>
-    	あ
-	<% } else {%>
-		<%= request.getAttribute("error") %>
-	<% } %>
+    <% if(error == null) {%>
     
+    <% } else { %>
+    	<%= request.getAttribute("error") %><br>
+    <% } %>
+
     自己紹介：
-    <% if(request.getAttribute("myself").equals(null)){ %>
+    <% if(request.getAttribute("myself").equals("null")){ %>
     	<textarea name="myself"></textarea><br>
     <% } else { %>
     	<textarea name="myself"><%=request.getAttribute("myself")%></textarea><br>
@@ -71,6 +79,7 @@
     
     推しの武将：
     <select name="busho_name">
+    	<option value="null" selected>未設定</option>
 		<% for(BushoBean busho : bushoList){ %>
 			<% if(busho.getBushoName().equals(request.getAttribute("busho_name"))){ %>
 				<option value="<%= busho.getBushoName() %>" selected><%= busho.getBushoName() %></option>

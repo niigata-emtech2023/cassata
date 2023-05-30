@@ -85,6 +85,17 @@ public class ProfileChangeSendServlet extends HttpServlet {
 		if(passwordCheck) {
 			if(new_password_1.equals(new_password_2)) {
 				passwordCheck = true;
+				
+				if(new_password_1.equals("") || new_password_2.equals("")) {
+					error = "新しいパスワードが空白です";
+					passwordCheck = false;
+				}
+				
+				if(new_password_1.equals(" ") || new_password_2.equals(" ")) {
+					error = "新しいパスワードが空白です";
+					passwordCheck = false;
+				}
+				
 			} else {
 				passwordCheck = false;
 				error = "新しいパスワードが一致していません";
@@ -102,24 +113,33 @@ public class ProfileChangeSendServlet extends HttpServlet {
 			
 			String busho_id = null;
 			
-			try {
-				busho_id = bushoDAO.selectBushoIDString(busho_name);
-			} catch (ClassNotFoundException | SQLException e1) {
-				// TODO 自動生成された catch ブロック
-				e1.printStackTrace();
+			/**
+			 * 推しの武将が未設定の場合は画像を取得しない
+			 */
+			if(!busho_name.equals("null")) {
+			
+				try {
+					busho_id = bushoDAO.selectBushoIDString(busho_name);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO 自動生成された catch ブロック
+					e1.printStackTrace();
+				}
+				
+				try {
+					busho_img = bushoDAO.selectBushoImageString(busho_id);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+				
+			} else {
+				busho_img = "null";
 			}
 			
-			
-			try {
-				busho_img = bushoDAO.selectBushoImageString(busho_id);
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-			
+			request.setAttribute("user_id", user_id);
 			request.setAttribute("busho_img", busho_img);
 			request.setAttribute("nickname", nickname);
-			request.setAttribute("current_password", current_password);
+			request.setAttribute("password", new_password_1);
 			request.setAttribute("myself", myself);
 			request.setAttribute("gender", gender);
 			request.setAttribute("birth_date", birth_date);
@@ -137,17 +157,22 @@ public class ProfileChangeSendServlet extends HttpServlet {
 			
 			BushoDAO bushoDAO = new BushoDAO();
 			List<BushoBean> bushoList = null;
-			String busho_id = null;
 			
-			try {
-				busho_id = bushoDAO.selectBushoIDString(busho_name);
-			} catch (ClassNotFoundException | SQLException e1) {
-				// TODO 自動生成された catch ブロック
-				e1.printStackTrace();
+			if(!busho_name.equals("null")) {
+				String busho_id = null;
+				
+				try {
+					busho_id = bushoDAO.selectBushoIDString(busho_name);
+					busho_img = bushoDAO.selectBushoImageString(busho_id);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO 自動生成された catch ブロック
+					e1.printStackTrace();
+				}
+			} else {
+				busho_img = "null";
 			}
 			
 			try {
-				busho_img = bushoDAO.selectBushoImageString(busho_id);
 				bushoList = bushoDAO.selectBushoNameAll();
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO 自動生成された catch ブロック
@@ -165,7 +190,6 @@ public class ProfileChangeSendServlet extends HttpServlet {
 			request.setAttribute("myself", myself);
 			request.setAttribute("gender", gender);
 			request.setAttribute("birth_date", birth_date);
-			request.setAttribute("busho_id", busho_id);
 			request.setAttribute("area", area);
 			
 			request.setAttribute("error", error);
