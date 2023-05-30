@@ -33,6 +33,8 @@
 	    	<% } %>
 		</select><br>
 	
+    ニックネーム：
+    <input type="text" name="nickname" value="<%=request.getAttribute("nickname")%>"><br>
     
     ID：
     <%=request.getAttribute("user_id")%><br>
