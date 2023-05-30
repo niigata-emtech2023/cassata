@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.UserDAO;
 
 /**
  * Servlet implementation class ProfileSend
@@ -65,6 +68,20 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
+
+		// DAOの生成
+		UserDAO userdao = new UserDAO();
+
+		try {
+			// DAOの利用
+			UserDAO user= userdao.selectProfileSendList (busho_img,nickname,user_id,myself,gender,birth_date,busho_id,area);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		// リクエストスコープへの属性の設定
+		request.setAttribute("count", count);
 
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfile.jsp");
 		rd.forward(request, response);

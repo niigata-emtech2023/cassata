@@ -273,5 +273,56 @@ public class UserDAO{
 		
 		return userList;
 	}
+	
+	//ProfileSendServletのため
+	public List<UserBean> selectProfileSend(String busho_img,String nickname,String user_id,String myself,int gender,Date birth_date,String busho_id,String area) throws ClassNotFoundException, SQLException{
+		
+		List<UserBean> selectProfileSendList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT user_id,nickname,myself,gender,busho_img,birth_date,busho_id,area FROM user";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+				
+				
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, nickname);
+			pstmt.setString(3, myself);
+			pstmt.setInt(4, gender);
+			pstmt.setString(5, busho_img);
+			pstmt.setDate(6, birth_date);
+			pstmt.setString(7, busho_id);
+			pstmt.setString(8, area);
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				user_id = res.getString("user_id");
+				nickname = res.getString("nickname");
+				myself = res.getString("myself");
+				gender = res.getInt("gender");
+				busho_id = res.getString("busho_id");
+				busho_img = res.getString("busho_img");
+				birth_date = res.getDate("birth_date");
+				area = res.getString("area");
+				
+				UserBean user = new UserBean();
+				user.setUserID(user_id);
+				user.setNickname(nickname);
+				user.setMyself(myself);
+				user.setGender(gender);
+				user.setBushoID(busho_id);
+				user.setBushoImg(busho_img);
+				user.setBirthDate(birth_date);
+				user.setArea(area);
+				
+				selectProfileSendList.add(user);
+			}
+		}
+		
+		return selectProfileSendList;
+	}
 
 }
