@@ -64,7 +64,7 @@ public class CustomerSendServlet extends HttpServlet {
 		request.setAttribute("busho_name", busho_name);
 		request.setAttribute("area", area);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfirm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfilm.jsp");
 		rd.forward(request, response);
 	}
 
