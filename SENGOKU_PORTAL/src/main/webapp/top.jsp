@@ -29,10 +29,15 @@
 		</p>
 		<div class="header-contents">
 		
-			<!-- 管理者のユーザ管理画面（仮） -->
-			<form method="POST" name="showcustomer" action="ShowCustomerServlet">
+		<!-- 管理者のユーザ管理画面（仮） -->
+		<% if(session.getAttribute("nickname")!=null){ %>
+				<form method="POST" name="showcustomer" action="ShowCustomerServlet">
 					<a href="javascript:showcustomer.submit()">ユーザ管理</a>
 				</form>
+			<% } %>
+			
+			
+
 
 			<!-- 新規登録リンク  -->
 			<a href="register.jsp">新規登録</a>

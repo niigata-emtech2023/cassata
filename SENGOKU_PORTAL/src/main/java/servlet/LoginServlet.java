@@ -82,6 +82,9 @@ public class LoginServlet extends HttpServlet {
 			try {
 				String nickname = dao.selectUserName(user_id);
 				session.setAttribute("nickname", nickname);
+				
+				int authority = dao.selectAuthority(user_id);
+				session.setAttribute("authority", authority);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
