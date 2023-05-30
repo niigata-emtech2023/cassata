@@ -20,18 +20,18 @@
 	
     
     <!-- 顔写真 -->
-    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
+    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真"><br>
 		
-		<%-- 画像：
+		 画像：
 	    <select name="busho_name_img">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
-	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
+	    		<% if(bushoName.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
 	    		<% } else { %>
 	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
 	    		<% } %>
 	    	<% } %>
-		</select>--%>
+		</select><br>
 	
     
     ID：
@@ -57,16 +57,16 @@
     生年月日：
     <input type="text" name="birth_date" <%=request.getAttribute("birth_date")%>><br>
     
-    <%-- 好きなの武将：
+    推しの武将：
     <select name="buso_name">
-	    	<% for(BushoBean bushoName : bushoList) { %>
-	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
+	    	<% for(BushoBean bushoName : bushoNameList) { %>
+	    		<% if(bushoName.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
 	    		<% } else { %>
 	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
 	    		<% } %>
 	    	<% } %>
-		</select><br>--%>
+	</select><br>
     
     出身地：
     <input type="text" name="area" <%=request.getAttribute("area")%>><br>
