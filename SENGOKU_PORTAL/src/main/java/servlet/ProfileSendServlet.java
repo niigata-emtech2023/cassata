@@ -26,24 +26,27 @@ public class ProfileSendServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
-		
-		
-		
+
 		// リクエストパラメータの取得
 		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
@@ -53,7 +56,7 @@ public class ProfileSendServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-		
+
 		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("user_id", user_id);
@@ -62,8 +65,6 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
-		
-		
 
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfile.jsp");
 		rd.forward(request, response);
