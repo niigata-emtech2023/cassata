@@ -80,6 +80,49 @@ public class UserDAO{
 		return userList;
 	}
 	
+	public List<UserBean> selectAllUserSort(String sort, String order) throws ClassNotFoundException, SQLException{
+		 
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY " + sort + " " + order;
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				String user_id = res.getString("user_id");
+				String password = res.getString("password");
+				String nickname = res.getString("nickname");
+				String myself = res.getString("myself");
+				int gender = res.getInt("gender");
+				String busho_id = res.getString("busho_id");
+				String busho_name = res.getString("busho_name");
+				Date birth_date = res.getDate("birth_date");
+				String area = res.getString("area");
+						
+				UserBean user = new UserBean();
+				user.setUserID(user_id);
+				user.setBushoName(busho_name);
+				user.setPassword(password);
+				user.setNickname(nickname);
+				user.setMyself(myself);
+				user.setGender(gender);
+				user.setBushoID(busho_id);
+				user.setBushoName(busho_name);
+				user.setBirthDate(birth_date);
+				user.setArea(area);
+
+				userList.add(user);
+			}
+		}
+		
+		return userList;
+	}
+	
 	/**
 	 * ユーザIDから権限を取得する
 	 * @param user_id

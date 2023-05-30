@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
 import model.entity.UserBean;
@@ -45,8 +44,6 @@ public class ShowCustomerServlet extends HttpServlet {
 
 		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
-		// セッションオブジェクトの取得
-		HttpSession session = request.getSession();
 
 		List<UserBean> userList = null;
 

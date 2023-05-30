@@ -7,10 +7,23 @@
 <title>顧客管理（管理者専用画面）</title>
 </head>
 <body>
+	<!-- ShowCustomerServlet -->
     <%
 		List<UserBean> userList 
 		= (List<UserBean>) request.getAttribute("userList");
 	%>
+	<form action="SortCustomerServlet" method="POST">
+		<select name="sort">
+			<option value="user_id">ID順</option>
+			<option value="created_at">登録日順</option>
+			<option value="u.birth_date">生年月日順</option>
+		</select> 
+		<select name="order">
+			<option value="ASC">昇順</option>
+			<option value="DESC">降順</option>
+		</select> 
+		<input type="submit" value="ソート">
+	</form>
 	<table>
 		<tr>
 			<th>写真</th>
