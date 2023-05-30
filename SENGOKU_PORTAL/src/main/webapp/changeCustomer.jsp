@@ -9,16 +9,12 @@
 <body>
 <!-- CustomerChangeSendServletから転送 -->
 	<%
-		List<UserBean> userList=(List<UserBean>) request.getAttribute("userList");
-	 	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
-		List<BushoBean> bushoNameList = (List<BushoBean>) request.getAttribute("bushoNameList");
+    	request.setCharacterEncoding("UTF-8");
 	%>
-    <%
-    	for(UserBean user : userList) {
-    %>
+    
     <!-- 顔写真 -->
-    <% for(BushoBean busho : bushoList){ %>
-		<img src="<%= busho.getBushoImg() %>" alt="武将の顔写真"><br>
+    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
+		
 		画像：
 	    <select name="busho_name_img">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
@@ -28,10 +24,10 @@
 	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
 	    		<% } %>
 	    	<% } %>
-		</select>
+		</select>-->
     
-    ニックネーム：
-    <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
+    自己紹介：
+    <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     ID：
     <%=user.getUserID()%><br>
@@ -54,7 +50,7 @@
     <input type="radio" name="gender" value="3">女性<br>
     
     生年月日：
-    <input type="text" name="birth_date" <%=user.getBirthDate()%>><br>
+    <input type="text" name="birth_date" <%=request.getAttribute("birth_date")%>><br>
     
     推しの武将：
     <select name="buso_name">
@@ -68,7 +64,7 @@
 		</select><br>
     
     出身地：
-    <input type="text" name="area" <%=user.getArea()%>><br>
+    <input type="text" name="area" <%=request.getAttribute("area")%>><br>
     
     <form action="CustomerSendServlet" method="POST">
     <input type="submit" value="変更する">
