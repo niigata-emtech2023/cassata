@@ -7,25 +7,18 @@
 <title>プロフィール変更</title>
 </head>
 <body>
-<<<<<<< HEAD
-    <!-- ProfileChangeSendServlet.javaから転送 -->
-=======
-    <!-- ProfileChangeServlet -->
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
+<!--ProfileSendServletから転送-->
     <%
-		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
-	%>
-	<% 
-		for(UserBean user: userList){ 
+    	request.setCharacterEncoding("UTF-8");
 	%>
     顔写真：
-    <img src="<%=user.getBushoImg()%>" alt="武将の顔写真">
+    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
     
     ニックネーム：
-    <input type="text" name="nickname" value="<%=user.getNickname()%>"><br>
+    <input type="text" name="nickname" value="<%=request.getAttribute("nickname")%>"><br>
     
     ID：
-    <%=user.getUserID()%><br>
+    <%=request.getAttribute("user_id")%><br>
     
     旧パスワードを入力：
     <input type="password" name="password" ><br>
@@ -37,7 +30,7 @@
     
     自己紹介：
     
-    <input type="text" name="myself" value="<%=user.getMyself()%>"><br>
+    <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     性別：
     <input type="radio" name="gender" value="1">不明
@@ -45,15 +38,22 @@
     <input type="radio" name="gender" value="3">女性<br>
     
     生年月日：
-    <input type="text" name="birth_date" <%=user.getBirthDate()%>><br>
+    <input type="text" name="birth_date" <%=request.getAttribute("birth_date")%>><br>
     
     推しの武将：
     <select name="busho_id">
+    	<% for(UserBean user : userList) { %>
+	    	
+	    	<% if(periodName.getPeriodName().equals(busho.getPeriodName())){ %>
+	    		<option value="<%=periodName.getPeriodName()%>" selected><%=periodName.getPeriodName()%></option>
+	    	<% } else { %>
+	    		<option value="<%=periodName.getPeriodName()%>"><%=periodName.getPeriodName()%></option>
+	    	<% } %>
+	    <% } %>
     </select>
     
     出身地：
-    <input type="text" name="area" <%=user.getArea()%>><br>
-    <% }%>
+    <input type="text" name="area" <%=request.getAttribute("area")%>><br>
     
     <form action="ProfileChangeSendServlet" method="POST">
     <input type="submit" value="変更する">
