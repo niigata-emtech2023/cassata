@@ -51,7 +51,10 @@
 		
 
 		<!-- 新規登録リンク  -->
-		<a href="register.jsp">新規登録</a>
+		<% if(session.getAttribute("nickname") != null){ %>
+		<% } else { %>
+			<a href="register.jsp">新規登録</a>
+		<% } %>
 
 		<!-- ログインリンク -->
 		<% if(session.getAttribute("nickname") == null){ %>
