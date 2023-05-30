@@ -31,7 +31,14 @@
     	<input type="hidden" name="commentary" value="<%= request.getAttribute("commentary")%>">
     	<input type="submit" value="確定">
     </form>
-	<form action="changeBushoList.jsp" method="POST">
+	<form action="BushoChangeModifyServlet" method="POST">
+	   	<input type="hidden" name="busho_id" value="<%= request.getAttribute("busho_id")%>">
+    	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
+    	<input type="hidden" name="busho_name" value="<%= request.getAttribute("busho_name")%>">
+    	<input type="hidden" name="period_id" value="<%= request.getAttribute("period_id")%>">
+    	<input type="hidden" name="period_name" value="<%= request.getAttribute("period_name")%>">
+    	<input type="hidden" name="birth_date" value="<%= request.getAttribute("birth_date")%>">
+    	<input type="hidden" name="commentary" value="<%= request.getAttribute("commentary")%>">
 		<input type="submit" value="修正する">
 	</form>
 </body>
