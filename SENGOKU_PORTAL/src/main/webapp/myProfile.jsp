@@ -46,7 +46,12 @@
 				性別：女性<br>
 			<% } %>
 			
-			生年月日：<%=user.getBirthDate()%><br> 
+			
+			<% if(user.getBirthDate() == null) {%>
+				生年月日：未設定<br>
+			<% } else { %>
+				生年月日：<%=user.getBirthDate()%><br> 
+			<% } %>
 			
 			<% if(user.getBushoName() == null) {%>
 				推しの武将：未設定<br>

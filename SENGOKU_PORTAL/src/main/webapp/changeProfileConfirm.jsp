@@ -75,7 +75,7 @@
     	<input type="submit" value="確定">
     </form>
     
-    <form action="" method="POST">
+    <form action="ProfileSendServlet" method="POST">
         <input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
     	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
     	<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id")%>">

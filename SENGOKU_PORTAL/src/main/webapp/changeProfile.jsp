@@ -75,7 +75,11 @@
 	<% } %>
     
     生年月日：
-    <input type="text" name="birth_date" placeholder="例:2000-01-01" <%=request.getAttribute("birth_date")%>><br>
+    <% if(request.getAttribute("birth_date").equals("null")){ %>
+    	<input type="text" name="birth_date" placeholder="例:2000-01-01"><br>
+    <% } else { %>
+    	<input type="text" name="birth_date" placeholder="例:2000-01-01" value="<%=request.getAttribute("birth_date")%>"><br>
+    <% } %>
     
     推しの武将：
     <select name="busho_name">
@@ -91,10 +95,10 @@
     
     <!-- 出身地がnullの場合は何も表示しない　 -->
     出身地：
-    <% if(request.getAttribute("area").equals(null)){ %>
-    <input type="text" name="area" value="<%=request.getAttribute("area")%>"><br>
-    <% } else { %>
+    <% if(request.getAttribute("area").equals("null")){ %>
     <input type="text" name="area"><br>
+    <% } else { %>
+    <input type="text" name="area" value="<%=request.getAttribute("area")%>"><br>
     <% } %>
     
     
