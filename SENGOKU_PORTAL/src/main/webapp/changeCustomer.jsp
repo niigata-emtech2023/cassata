@@ -52,7 +52,7 @@
     <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     性別：
-    <input type="radio" name="gender" value="1" checked="checked">不明
+    <input type="radio" name="gender" value="1">不明
     <input type="radio" name="gender" value="2">男性
     <input type="radio" name="gender" value="3">女性<br>
     
