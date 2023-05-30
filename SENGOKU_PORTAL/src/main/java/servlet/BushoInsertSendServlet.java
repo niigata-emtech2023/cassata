@@ -42,14 +42,14 @@ public class BushoInsertSendServlet extends HttpServlet {
 
 				// リクエストパラメータの取得
 				String busho_id = request.getParameter("busho_id");
-				String busho_name_img = request.getParameter("busho_name_img");
+				String busho_img = request.getParameter("busho_img");
 				String busho_name = request.getParameter("busho_name");
 				String period_id = request.getParameter("period_id");
 				String birth_date = request.getParameter("birth_date");
 				String commentary = request.getParameter("commentary");	
 				
 				request.setAttribute("busho_id", busho_id);
-				request.setAttribute("busho_name_img", busho_name_img);
+				request.setAttribute("busho_img", busho_img);
 				request.setAttribute("busho_name",busho_name );
 				request.setAttribute("period_id",period_id );
 				request.setAttribute("birth_date",birth_date);

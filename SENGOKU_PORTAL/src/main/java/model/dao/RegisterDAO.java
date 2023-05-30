@@ -45,11 +45,11 @@ public class RegisterDAO {
 
 			//プレースホルダへの値の設定
 			pstmt.setString(1, busho_id);
-			pstmt.setString(2, busho_name_img);
-			pstmt.setString(3, busho_name);
-			pstmt.setString(4, period_id);
-			pstmt.setString(5, commentary);
-			pstmt.setString(6, commentary);
+			pstmt.setString(2, busho_name);
+			pstmt.setString(3, period_id);
+			pstmt.setString(4, commentary);
+			pstmt.setString(5, birth_date);
+			pstmt.setString(6, busho_name_img);
 
 			//SQlステートメントの実行
 			count = pstmt.executeUpdate();
