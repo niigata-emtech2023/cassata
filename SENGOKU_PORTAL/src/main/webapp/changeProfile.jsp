@@ -13,6 +13,8 @@
     	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
     	
 	%>
+	<form action="ProfileChangeSendServlet" method="POST">
+	
     顔写真：
     <% if(request.getAttribute("busho_img").equals("null")) {%>
     	<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
@@ -28,12 +30,19 @@
     <input type="hidden" name="user_id" value="<%=request.getAttribute("user_id")%>">
     
     現在のパスワードを入力：
-    <input type="password" name="current_password" ><br>
+    <input type="password" name="current_password"><br>
     
     新しいパスワードを入力：
-    <input type="password" name="new_password_1" ><br>
+    <input type="password" name="new_password_1"><br>
     もう一度入力：
-    <input type="password" name="new_password_2" ><br>
+    <input type="password" name="new_password_2"><br>
+    
+    <!-- パスワードが一致しなかったら戻される -->
+    <% if(request.getAttribute("error").equals("null")) { %>
+    	あ
+	<% } else {%>
+		<%= request.getAttribute("error") %>
+	<% } %>
     
     自己紹介：
     <% if(request.getAttribute("myself").equals(null)){ %>
@@ -79,7 +88,7 @@
     <input type="text" name="area"><br>
     <% } %>
     
-    <form action="ProfileChangeSendServlet" method="POST">
+    
     <input type="submit" value="変更する">
     </form>
 </body>

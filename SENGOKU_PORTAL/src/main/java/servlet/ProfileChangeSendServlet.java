@@ -54,8 +54,8 @@ public class ProfileChangeSendServlet extends HttpServlet {
 		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
 		String current_password = request.getParameter("current_password");
-		String new_password_1 = request.getParameter("password");
-		String new_password_2 = request.getParameter("password");
+		String new_password_1 = request.getParameter("new_password_1");
+		String new_password_2 = request.getParameter("new_password_2");
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
 		String birth_date = request.getParameter("birth_date");
@@ -129,7 +129,10 @@ public class ProfileChangeSendServlet extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("changeProfileConfirm.jsp");
 			rd.forward(request, response);
-			
+		
+		/**
+		 * 一致してない場合
+		 */
 		} else {
 			
 			BushoDAO bushoDAO = new BushoDAO();
@@ -144,12 +147,14 @@ public class ProfileChangeSendServlet extends HttpServlet {
 			}
 			
 			try {
+				busho_img = bushoDAO.selectBushoImageString(busho_id);
 				bushoList = bushoDAO.selectBushoNameAll();
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
 			
+					
 			request.setAttribute("busho_name", busho_name);
 			request.setAttribute("bushoList", bushoList);
 			
