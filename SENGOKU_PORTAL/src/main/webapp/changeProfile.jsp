@@ -9,7 +9,9 @@
 <body>
 <!--ProfileSendServletから転送-->
     <%
-    	request.setCharacterEncoding("UTF-8");
+    	//request.setCharacterEncoding("UTF-8");
+   		List<UserBean> userList = (List<UserBean>) request.getAttribute("selectProfileSend");
+   		
 	%>
     顔写真：
     <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
@@ -42,7 +44,14 @@
     
     推しの武将：
     <select name="busho_id">
-    <%dss %>
+    	<% for(UserBean selectProfileSend : userList) { %>
+	    	
+	    	<% if(selectProfileSend.getBushoID().equals(busho.getPeriodName())){ %>
+	    		<option value="<%=periodName.getPeriodName()%>" selected><%=periodName.getPeriodName()%></option>
+	    	<% } else { %>
+	    		<option value="<%=periodName.getPeriodName()%>"><%=periodName.getPeriodName()%></option>
+	    	<% } %>
+	    <% } %>
     </select>
     出身地：
     <input type="text" name="area" <%=request.getAttribute("area")%>><br>

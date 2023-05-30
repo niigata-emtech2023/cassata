@@ -30,7 +30,7 @@
     <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     ID：
-    <%=user.getUserID()%><br>
+    <%=request.getAttribute("user_id")%><br>
     
     旧パスワードを入力：
     <input type="password" name="password" ><br>
