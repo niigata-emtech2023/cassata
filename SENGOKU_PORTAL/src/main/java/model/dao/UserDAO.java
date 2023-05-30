@@ -80,6 +80,49 @@ public class UserDAO{
 		return userList;
 	}
 	
+	public List<UserBean> selectAllUserSort(String sort, String order) throws ClassNotFoundException, SQLException{
+		 
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY " + sort + " " + order;
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				String user_id = res.getString("user_id");
+				String password = res.getString("password");
+				String nickname = res.getString("nickname");
+				String myself = res.getString("myself");
+				int gender = res.getInt("gender");
+				String busho_id = res.getString("busho_id");
+				String busho_name = res.getString("busho_name");
+				Date birth_date = res.getDate("birth_date");
+				String area = res.getString("area");
+						
+				UserBean user = new UserBean();
+				user.setUserID(user_id);
+				user.setBushoName(busho_name);
+				user.setPassword(password);
+				user.setNickname(nickname);
+				user.setMyself(myself);
+				user.setGender(gender);
+				user.setBushoID(busho_id);
+				user.setBushoName(busho_name);
+				user.setBirthDate(birth_date);
+				user.setArea(area);
+
+				userList.add(user);
+			}
+		}
+		
+		return userList;
+	}
+	
 	/**
 	 * ユーザIDから権限を取得する
 	 * @param user_id
@@ -242,6 +285,42 @@ public class UserDAO{
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
 		String sql = "SELECT b.busho_img AS busho_img, u.nickname AS nickname, u.user_id AS user_id, b.busho_name AS busho_name FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE u.user_id LIKE ? OR u.nickname LIKE ? OR b.busho_name LIKE ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(2, "%" + keyword + "%");
+			pstmt.setString(3, "%" + keyword + "%");
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			
+			while (res.next()) {
+				String busho_img = res.getString("busho_img");
+				String nickname = res.getString("nickname");
+				String user_id = res.getString("user_id");
+				String busho_name = res.getString("busho_name");							
+
+				UserBean user = new UserBean();
+				user.setBushoImg(busho_img);
+				user.setUserID(user_id);
+				user.setNickname(nickname);
+				user.setBushoName(busho_name);
+
+				userList.add(user);
+			}
+			
+		}
+		
+		return userList;
+	}
+	
+	public List<UserBean> searchUserSort(String keyword, String sort, String order) throws SQLException, ClassNotFoundException {
+		List<UserBean> userList = new ArrayList<UserBean>();
+		
+		String sql = "SELECT  b.busho_img AS busho_img, u.nickname AS nickname, u.user_id AS user_id, b.busho_name AS busho_name FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE u.user_id LIKE ? OR u.nickname LIKE ? OR b.busho_name LIKE ? ORDER BY " + sort + " " + order;
 
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();

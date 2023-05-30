@@ -11,23 +11,28 @@
 	<%
     	request.setCharacterEncoding("UTF-8");
 	%>
+	
+	<%
+		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
+		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
+    	List<BushoBean> bushoNameList = (List<BushoBean>) request.getAttribute("bushoNameList");
+	%>
+	
     
     <!-- 顔写真 -->
-    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
+    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真"><br>
 		
-		画像：
+		 画像：
 	    <select name="busho_name_img">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
-	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
+	    		<% if(bushoName.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
 	    		<% } else { %>
 	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
 	    		<% } %>
 	    	<% } %>
-		</select>-->
-    
-    自己紹介：
-    <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
+		</select><br>
+	
     
     ID：
     <%=request.getAttribute("user_id")%><br>
@@ -36,16 +41,16 @@
     <input type="password" name="password" ><br>
     
     新しいパスワードを入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password1" ><br>
     もう一度入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password2" ><br>
     
     
     自己紹介：
-    <input type="text" name="myself" value="<%=user.getMyself()%>"><br>
+    <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     性別：
-    <input type="radio" name="gender" value="1">不明
+    <input type="radio" name="gender" value="1" checked="checked">不明
     <input type="radio" name="gender" value="2">男性
     <input type="radio" name="gender" value="3">女性<br>
     
@@ -54,14 +59,14 @@
     
     推しの武将：
     <select name="buso_name">
-	    	<% for(BushoBean bushoName : bushoList) { %>
-	    		<% if(busho.getBushoName().equals(bushoName.getBushoName())) {%>
+	    	<% for(BushoBean bushoName : bushoNameList) { %>
+	    		<% if(bushoName.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
 	    		<% } else { %>
 	    			<option value="<%=bushoName.getBushoName()%>"><%=bushoName.getBushoName()%></option>
 	    		<% } %>
 	    	<% } %>
-		</select><br>
+	</select><br>
     
     出身地：
     <input type="text" name="area" <%=request.getAttribute("area")%>><br>

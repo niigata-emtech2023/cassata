@@ -30,4 +30,31 @@ public class RegisterDAO {
 			return count;
 		}
 	}
+	
+	public int bushoRegister(String  busho_id,String busho_name_img,String busho_name,String period_id,String birth_date,String commentary) 
+			throws ClassNotFoundException, SQLException{
+
+		String sql="INSERT INTO busho values(?,?,?,?,?,?)";
+
+		int count = 0;
+
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, busho_id);
+			pstmt.setString(2, busho_name_img);
+			pstmt.setString(3, busho_name);
+			pstmt.setString(4, period_id);
+			pstmt.setString(5, commentary);
+			pstmt.setString(6, commentary);
+
+			//SQlステートメントの実行
+			count = pstmt.executeUpdate();
+
+			return count;
+		}
+	}
 }

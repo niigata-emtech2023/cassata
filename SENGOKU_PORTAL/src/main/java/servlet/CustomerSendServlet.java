@@ -41,22 +41,26 @@ public class CustomerSendServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得
+		String busho_id = request.getParameter("busho_id");
 		String busho_img = request.getParameter("busho_img");
+		String busho_name_img = request.getParameter("busho_name_img");
 		String nickname = request.getParameter("nickname");
 		String password = request.getParameter("password");
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
 		String birth_date = request.getParameter("birth_date");
-		String busho_id = request.getParameter("busho_id");
+		String busho_id = request.getParameter("busho_name");
 		String area = request.getParameter("area");
 		
+		request.setAttribute("busho_id", busho_id);
+		request.setAttribute("busho_name_img", busho_name_img);
 		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("password", password);
 		request.setAttribute("myself", myself);
 		request.setAttribute("gender", gender);
 		request.setAttribute("birth_date", birth_date);
-		request.setAttribute("busho_id", busho_id);
+		request.setAttribute("busho_name", busho_name);
 		request.setAttribute("area", area);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfirm.jsp");
