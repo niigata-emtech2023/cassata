@@ -47,7 +47,7 @@ public class CustomerSendServlet extends HttpServlet {
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
 		String birth_date = request.getParameter("birth_date");
-		String busho_id = request.getParameter("busho_id");
+		String busho_id = request.getParameter("busho_name");
 		String area = request.getParameter("area");
 		
 		request.setAttribute("busho_img", busho_img);
@@ -56,7 +56,7 @@ public class CustomerSendServlet extends HttpServlet {
 		request.setAttribute("myself", myself);
 		request.setAttribute("gender", gender);
 		request.setAttribute("birth_date", birth_date);
-		request.setAttribute("busho_id", busho_id);
+		request.setAttribute("busho_name", busho_name);
 		request.setAttribute("area", area);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfirm.jsp");

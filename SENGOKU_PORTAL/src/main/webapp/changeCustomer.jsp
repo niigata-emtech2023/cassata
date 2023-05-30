@@ -41,16 +41,16 @@
     <input type="password" name="password" ><br>
     
     新しいパスワードを入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password1" ><br>
     もう一度入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password2" ><br>
     
     
     自己紹介：
     <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
     
     性別：
-    <input type="radio" name="gender" value="1">不明
+    <input type="radio" name="gender" value="1" checked="checked">不明
     <input type="radio" name="gender" value="2">男性
     <input type="radio" name="gender" value="3">女性<br>
     
