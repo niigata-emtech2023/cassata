@@ -58,6 +58,7 @@ public class SearchUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		request.setAttribute("keyword", keyword);
 		request.setAttribute("userList", userList);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("searchUserResult.jsp");
