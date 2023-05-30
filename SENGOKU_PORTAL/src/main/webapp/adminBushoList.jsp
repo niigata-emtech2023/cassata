@@ -38,7 +38,7 @@
 				</form>
 			</td>
 			<td>
-				<form action="BushoInsertSendServlet" method="POST">
+				<form action="BushoInsertSendServlet" method="POST"> 
 					<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="削除">
 				</form>
