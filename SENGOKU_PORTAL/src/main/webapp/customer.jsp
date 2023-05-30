@@ -16,7 +16,7 @@
 			<th>写真</th>
 			<th>ニックネーム</th>
 			<th>ID</th>
-			<th>推しの武将</th>
+			<th>好きな武将</th>
 			<th></th>
 			<th></th>
 		</tr>
