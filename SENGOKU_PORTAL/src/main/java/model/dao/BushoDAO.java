@@ -132,6 +132,47 @@ public class BushoDAO{
 		}
 		return bushoList;
 	}
+	
+	public List<BushoBean> selectBushoAllSort(String sort, String order) throws ClassNotFoundException, SQLException{
+
+		List<BushoBean> bushoList=new ArrayList<BushoBean>();
+
+		String sql="SELECT b.busho_id AS busho_id, b.busho_name AS busho_name, b.period_id AS period_id, p.period_name AS period_name, b.birth_date AS birth_date, b.commentary AS commentary, b.busho_img AS busho_img FROM busho b INNER JOIN period p ON(b.period_id = p.period_id) ORDER BY "+ sort + " " + order;
+
+		//データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			
+			//SQLステートメントの実行
+			ResultSet res=pstmt.executeQuery();
+
+			//結果の操作
+			while(res.next()) {
+				String busho_id=res.getString("busho_id");
+				String busho_name=res.getString("busho_name");
+				String period_id=res.getString("period_id");
+				String period_name = res.getString("period_name");
+				String commentary=res.getString("commentary");
+				Date birth_date=res.getDate("birth_date");
+				String busho_img=res.getString("busho_img");
+				
+				BushoBean busho=new BushoBean();
+				busho.setBushoID(busho_id);
+				busho.setBushoName(busho_name);
+				busho.setPeriodID(period_id);
+				busho.setPeriodName(period_name);
+				busho.setCommentary(commentary);
+				busho.setBirthDate(birth_date);
+				busho.setBushoImg(busho_img);
+
+				bushoList.add(busho);
+			}
+
+		}
+		return bushoList;
+	}
 
 	public int deleteBusho(String busho_id) 
 			throws ClassNotFoundException, SQLException{

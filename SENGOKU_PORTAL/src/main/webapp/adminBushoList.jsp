@@ -13,6 +13,16 @@
 		List<BushoBean> bushoList
 			= (List<BushoBean>) request.getAttribute("bushoList");
 	%>
+		<form action="BushoListSortServlet" method="POST">
+		<select name="sort">
+			<option value="period_id">年代順</option>
+			<option value="birth_date">生年月日順</option>
+		</select> <select name="order">
+			<option value="ASC">昇順</option>
+			<option value="DESC">降順</option>
+		</select>
+		<input type="submit" value="ソート">
+	</form>
 	<table>
 		<tr>
 			<th>顔写真</th>
