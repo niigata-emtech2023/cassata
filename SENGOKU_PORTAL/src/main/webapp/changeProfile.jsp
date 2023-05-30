@@ -42,16 +42,8 @@
     
     推しの武将：
     <select name="busho_id">
-    	<% for(UserBean user : userList) { %>
-	    	
-	    	<% if(periodName.getPeriodName().equals(busho.getPeriodName())){ %>
-	    		<option value="<%=periodName.getPeriodName()%>" selected><%=periodName.getPeriodName()%></option>
-	    	<% } else { %>
-	    		<option value="<%=periodName.getPeriodName()%>"><%=periodName.getPeriodName()%></option>
-	    	<% } %>
-	    <% } %>
+    <%dss %>
     </select>
-    
     出身地：
     <input type="text" name="area" <%=request.getAttribute("area")%>><br>
     
