@@ -33,6 +33,8 @@
 	    	<% } %>
 		</select><br>
 	
+    ニックネーム：
+    <input type="text" name="nickname" value="<%=request.getAttribute("nickname")%>"><br>
     
     ID：
     <%=request.getAttribute("user_id")%><br>
@@ -41,9 +43,9 @@
     <input type="password" name="password" ><br>
     
     新しいパスワードを入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password1" ><br>
     もう一度入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="password2" ><br>
     
     
     自己紹介：
@@ -58,7 +60,7 @@
     <input type="text" name="birth_date" <%=request.getAttribute("birth_date")%>><br>
     
     推しの武将：
-    <select name="buso_name">
+    <select name="<%=request.getAttribute("busho_name")%>">
 	    	<% for(BushoBean bushoName : bushoNameList) { %>
 	    		<% if(bushoName.getBushoName().equals(bushoName.getBushoName())) {%>
 	    			<option value="<%=bushoName.getBushoName()%>" selected><%=bushoName.getBushoName()%></option>
