@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,model.entity.UserBean"%>
+    pageEncoding="UTF-8" import="java.util.List,model.entity.BushoBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,42 +10,74 @@
 <!--ProfileSendServletから転送-->
     <%
     	request.setCharacterEncoding("UTF-8");
+    	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
+    	
 	%>
     顔写真：
-    <img src="<%=request.getAttribute("busho_img")%>" alt="武将の顔写真">
+    <% if(request.getAttribute("busho_img").equals("null")) {%>
+    	<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+	<% } else { %>
+		<img src="<%=request.getAttribute("busho_img")%>"  alt="プロフィール写真">	
+	<% } %><br>
     
     ニックネーム：
     <input type="text" name="nickname" value="<%=request.getAttribute("nickname")%>"><br>
     
     ID：
     <%=request.getAttribute("user_id")%><br>
+    <input type="hidden" name="user_id" value="<%=request.getAttribute("user_id")%>">
     
-    旧パスワードを入力：
-    <input type="password" name="password" ><br>
+    現在のパスワードを入力：
+    <input type="password" name="current_password" ><br>
     
     新しいパスワードを入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="new_password_1" ><br>
     もう一度入力：
-    <input type="password" name="password" ><br>
+    <input type="password" name="new_password_2" ><br>
     
     自己紹介：
-    
-    <input type="text" name="myself" value="<%=request.getAttribute("myself")%>"><br>
+    <% if(request.getAttribute("myself").equals(null)){ %>
+    	<textarea name="myself"></textarea><br>
+    <% } else { %>
+    	<textarea name="myself"><%=request.getAttribute("myself")%></textarea><br>
+    <% } %>
     
     性別：
-    <input type="radio" name="gender" value="1">不明
-    <input type="radio" name="gender" value="2">男性
-    <input type="radio" name="gender" value="3">女性<br>
+    <% if(request.getAttribute("gender").equals("1")){ %>
+	    <input type="radio" name="gender" value="1" checked="checked">不明
+	    <input type="radio" name="gender" value="2">男性
+	    <input type="radio" name="gender" value="3">女性<br>
+	<% } else if (request.getAttribute("gender").equals("2")){ %>
+		<input type="radio" name="gender" value="1">不明
+	    <input type="radio" name="gender" value="2" checked="checked">男性
+	    <input type="radio" name="gender" value="3">女性<br>
+	<% } else { %>
+		<input type="radio" name="gender" value="1">不明
+	    <input type="radio" name="gender" value="2">男性
+	    <input type="radio" name="gender" value="3" checked="checked">女性<br>
+	<% } %>
     
     生年月日：
-    <input type="text" name="birth_date" <%=request.getAttribute("birth_date")%>><br>
+    <input type="text" name="birth_date" placeholder="例:2000-01-01" <%=request.getAttribute("birth_date")%>><br>
     
     推しの武将：
-    <select name="busho_id">
-    <%dss %>
-    </select>
+    <select name="busho_name">
+		<% for(BushoBean busho : bushoList){ %>
+			<% if(busho.getBushoName().equals(request.getAttribute("busho_name"))){ %>
+				<option value="<%= busho.getBushoName() %>" selected><%= busho.getBushoName() %></option>
+			<% } else { %>
+				<option value="<%= busho.getBushoName() %>"><%= busho.getBushoName() %></option>
+			<% } %>
+		<% } %>
+    </select><br>
+    
+    <!-- 出身地がnullの場合は何も表示しない　 -->
     出身地：
-    <input type="text" name="area" <%=request.getAttribute("area")%>><br>
+    <% if(request.getAttribute("area").equals(null)){ %>
+    <input type="text" name="area" value="<%=request.getAttribute("area")%>"><br>
+    <% } else { %>
+    <input type="text" name="area"><br>
+    <% } %>
     
     <form action="ProfileChangeSendServlet" method="POST">
     <input type="submit" value="変更する">

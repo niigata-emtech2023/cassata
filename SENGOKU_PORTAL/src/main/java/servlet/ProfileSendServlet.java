@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.UserDAO;
+import model.dao.BushoDAO;
+import model.entity.BushoBean;
 
 /**
  * Servlet implementation class ProfileSend
@@ -59,7 +61,23 @@ public class ProfileSendServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-
+		
+		BushoDAO bushoDAO = new BushoDAO();
+		List<BushoBean> bushoList = null;
+		String busho_name = null;
+		
+		try {
+			bushoList = bushoDAO.selectBushoNameAll();
+			busho_name = bushoDAO.selectBushoNameString(busho_id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("busho_name", busho_name);
+		request.setAttribute("bushoList", bushoList);
+		
+		// リクエストスコープへの属性の設定
 		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("user_id", user_id);
@@ -68,20 +86,7 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
-
-		// DAOの生成
-		UserDAO userdao = new UserDAO();
-
-		try {
-			// DAOの利用
-			UserDAO user= userdao.selectProfileSendList (busho_img,nickname,user_id,myself,gender,birth_date,busho_id,area);
-
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-
-		// リクエストスコープへの属性の設定
-		request.setAttribute("count", count);
+		
 
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfile.jsp");
 		rd.forward(request, response);

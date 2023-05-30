@@ -73,6 +73,8 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("password", password);
 			
+			
+			
 			/**
 			 * ユーザ名を取得
 			 */

@@ -28,11 +28,34 @@
 		</form>
 		 	<%=user.getNickname()%><br> 
 			ID：<%=user.getUserID()%><br> 
-			自己紹介：<%=user.getMyself()%><br>
-			性別：<%=user.getGender()%><br> 
+			
+			<!-- 自己紹介 -->
+			<% if(user.getMyself() == null){%>
+				自己紹介：未設定<br>
+			<% } else { %>
+				自己紹介：<%= user.getMyself() %><br>
+			<% } %>
+			
+			<!-- 性別 -->
+			<% if(user.getGender() == 1){ %>
+				性別：不明<br> 
+			<% } else if(user.getGender() == 2){ %>
+				性別：男性<br>
+			<% } else { %>
+				性別：女性<br>
+			<% } %>
+			
 			生年月日：<%=user.getBirthDate()%><br> 
-			推しの武将：<%=user.getBushoID()%><br>
-			出身地：<%=user.getArea()%><br>
+			推しの武将：<%=user.getBushoName()%><br>
+			
+			<!--  出身地 -->
+			
+			<% if(user.getArea() == null){%>
+				出身地：未設定<br>
+			<% } else { %>
+				出身地：<%= user.getArea() %><br>
+			<% } %>
+			
 		<form action="ProfileSendServlet" method="POST">
 			<input type="hidden" name="busho_img" value="<%= user.getBushoImg() %>">
 			<input type="hidden" name="nickname" value="<%=user.getNickname() %>">
