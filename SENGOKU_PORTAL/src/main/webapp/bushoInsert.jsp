@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!--  武将登録 -->
-    <form action="BushoInsertServlet" method="POST">
+    <form action="BushoInsertSendServlet" method="POST">
 		武将ID：<input type="text" name="busho_id">8文字以下 例：H_000001<br>
 		武将名：<input type="text" name="busho_name">16文字以下<br>
 		時代ID：<input type="text" name="period_id">8文字以下 例：J_000002<br>

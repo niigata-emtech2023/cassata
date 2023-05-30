@@ -93,7 +93,5 @@ public class BushoInsertServlet extends HttpServlet {
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("bushoInsertCompletep.jsp");
 		rd.forward(request, response);
-		
 	}
-
 }
