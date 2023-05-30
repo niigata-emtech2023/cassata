@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.ChatDAO;
 
@@ -43,16 +42,11 @@ public class InsertChatServlet extends HttpServlet {
 		
 		// リクエストオブジェクトのエンコーディング方式の指定
 				request.setCharacterEncoding("UTF-8");
-				
-				// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
 
 				// リクエストパラメータの取得
 				String user_id = request.getParameter("user_id");
 				String message = request.getParameter("message");
 
-				request.setAttribute("user_id", user_id);
-				request.setAttribute("message", message);
 
 				// DAOの生成
 				ChatDAO chatdao = new ChatDAO();
@@ -60,25 +54,12 @@ public class InsertChatServlet extends HttpServlet {
 				int count = 0;	// 処理件数
 
 				try {
-					// DAOの利用
-
-					count = chatdao.sendChat("takahasi",message);
-					
-					if(count != 0) {
-						session.setAttribute("user_id", user_id);
-						session.setAttribute("message", message);
-						count = chatdao.sendChat(user_id,message);
-
-					}
+					count = chatdao.sendChat(user_id, message);
 					
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
-				
-				// リクエストスコープへの属性の設定
-				request.setAttribute("count", count);
-				request.setAttribute("user_id", user_id);
-				request.setAttribute("message", message);
+
 
 				// リクエストの転送
 				RequestDispatcher rd = request.getRequestDispatcher("ShowChatServlet");

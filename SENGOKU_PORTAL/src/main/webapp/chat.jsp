@@ -91,6 +91,7 @@
 			<% if(session.getAttribute("user_id") != null){ %>
 				<form action="InsertChatServlet" method="POST">
 				<textarea placeholder="140文字以下" name="message"rows="2" cols="70"></textarea>
+				<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
 				<input type="submit" value="送信">
 				</form>
 			<% } else { %>

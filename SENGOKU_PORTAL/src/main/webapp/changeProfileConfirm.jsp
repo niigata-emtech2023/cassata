@@ -25,7 +25,7 @@
     パスワード：<%= request.getAttribute("password") %><br>
     
     <!-- 自己紹介 -->
-    <% if(request.getAttribute("myself").equals("null")){ %>
+    <% if(request.getAttribute("myself").equals("")){ %>
     	自己紹介：未設定<br>	
     <% } else { %>
     	自己紹介：<%= request.getAttribute("myself") %><br>
@@ -40,20 +40,51 @@
     	性別：女性<br>
     <% } %>
     
- 	<% if(request.getAttribute("birth_date").equals("null")){ %>
- 		生年月日：<%= request.getAttribute("birth_date") %><br>
+    <!-- 生年月日 -->
+ 	<% if(request.getAttribute("birth_date").equals("")){ %>
+ 		生年月日：未設定<br>
  	<% } else { %>
  		生年月日：<%= request.getAttribute("birth_date") %><br>
  	<% } %>
-    生年月日：<%= request.getAttribute("birth_date") %><br>
-    推しの武将：<%= request.getAttribute("busho_name") %><br>
-    出身地：<%= request.getAttribute("area") %><br>
-    以上の内容でよろしいですか
+    
+    <!-- 推しの武将 -->
+    <% if(request.getAttribute("busho_name").equals("null")){ %>
+    	推しの武将：未設定<br>
+    <% } else { %>
+    	推しの武将：<%= request.getAttribute("busho_name") %><br>
+    <% } %>
+    
+    <!-- 出身地 -->
+    <% if(request.getAttribute("area").equals("")){%>
+    	出身地：未設定<br>
+   	<% } else { %>
+   		出身地：<%= request.getAttribute("area") %><br>
+   	<% } %>
+    以上の内容でよろしいですか？
     
     <form action="ChangeProfileServlet" method="POST">
+    	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
+    	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
+    	<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id")%>">
+    	<input type="hidden" name="password" value="<%= request.getAttribute("password")%>">
+    	<input type="hidden" name="myself" value="<%= request.getAttribute("myself")%>">
+    	<input type="hidden" name="gender" value="<%= request.getAttribute("gender")%>">
+    	<input type="hidden" name="birth_date" value="<%= request.getAttribute("birth_date")%>">
+    	<input type="hidden" name="busho_id" value="<%= request.getAttribute("busho_id")%>">
+    	<input type="hidden" name="area" value="<%= request.getAttribute("area")%>">
     	<input type="submit" value="確定">
     </form>
-    <form action="changeProfile" method="POST">
+    
+    <form action="" method="POST">
+        <input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
+    	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
+    	<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id")%>">
+    	<input type="hidden" name="password" value="<%= request.getAttribute("password")%>">
+    	<input type="hidden" name="myself" value="<%= request.getAttribute("myself")%>">
+    	<input type="hidden" name="gender" value="<%= request.getAttribute("gender")%>">
+    	<input type="hidden" name="birth_date" value="<%= request.getAttribute("birth_date")%>">
+    	<input type="hidden" name="busho_id" value="<%= request.getAttribute("busho_id")%>">
+    	<input type="hidden" name="area" value="<%= request.getAttribute("area")%>">
     	<input type="submit" value="修正する">
     </form> 
 
