@@ -48,7 +48,7 @@
 			}
 		%>
 	</table>
-	<form action="BushoInsertSendServlet" method="POST">
+	<form action="bushoInsert" method="POST">
 		<input type="submit" value="追加">
 	</form>
 </body>
