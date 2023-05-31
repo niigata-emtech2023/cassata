@@ -51,6 +51,7 @@ public class CustomerSendServlet extends HttpServlet {
 		String busho_name = request.getParameter("busho_name");
 		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
+		String current_password = request.getParameter("current_password");
 		String new_password_1 = request.getParameter("new_password_1");
 		String new_password_2 = request.getParameter("new_password_2");
 		String myself = request.getParameter("myself");
@@ -171,6 +172,7 @@ public class CustomerSendServlet extends HttpServlet {
 			
 			// リクエストスコープへの属性の設定
 			request.setAttribute("busho_img", busho_img);
+			request.setAttribute("password", current_password);
 			request.setAttribute("nickname", nickname);
 			request.setAttribute("user_id", user_id);
 			request.setAttribute("myself", myself);

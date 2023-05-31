@@ -68,6 +68,11 @@ public class LoginServlet extends HttpServlet {
 			UserDAO userDAO = new UserDAO();
 			busho_img = userDAO.selectUserIcon(user_id);
 			
+			/**
+			 * 権限の取得
+			 */
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -26,7 +26,7 @@ header {
     position: fixed;
     width: 100%;
     background-color: black;
-    z-index: 1;
+    z-index: 3;
     /* 子要素を両端に置き、上下中央揃えする */
     display: flex;
     justify-content: space-between;
@@ -217,7 +217,7 @@ a{
     justify-content: center;
     align-items: center;
 
-    position: sticky;
+    position: fixed;
     top: 75px;
     width: 100%;
     background-color: #222222;
@@ -227,10 +227,32 @@ a{
     border-bottom: 1px solid white;
     height: 50px;
     
-    z-index:1;
-    
-    
+    z-index: 3;
+    left:0;
+    right:0;
+
 }
+
+.navigation-bar{
+    /* リストを中央揃えする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 50px;
+    
+    z-index: 3;
+
+}
+
 
 .navigation-bar li {
     width: 150px;
@@ -252,6 +274,49 @@ a{
     line-height: 50px;
     color: white;
 }
+
+.top-navigation-bar{
+    /* リストを中央揃えする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: sticky;
+    top: 75px;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 50px;
+    
+    z-index: 3;
+
+}
+
+
+.top-navigation-bar li {
+    width: 150px;
+    display: block;
+    height: 50px;
+    font-size: 20px;
+    background-color: #999999;
+    border-top: 1px solid white;
+    margin-left: 4px;
+    transition: 0.5s;
+}
+
+.top-navigation-bar li:hover {
+    background-color: #777777;
+}
+
+.top-navigation-bar p {
+    text-align: center;
+    line-height: 50px;
+    color: white;
+}
+
 
 .selected-page {
     border-bottom: 5px solid #FF9999;

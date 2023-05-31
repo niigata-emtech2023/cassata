@@ -39,7 +39,7 @@
     <input type="hidden" name="user_id" value="<%=request.getAttribute("user_id")%>">
     
     現在のパスワード：<%=request.getAttribute("password")%>
-    <input type="hidden" name="<%=request.getAttribute("password")%>"><br>
+    <input type="hidden" name="current_password" value="<%=request.getAttribute("password")%>"><br>
     
     新しいパスワードを入力：
     <input type="password" name="new_password_1"><br>
@@ -96,8 +96,8 @@
     
     <!-- 出身地がnullの場合は何も表示しない　 -->
     出身地：
-    <% if(request.getAttribute("area").equals("null")){ %>
-    <input type="text" name="area">未設定<br>
+    <% if(request.getAttribute("area").equals("null") || request.getAttribute("area").equals(null)){ %>
+    <input type="text" name="area"><br>
     <% } else { %>
     <input type="text" name="area" value="<%=request.getAttribute("area")%>"><br>
     <% } %>

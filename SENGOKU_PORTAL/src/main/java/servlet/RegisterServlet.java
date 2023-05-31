@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.RegisterDAO;
+import model.dao.UserDAO;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -71,14 +72,28 @@ public class RegisterServlet extends HttpServlet {
 						session.setAttribute("user_id", user_id);
 						session.setAttribute("password", password);
 						session.setAttribute("nickname", nickname);
+						
+						UserDAO userDAO = new UserDAO();
+						int authority = 1;
+						try {
+							authority = userDAO.selectAuthority(user_id);
+	
+						} catch (ClassNotFoundException | SQLException e) {
+							// TODO 自動生成された catch ブロック
+							e.printStackTrace();
+						}
+						session.setAttribute("authority", authority);
+						
+						String busho_img = null;
+						busho_img = userDAO.selectUserIcon(user_id);
+						session.setAttribute("busho_img", busho_img);
 					}
-					count = registerdao.register(user_id,password,nickname);
 
 
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
-
+				
 				// リクエストスコープへの属性の設定
 				request.setAttribute("count", count);
 

@@ -20,7 +20,7 @@
 		String current_page = request.getParameter("current_page");
 	%>
 	
-	<ul class="navigation-bar">
+	<ul class="top-navigation-bar">
 		
 		<% if(current_page.equals("top")) { %>
 			<li class="selected-page">
@@ -155,7 +155,7 @@
 					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
 				</form>
 			</li>
-			<li>
+			<li class="selected-page">
 				<form method="POST" name="bushoList" action="ShowBushoListServlet">
 					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
 				</form>
@@ -185,7 +185,7 @@
 					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
 				</form>
 			</li>
-			<li>
+			<li class="selected-page">
 				<form method="POST" name="bushoList" action="ShowBushoListServlet">
 					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
 				</form>

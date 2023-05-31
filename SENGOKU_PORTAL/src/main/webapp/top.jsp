@@ -18,16 +18,7 @@
 
 <body>
 	
-	<% 
-		request.setCharacterEncoding("UTF-8");
-	
-		int authority = 1;
-		
-		if(session.getAttribute("authority") != null){
-			authority = (Integer)session.getAttribute("authority");
-		}
-	
-	%>
+
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="top" />
 	</jsp:include>
@@ -88,7 +79,7 @@
 			</div>
 
 		</div>
-		<jsp:include page="navigation-bar.jsp">
+		<jsp:include page="top-navigation-bar.jsp">
 			<jsp:param name="current_page" value="top" />
 		</jsp:include>
 
@@ -122,13 +113,13 @@
 								<% i++; %>
 							<% } %>
 						</div>
-						
-						<div class="btn-wrap btn-wrap-pc-sp">
-							<a href="" class="btn btn-pc-sp btn-pc-sp--contact rankingbtn">
-								武将一覧 <i class="fas fa-angle-right fa-position-right"></i>
-							</a>
-
-						</div>
+						<form method="POST" name="bushoListLink" action="ShowBushoListServlet">
+							<div class="btn-wrap btn-wrap-pc-sp">		
+								<a href="javascript:bushoListLink.submit()" class="btn btn-pc-sp btn-pc-sp--contact rankingbtn">
+									武将一覧 <i class="fas fa-angle-right fa-position-right"></i>
+								</a>							
+							</div>
+						</form>				
 					</div>
 
 				</div>
@@ -170,9 +161,12 @@
 							<% } %>
 							</ul>
 						</div>
-						<a href="" class="btn btn-pc-sp btn-pc-sp--contact chatbtn">
-							全体チャット <i class="fas fa-angle-right fa-position-right"></i>
-						</a>
+						<form method="POST" name="chatListLink" action="ShowChatServlet">
+							<a href="javascript:chatListLink.submit()" class="btn btn-pc-sp btn-pc-sp--contact chatbtn">
+								全体チャット <i class="fas fa-angle-right fa-position-right"></i>
+							</a>
+						</form>				
+				
 					</div>
 				</div>
 			</div>

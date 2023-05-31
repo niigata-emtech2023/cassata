@@ -5,8 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>マイページ</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/main-jsp.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+	rel="stylesheet">
 </head>
 <body>
+	<div class="jsp-main-contents">
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="myProfile" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="myProfile" />
+	</jsp:include>
+	
     <% 
     	request.setCharacterEncoding("UTF-8");
     	List<UserBean> userList
@@ -79,5 +96,6 @@
 			<input type="submit" value="プロフィール変更">
 		</form>	
 	<% } %>
+	</div>
 </body>
 </html>
