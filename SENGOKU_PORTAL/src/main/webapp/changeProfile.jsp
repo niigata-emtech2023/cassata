@@ -10,11 +10,6 @@
 <!--ProfileSendServletから転送-->
 <!-- ヘッダーを置く -->
     <%
-<<<<<<< HEAD
-    	//request.setCharacterEncoding("UTF-8");
-   		List<UserBean> userList = (List<UserBean>) request.getAttribute("selectProfileSend");
-   		
-=======
     	request.setCharacterEncoding("UTF-8");
     
     	String error = null;
@@ -25,7 +20,6 @@
     	
     	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
     	
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 	%>
 	
 	<form action="ProfileChangeSendServlet" method="POST">
@@ -89,20 +83,6 @@
     <% } %>
     
     推しの武将：
-<<<<<<< HEAD
-    <select name="busho_id">
-    	<% for(UserBean selectProfileSend : userList) { %>
-	    	
-	    	<% if(selectProfileSend.getBushoID().equals(busho.getPeriodName())){ %>
-	    		<option value="<%=periodName.getPeriodName()%>" selected><%=periodName.getPeriodName()%></option>
-	    	<% } else { %>
-	    		<option value="<%=periodName.getPeriodName()%>"><%=periodName.getPeriodName()%></option>
-	    	<% } %>
-	    <% } %>
-    </select>
-    出身地：
-    <input type="text" name="area" <%=request.getAttribute("area")%>><br>
-=======
     <select name="busho_name">
     	<option value="null" selected>未設定</option>
 		<% for(BushoBean busho : bushoList){ %>
@@ -113,7 +93,6 @@
 			<% } %>
 		<% } %>
     </select><br>
->>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
     
     <!-- 出身地がnullの場合は何も表示しない　 -->
     出身地：
