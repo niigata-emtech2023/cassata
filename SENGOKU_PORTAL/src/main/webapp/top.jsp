@@ -28,49 +28,9 @@
 		}
 	
 	%>
-	<header>
-		<img class="logo" src="images/logo.jpg">
-		<!-- ログイン状態であれば、「ニックネーム」でログイン中と表示する -->
-		<p>
-		<% if(session.getAttribute("nickname") == null){ %>
-			ログインしていません
-		<% } else { %>
-			<span><%= session.getAttribute("nickname") %></span>でログイン中
-		<% } %>
-		</p>
-		<div class="header-contents">
-		
-		
-		<!-- 管理者のユーザ管理画面（仮） -->
-		<% if(authority == 2){ %>
-			<form method="POST" name="showcustomer" action="ShowCustomerServlet">
-				<a href="javascript:showcustomer.submit()">ユーザ管理</a>
-			</form>
-		<% } else { %>
-		<% } %>
-		
-
-		<!-- 新規登録リンク  -->
-		<% if(session.getAttribute("nickname") != null){ %>
-		<% } else { %>
-			<a href="register.jsp">新規登録</a>
-		<% } %>
-
-		<!-- ログインリンク -->
-		<% if(session.getAttribute("nickname") == null){ %>
-			<a href="login.jsp">ログイン</a>
-		<% } else { %>
-			<form method="POST" name="logout" action="LogoutServlet">
-				<a href="javascript:logout.submit()">ログアウト</a>
-			</form>
-		<% } %>
-		
-
-		<!-- アイコン -->
-		<img class="user-icon"
-			src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
-		</div>
-	</header>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="top" />
+	</jsp:include>
 	<main>
 		<div class="top">
 			<img class="top-image" src="images/top_img.jpg">
@@ -128,37 +88,9 @@
 			</div>
 
 		</div>
-		<ul class="navigation-bar">
-			<li class="selected-page">
-				<form method="POST" name="top" action="ShowTopPageServlet">
-					<a href="javascript:top.submit()"><p>トップ</p></a>
-				</form>
-			</li>
-			<li>
-				<form method="POST" name="chatList" action="ShowChatServlet">
-					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
-				</form>
-			</li>
-			<li>
-				<form method="POST" name="bushoList" action="ShowBushoListServlet">
-					<a href="javascript:bushoList.submit()"><p>武将一覧</p></a>
-				</form>
-			</li>
-			<% if(session.getAttribute("user_id") != null){ %>
-			<li>
-				<form method="POST" name="myProfile" action="ShowMyProfileServlet">
-					<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
-					<a href="javascript:myProfile.submit()"><p>マイページ</p></a>
-				</form>
-				
-			</li>
-			<% } else { %>
-			
-			<% } %>
-			<li>				
-				<a href="searchUser.jsp"><p>ユーザ検索</p></a>
-			</li>
-		</ul>
+		<jsp:include page="navigation-bar.jsp">
+			<jsp:param name="current_page" value="top" />
+		</jsp:include>
 
 		<div class="main-contents">
 			<div class="about">

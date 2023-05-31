@@ -19,6 +19,9 @@
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="chat" />
 	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="chat" />
+	</jsp:include>
 	<div class="jsp-main-contents">
 		<div class="chat">
 			<div class="contents-head chat-h">

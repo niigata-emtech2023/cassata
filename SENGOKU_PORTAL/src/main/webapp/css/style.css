@@ -16,7 +16,9 @@ body {
     background-color: #8999d4;
 }
 
-
+a{
+	color:white;
+}
 
 /* ヘッダー */
 header {
@@ -248,7 +250,7 @@ a{
 .navigation-bar p {
     text-align: center;
     line-height: 50px;
-    
+    color: white;
 }
 
 .selected-page {
