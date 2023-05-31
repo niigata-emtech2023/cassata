@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>プロフィール変更</title>
+<title>プロフィール変更</title> 
 </head>
 <body>
 <!--ProfileSendServletから転送-->
