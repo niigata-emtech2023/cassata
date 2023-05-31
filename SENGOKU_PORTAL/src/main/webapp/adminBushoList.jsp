@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>武将一覧（管理者専用画面）</title>
+<link rel="stylesheet" href="css/busholist.css">
+
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
@@ -23,7 +25,10 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="busho" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	
+	<!--  <div class="jsp-main-contents">-->
+	<div class="d5">
+	
     	<%
 		List<BushoBean> bushoList
 			= (List<BushoBean>) request.getAttribute("bushoList");
@@ -38,31 +43,37 @@
 		</select>
 		<input type="submit" value="ソート">
 	</form>
-	<table>
+	<form action="bushoInsert.jsp">
+		<input type="submit" value="追加">
+	</form>
+	<table border="black">
+	<thead>
 		<tr>
-			<th>顔写真</th>
-			<th>名前</th>
-			<th>年代</th>
-			<th>生年月日</th>
-			<th></th>
-			<th></th>
+			<th class="image">顔写真</th>
+			<th class="name">名前</th>
+			<th class="era">年代</th>
+			<th class="birth">生年月日</th>
+			<th class="change">変更</th>
+			<th class="delete">削除</th>
 		</tr>
+	</thead>
 		<!-- 武将一覧の表示 -->
+		<tbody>
 		<%
 			for (BushoBean busho : bushoList) {
 		%>
 		<tr>
-			<td><img src="<%=busho.getBushoImg()%>" alt="武将の顔写真"></td>
-			<td><%=busho.getBushoName()%></td>
-			<td><%=busho.getPeriodName()%></td>
-			<td><%=busho.getBirthDate()%></td>
-			<td>
+			<td class="image"><img src="<%=busho.getBushoImg()%>" class="busho-img" alt="武将の顔写真"></td>
+			<td class="name"><%=busho.getBushoName()%></td>
+			<td class="era"><%=busho.getPeriodName()%></td>
+			<td class="birth"><%=busho.getBirthDate()%></td>
+			<td class="change">
 				<form action="BushoChangeSendServlet" method="POST">
 					<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="変更">
 				</form>
 			</td>
-			<td>
+			<td class="delete">
 				<form action="ShowBushorServlet" method="POST">
 					<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 					<input type="submit" value="削除">
@@ -72,10 +83,9 @@
 		<%
 			}
 		%>
+	</tbody>
 	</table>
-	<form action="bushoInsert.jsp">
-		<input type="submit" value="追加">
-	</form>
 	</div>
+	<!--  </div>-->
 </body>
 </html>
