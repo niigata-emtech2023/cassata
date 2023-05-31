@@ -16,9 +16,11 @@ th {
 th, td {
     border: 1px solid #666;
     padding: 5px;
+    text-align: center;
 }
 .image, .name, .era, .birth {
     width: 200px;
+    
 }
 
 .change, .delete {
