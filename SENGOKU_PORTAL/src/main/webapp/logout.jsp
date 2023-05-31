@@ -5,11 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/main-jsp.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-	<form action="show-toppage-servlet" method="POST">
-    ログアウトしました<br>
-    <input type="submit" value="トップページへ">
-    </form>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+		<form action="show-toppage-servlet" method="POST">
+	    ログアウトしました<br>
+	    <input type="submit" value="トップページへ">
+	    </form>
+	 </div>
 </body>
 </html>
