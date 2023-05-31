@@ -9,8 +9,8 @@
 <body>
     ログイン<br>
 	<form action="LoginServlet" method="POST">
-    ID：<input type="text" name="user_id"><br>
-	パスワード：<input type="password" name="password"><br>
+    ID：<input type="text" name="user_id" maxlength="8"><br>
+	パスワード：<input type="password" name="password" maxlength="16"><br>
 	<input type="submit" value="ログイン">
 	</form>
 </body>
