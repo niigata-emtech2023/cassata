@@ -42,7 +42,7 @@
     
     新しいパスワードを入力：
     <input type="password" name="new_password_1"><br>
-    もう一度入力：
+    新しいパスワードをもう一度入力：
     <input type="password" name="new_password_2"><br>
     
     <!-- パスワードが一致しなかったら戻される -->

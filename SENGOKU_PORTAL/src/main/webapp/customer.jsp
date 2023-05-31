@@ -26,7 +26,7 @@
 	</form>
 	<table>
 		<tr>
-			<th>写真</th>
+			<th>アイコン</th>
 			<th>ニックネーム</th>
 			<th>ID</th>
 			<th>好きな武将</th>
@@ -39,7 +39,13 @@
 			for (UserBean user : userList) {
 		%>
 		<tr>
-			<td><%=user.getBushoImg()%></td>
+			<td>
+			 <% if(user.getBushoImg() == null) {%>
+	    		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+			<% } else { %>
+				<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">	
+			<% } %><br>			
+			</td>
 			<td><%=user.getNickname()%></td>
 			<td><%=user.getUserID()%></td>
 			<td><%=user.getBushoName()%></td>
@@ -53,7 +59,6 @@
 				<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
 				<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
 				<input type="hidden" name="area" value="<%=user.getArea()%>">
-			
 				<input type="submit" value="変更">
 			</form>
 			</td>
