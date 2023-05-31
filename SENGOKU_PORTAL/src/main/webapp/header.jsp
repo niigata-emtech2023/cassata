@@ -49,9 +49,47 @@
 				src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
 		</div>
 	</header>
-		<ul class="navigation-bar">
-			<li class="selected-page"><a href="top.jsp"><p>トップ</p></a></li>
+	
+	<!-- ページの表示状況によってナビゲーションの表示を変化させる -->
+	<%
+		String current_page = request.getParameter("current_page");
+	%>
+	
+	<ul class="navigation-bar">
+		
+		<% if(current_page.equals("top")) { %>
+			<li class="selected-page">
+				<form method="POST" name="top" action="ShowTopPageServlet">
+					<a href="javascript:top.submit()">トップ</a>
+				</form>
+			</li>
 			<li>
+				<form method="POST" name="chatList" action="ShowChatServlet">
+					<a href="javascript:chatList.submit()">全体チャット</a>
+				</form>
+			</li>
+			<li>
+				<form method="POST" name="bushoList" action="ShowBushoListServlet">
+					<a href="javascript:bushoList.submit()">武将一覧</a>
+				</form>
+			</li>
+			<% if(session.getAttribute("user_id") != null){ %>
+			<li>
+				<form method="POST" name="myProfile" action="ShowMyProfileServlet">
+					<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
+					<a href="javascript:myProfile.submit()">マイページ</a>
+				</form>
+				
+			</li>
+			<% } else { %>
+			
+			<% } %>
+			<li>				
+				<a href="searchUser.jsp"><p>ユーザ検索</p></a>
+			</li>
+		<% } else if(current_page.equals("chat")){%>	
+			<li><a href="top.jsp"><p>トップ</p></a></li>
+			<li class="selected-page">
 				<form method="POST" name="chatList" action="ShowChatServlet">
 					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
 				</form>
@@ -75,6 +113,8 @@
 			<li>				
 				<a href="searchUser.jsp"><p>ユーザ検索</p></a>
 			</li>
-		</ul>
+		<% } %>
+		
+	</ul>
 </body>
 </html>
