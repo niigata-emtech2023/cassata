@@ -60,7 +60,7 @@
 			<% } %>
 			
 			<!--  出身地 -->
-			<% if(user.getArea() == null){%>
+			<% if(user.getArea() == null || user.getArea().equals("")){%>
 				出身地：未設定<br>
 			<% } else { %>
 				出身地：<%= user.getArea() %><br>

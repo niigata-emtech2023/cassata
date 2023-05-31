@@ -62,6 +62,7 @@
    	<% } %>
     以上の内容でよろしいですか？
     
+    
     <form action="ChangeProfileServlet" method="POST">
     	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
     	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
