@@ -45,8 +45,11 @@
 			
 
 			<!-- アイコン -->
-			<img class="user-icon"
-				src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
+			<% if(session.getAttribute("busho_img") == null){%>
+				<img class="user-icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k">
+			<% } else { %>
+				<img class="user-icon" src="<%=session.getAttribute("busho_img")%>">
+			<% } %>
 		</div>
 	</header>
 	

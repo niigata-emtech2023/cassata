@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 		boolean result = false;
 
 		String url = null;
+		String busho_img = null;
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
@@ -61,6 +62,13 @@ public class LoginServlet extends HttpServlet {
 			LoginDAO loginDao = new LoginDAO();
 			result = loginDao.login(user_id, password);
 			
+			/**
+			 * 武将画像（アイコン）の取得
+			 */
+			UserDAO userDAO = new UserDAO();
+			busho_img = userDAO.selectUserIcon(user_id);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -72,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 			// セッションスコープへの属性の設定
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("password", password);
-			
+			session.setAttribute("busho_img", busho_img);
 			
 			
 			/**

@@ -87,7 +87,7 @@ public class FollowDAO {
 				String busho_img = res.getString("busho_img");
 
 				FollowBean follow = new FollowBean();
-				follow.setFollowUserID(user_id);
+				follow.setUserID(user_id);
 				follow.setNickname(nickname);
 				follow.setBushoImg(busho_img);
 

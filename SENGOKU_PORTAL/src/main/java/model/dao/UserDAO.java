@@ -215,6 +215,29 @@ public class UserDAO{
 		
 	}
 	
+	public String selectUserIcon(String user_id) throws ClassNotFoundException, SQLException{
+		
+		String busho_img = null;
+		
+		String sql = "SELECT b.busho_img AS busho_img FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) WHERE user_id = ?";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				busho_img = res.getString("busho_img");
+			}
+		
+		}
+		
+		return busho_img;
+	}
+	
 	public int changeProfile(String password, String nickname, int gender, String busho_id, Date date, String area, String myself, String user_id) throws ClassNotFoundException, SQLException{
 		
 		int count = 0;

@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.FollowDAO;
 import model.entity.FollowBean;
@@ -48,16 +47,6 @@ public class ShowFollowerServlet extends HttpServlet {
 
 		// リクエストパラメータの取得
 		String user_id = request.getParameter("user_id");
-		String follow_user_id = request.getParameter("follow_user_id");
-
-		request.setCharacterEncoding("UTF-8");
-
-		// セッションオブジェクトの取得
-		HttpSession session = request.getSession();
-
-		// セッションスコープへの属性の設定
-		request.setAttribute("user_id", user_id);
-		request.setAttribute("follow_user_id", follow_user_id);
 
 		List<FollowBean> followList = null;
 
