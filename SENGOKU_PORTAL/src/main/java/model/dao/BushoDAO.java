@@ -251,6 +251,31 @@ public class BushoDAO{
 		return bushoList;
 	}
 	
+	public String selectBushoNameString(String busho_id) throws ClassNotFoundException, SQLException{
+		
+		String busho_name = "";
+		
+		String sql = "SELECT busho_name FROM busho WHERE busho_id = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setString(1, busho_id);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				busho_name = res.getString("busho_name");
+			}
+	
+		}
+		
+		return busho_name;
+	}
+	
 	public List<BushoBean> selectBushoImage(String busho_id) throws ClassNotFoundException, SQLException{
 		
 		List<BushoBean> bushoList=new ArrayList<BushoBean>();
@@ -279,6 +304,56 @@ public class BushoDAO{
 		}
 		
 		return bushoList;
+	}
+	
+	public String selectBushoImageString(String busho_id) throws ClassNotFoundException, SQLException{
+		
+		String busho_img = null;
+		
+		String sql = "SELECT busho_img FROM busho WHERE busho_id = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定!
+			pstmt.setString(1, busho_id);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				busho_img=res.getString("busho_img");
+			}
+	
+		}
+		
+		return busho_img;
+	}
+	
+	public String selectBushoIDString(String busho_name) throws ClassNotFoundException, SQLException{
+		
+		String busho_id = null;
+		
+		String sql = "SELECT busho_id FROM busho WHERE busho_name = ?";
+		
+		//データベースへの値の設定、PreparedStatementの取得
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定!
+			pstmt.setString(1, busho_name);
+
+			//SQlステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				busho_id = res.getString("busho_id");
+			}
+	
+		}
+		
+		return busho_id;
 	}
 	
 	public List<BushoBean> selectBushoNameImage(String busho_name) throws ClassNotFoundException, SQLException{

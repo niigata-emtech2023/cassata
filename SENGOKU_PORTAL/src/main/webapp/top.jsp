@@ -17,6 +17,17 @@
 </head>
 
 <body>
+	
+	<% 
+		request.setCharacterEncoding("UTF-8");
+	
+		int authority = 1;
+		
+		if(session.getAttribute("authority") != null){
+			authority = (Integer)session.getAttribute("authority");
+		}
+	
+	%>
 	<header>
 		<img class="logo" src="images/logo.jpg">
 		<!-- ログイン状態であれば、「ニックネーム」でログイン中と表示する -->
@@ -29,27 +40,32 @@
 		</p>
 		<div class="header-contents">
 		
-			<!-- 管理者のユーザ管理画面（仮） -->
+		
+		<!-- 管理者のユーザ管理画面（仮） -->
+		<% if(authority == 2){ %>
 			<form method="POST" name="showcustomer" action="ShowCustomerServlet">
-					<a href="javascript:showcustomer.submit()">ユーザ管理</a>
-				</form>
+				<a href="javascript:showcustomer.submit()">ユーザ管理</a>
+			</form>
+		<% } else { %>
+		<% } %>
+		
 
-			<!-- 新規登録リンク  -->
-			<a href="register.jsp">新規登録</a>
+		<!-- 新規登録リンク  -->
+		<a href="register.jsp">新規登録</a>
 
-			<!-- ログインリンク -->
-			<% if(session.getAttribute("nickname") == null){ %>
-				<a href="login.jsp">ログイン</a>
-			<% } else { %>
-				<form method="POST" name="logout" action="LogoutServlet">
-					<a href="javascript:logout.submit()">ログアウト</a>
-				</form>
-			<% } %>
-			
+		<!-- ログインリンク -->
+		<% if(session.getAttribute("nickname") == null){ %>
+			<a href="login.jsp">ログイン</a>
+		<% } else { %>
+			<form method="POST" name="logout" action="LogoutServlet">
+				<a href="javascript:logout.submit()">ログアウト</a>
+			</form>
+		<% } %>
+		
 
-			<!-- アイコン -->
-			<img class="user-icon"
-				src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
+		<!-- アイコン -->
+		<img class="user-icon"
+			src="https://lh3.googleusercontent.com/pw/AJFCJaXtZKeakKvThPGLSnVEpGrbX2JLCsrFyxI_7e3CmxqzBkOkf6n29Wm5Fw5Th0Cdin8EVAmbOMxiZBswPjp2CNWTPmZkL_-ddPPFskSpG_5wDBpMQA=s200-p-k">
 		</div>
 	</header>
 	<main>

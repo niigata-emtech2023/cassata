@@ -1,6 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.sql.SQLException;
+import java.util.List;
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+=======
+import model.dao.BushoDAO;
+import model.entity.BushoBean;
+
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 /**
  * Servlet implementation class ProfileSend
  */
@@ -56,7 +67,23 @@ public class ProfileSendServlet extends HttpServlet {
 		String birth_date =request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-
+		
+		BushoDAO bushoDAO = new BushoDAO();
+		List<BushoBean> bushoList = null;
+		String busho_name = null;
+		
+		try {
+			bushoList = bushoDAO.selectBushoNameAll();
+			busho_name = bushoDAO.selectBushoNameString(busho_id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("busho_name", busho_name);
+		request.setAttribute("bushoList", bushoList);
+		
+		// リクエストスコープへの属性の設定
 		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("user_id", user_id);
@@ -65,6 +92,7 @@ public class ProfileSendServlet extends HttpServlet {
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
+<<<<<<< HEAD
 
 //		// DAOの生成
 //		UserDAO userdao = new UserDAO();
@@ -78,6 +106,10 @@ public class ProfileSendServlet extends HttpServlet {
 //		} catch (ClassNotFoundException | SQLException e) {
 //			e.printStackTrace();
 //		}
+=======
+		
+
+>>>>>>> branch 'master' of https://github.com/niigata-emtech2023/cassata
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfile.jsp");
 		rd.forward(request, response);
 	}

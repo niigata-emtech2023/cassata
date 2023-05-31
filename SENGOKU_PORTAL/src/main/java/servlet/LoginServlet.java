@@ -73,6 +73,8 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("password", password);
 			
+			
+			
 			/**
 			 * ユーザ名を取得
 			 */
@@ -84,6 +86,15 @@ public class LoginServlet extends HttpServlet {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
+			
+			int authority = 1;
+			try {
+				authority = dao.selectAuthority(user_id);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			session.setAttribute("authority", authority);
 
 		} else {
 			// 認証失敗

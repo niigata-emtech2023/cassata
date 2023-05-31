@@ -86,7 +86,17 @@
 		</div>
 		<div class="main-contents-inner">
 			<div class="main-contents-inner-header">
-			ここに送信フォームを置きたい
+			
+			<!-- チャット入力・送信 -->
+			<% if(session.getAttribute("user_id") != null){ %>
+				<form action="InsertChatServlet" method="POST">
+				<textarea placeholder="140文字以下" name="message"rows="2" cols="70" maxlength="140"></textarea>
+				<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
+				<input type="submit" value="送信">
+				</form>
+			<% } else { %>
+			
+			<% } %>
 			</div>
 			<div class="chat-box">
 				<ul class="chat-list">

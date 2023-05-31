@@ -22,12 +22,30 @@
     出身地：<%= request.getAttribute("area") %><br>
     以上の内容でよろしいですか
     
-    <form action="ChangeCustomerServlet" method="POST">
+     <form action="ChangeCustomerServlet" method="POST">
+    	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
+    	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
+    	<input type="hidden" name=user_id value="<%= request.getAttribute("user_id")%>">
+    	<input type="hidden" name="password" value="<%= request.getAttribute("password")%>">
+    	<input type="hidden" name="myself" value="<%= request.getAttribute("myself")%>">
+    	<input type="hidden" name="gender" value="<%= request.getAttribute("gender")%>">
+    	<input type="hidden" name="birth_date" value="<%= request.getAttribute("birth_date")%>">
+    	<input type="hidden" name="busho_id" value="<%= request.getAttribute("busho_id")%>">
+    	<input type="hidden" name="area" value="<%= request.getAttribute("area")%>">
     	<input type="submit" value="確定">
     </form>
-    <form action="changeCustomer.jsp" method="POST">
-    	<input type="submit" value="修正する">
-    </form>
+	<form action="CustomerChangeSendServlet" method="POST">
+	   	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
+    	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
+    	<input type="hidden" name=user_id value="<%= request.getAttribute("user_id")%>">
+    	<input type="hidden" name="password" value="<%= request.getAttribute("password")%>">
+    	<input type="hidden" name="myself" value="<%= request.getAttribute("myself")%>">
+    	<input type="hidden" name="gender" value="<%= request.getAttribute("gender")%>">
+    	<input type="hidden" name="birth_date" value="<%= request.getAttribute("birth_date")%>">
+    	<input type="hidden" name="busho_id" value="<%= request.getAttribute("busho_id")%>">
+    	<input type="hidden" name="area" value="<%= request.getAttribute("area")%>">
+		<input type="submit" value="修正する">
+	</form>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.ChatDAO;
+
 /**
- * Servlet implementation class BushoInsertSendServlet
+ * Servlet implementation class InsertChatServlet
  */
-@WebServlet("/BushoInsertSendServlet")
-public class BushoInsertSendServlet extends HttpServlet {
+@WebServlet("/InsertChatServlet")
+public class InsertChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BushoInsertSendServlet() {
+    public InsertChatServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,25 +40,29 @@ public class BushoInsertSendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// TODO Auto-generated method stub
+		// リクエストオブジェクトのエンコーディング方式の指定
 				request.setCharacterEncoding("UTF-8");
 
 				// リクエストパラメータの取得
-				String busho_id = request.getParameter("busho_id");
-				String busho_img = request.getParameter("busho_img");
-				String busho_name = request.getParameter("busho_name");
-				String period_id = request.getParameter("period_id");
-				String birth_date = request.getParameter("birth_date");
-				String commentary = request.getParameter("commentary");	
-				
-				request.setAttribute("busho_id", busho_id);
-				request.setAttribute("busho_img", busho_img);
-				request.setAttribute("busho_name",busho_name );
-				request.setAttribute("period_id",period_id );
-				request.setAttribute("birth_date",birth_date);
-				request.setAttribute("commentary",commentary);
-				
-				RequestDispatcher rd = request.getRequestDispatcher("bushoInsertConfilm.jsp");
+				String user_id = request.getParameter("user_id");
+				String message = request.getParameter("message");
+
+
+				// DAOの生成
+				ChatDAO chatdao = new ChatDAO();
+
+				int count = 0;	// 処理件数
+
+				try {
+					count = chatdao.sendChat(user_id, message);
+					
+				} catch (ClassNotFoundException | SQLException e) {
+					e.printStackTrace();
+				}
+
+
+				// リクエストの転送
+				RequestDispatcher rd = request.getRequestDispatcher("ShowChatServlet");
 				rd.forward(request, response);
 		
 	}

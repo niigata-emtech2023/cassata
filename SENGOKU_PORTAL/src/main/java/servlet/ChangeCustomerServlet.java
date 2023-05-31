@@ -80,9 +80,9 @@ public class ChangeCustomerServlet extends HttpServlet {
 			count = userdao.changeProfile(user_id,new_password,nickname,gender,busho_id, birth_date, area, myself);
 			
 			if(count > 0) {
-				url = "changeProfileComplete.jsp";
+				url = "changeCustomerComplete.jsp";
 			}else {
-				url = "changeProfile.jsp";
+				url = "changeCustomer.jsp";
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
