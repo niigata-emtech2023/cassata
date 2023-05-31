@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 body {
     font-family: 'Hina Mincho', serif;
 }
@@ -13,6 +15,8 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #8999d4;
 }
+
+
 
 /* ヘッダー */
 header {
@@ -221,6 +225,8 @@ a{
     border-bottom: 1px solid white;
     height: 50px;
     
+    z-index:1;
+    
     
 }
 
@@ -422,7 +428,3 @@ a{
 	border:2px solid black;
 }
 
-.other-contents{
-	position:relative;
-	top:125px;
-}

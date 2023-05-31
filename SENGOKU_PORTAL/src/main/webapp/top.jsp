@@ -129,7 +129,11 @@
 
 		</div>
 		<ul class="navigation-bar">
-			<li class="selected-page"><a href="top.jsp"><p>トップ</p></a></li>
+			<li class="selected-page">
+				<form method="POST" name="top" action="ShowTopPageServlet">
+					<a href="javascript:top.submit()"><p>トップ</p></a>
+				</form>
+			</li>
 			<li>
 				<form method="POST" name="chatList" action="ShowChatServlet">
 					<a href="javascript:chatList.submit()"><p>全体チャット</p></a>
