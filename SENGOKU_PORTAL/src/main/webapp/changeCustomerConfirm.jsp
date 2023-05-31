@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>プロフィール変更確認</title>
+<title>プロフィール変更確認（管理者専用画面）</title>
 </head>
 <body>
-	<!--ProfileChangeSendServlet-->
-	<!-- ヘッダーを置く -->
+<!-- ヘッダーを置く -->
     <%
         request.setCharacterEncoding("UTF-8");
     %>
@@ -64,7 +63,7 @@
     以上の内容でよろしいですか？
     
     
-    <form action="ChangeProfileServlet" method="POST">
+    <form action="ChangeCustomerServlet" method="POST">
     	<input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
     	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
     	<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id")%>">
@@ -77,7 +76,7 @@
     	<input type="submit" value="確定">
     </form>
     
-    <form action="ProfileSendServlet" method="POST">
+    <form action="CustomerSendServlet" method="POST">
         <input type="hidden" name="busho_img" value="<%= request.getAttribute("busho_img")%>">
     	<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname")%>">
     	<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id")%>">

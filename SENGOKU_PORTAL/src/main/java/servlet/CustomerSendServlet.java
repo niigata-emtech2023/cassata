@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.BushoDAO;
+import model.entity.BushoBean;
 
 /**
  * Servlet implementation class RegisterSendServlet
@@ -17,7 +22,7 @@ public class CustomerSendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * @see  HttpServlet#HttpServlet()
      */
     public CustomerSendServlet() {
         super();
@@ -38,34 +43,146 @@ public class CustomerSendServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// リクエストオブジェクトのエンコーディング方式の指定
+		// リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得
-		String busho_img = request.getParameter("busho_img");
-		String busho_name_img = request.getParameter("busho_name_img");
 		String user_id = request.getParameter("user_id");
+		String busho_name = request.getParameter("busho_name");
+		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
-		String password = request.getParameter("password");
+		String new_password_1 = request.getParameter("new_password_1");
+		String new_password_2 = request.getParameter("new_password_2");
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
 		String birth_date = request.getParameter("birth_date");
-		String busho_name = request.getParameter("busho_name");
 		String area = request.getParameter("area");
 		
+		String error="";
+		/**
+		 * パスワードのチェック
+		 */
+		Boolean passwordCheck = false;
 		
-		request.setAttribute("busho_img", busho_img);
-		request.setAttribute("busho_name_img", busho_name_img);
-		request.setAttribute("user_id", user_id);
-		request.setAttribute("nickname", nickname);
-		request.setAttribute("password", password);
-		request.setAttribute("myself", myself);
-		request.setAttribute("gender", gender);
-		request.setAttribute("birth_date", birth_date);
-		request.setAttribute("busho_name", busho_name);
-		request.setAttribute("area", area);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfilm.jsp");
-		rd.forward(request, response);
+		/**
+		 * 新しいパスワードが一致しているかチェック
+		 */
+
+		if(new_password_1.equals(new_password_2)) {
+			passwordCheck = true;
+			
+			if(new_password_1.equals("") || new_password_2.equals("")) {
+				error = "新しいパスワードが空白です";
+				passwordCheck = false;
+			}
+			
+			if(new_password_1.equals(" ") || new_password_2.equals(" ")) {
+				error = "新しいパスワードが空白です";
+				passwordCheck = false;
+			}
+			
+		} else {
+			passwordCheck = false;
+			error = "新しいパスワードが一致していません";
+		}
+		
+		
+		/**
+		 * パスワードが一致していた場合の処理
+		 */
+		
+		if(passwordCheck) {
+			
+			//武将の画像の取得
+			BushoDAO bushoDAO = new BushoDAO();
+			
+			String busho_id = null;
+			
+			/**
+			 * 推しの武将が未設定の場合は画像を取得しない
+			 */
+			if(!busho_name.equals("null")) {
+			
+				try {
+					busho_id = bushoDAO.selectBushoIDString(busho_name);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO 自動生成された catch ブロック
+					e1.printStackTrace();
+				}
+				
+				try {
+					busho_img = bushoDAO.selectBushoImageString(busho_id);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+				
+			} else {
+				busho_img = "null";
+			}
+			
+			request.setAttribute("user_id", user_id);
+			request.setAttribute("busho_img", busho_img);
+			request.setAttribute("nickname", nickname);
+			request.setAttribute("password", new_password_1);
+			request.setAttribute("myself", myself);
+			request.setAttribute("gender", gender);
+			request.setAttribute("birth_date", birth_date);
+			request.setAttribute("busho_id", busho_id);
+			request.setAttribute("busho_name", busho_name);
+			request.setAttribute("area", area);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("changeCustomerConfirm.jsp");
+			rd.forward(request, response);
+		
+		/**
+		 * 一致してない場合
+		 */
+		} else {
+			
+			BushoDAO bushoDAO = new BushoDAO();
+			List<BushoBean> bushoList = null;
+			
+			if(!busho_name.equals("null")) {
+				String busho_id = null;
+				
+				try {
+					busho_id = bushoDAO.selectBushoIDString(busho_name);
+					busho_img = bushoDAO.selectBushoImageString(busho_id);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO 自動生成された catch ブロック
+					e1.printStackTrace();
+				}
+			} else {
+				busho_img = "null";
+			}
+			
+			try {
+				bushoList = bushoDAO.selectBushoNameAll();
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			
+					
+			request.setAttribute("busho_name", busho_name);
+			request.setAttribute("bushoList", bushoList);
+			
+			// リクエストスコープへの属性の設定
+			request.setAttribute("busho_img", busho_img);
+			request.setAttribute("nickname", nickname);
+			request.setAttribute("user_id", user_id);
+			request.setAttribute("myself", myself);
+			request.setAttribute("gender", gender);
+			request.setAttribute("birth_date", birth_date);
+			request.setAttribute("area", area);
+			
+			request.setAttribute("error", error);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("changeCustomer.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

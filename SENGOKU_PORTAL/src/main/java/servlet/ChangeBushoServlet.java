@@ -41,7 +41,7 @@ public class ChangeBushoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		// リクエストオブジェクトのエンコーディング方式の指定をする
+		//  リクエストオブジェクトのエンコーディング方式の指定をする
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得

@@ -41,7 +41,7 @@ public class UserDAO{
 		
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id)";
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area, b.busho_img AS busho_img FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id)";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -60,6 +60,7 @@ public class UserDAO{
 				String busho_name = res.getString("busho_name");
 				Date birth_date = res.getDate("birth_date");
 				String area = res.getString("area");
+				String busho_img = res.getString("busho_img");
 						
 				UserBean user = new UserBean();
 				user.setUserID(user_id);
@@ -72,6 +73,7 @@ public class UserDAO{
 				user.setBushoName(busho_name);
 				user.setBirthDate(birth_date);
 				user.setArea(area);
+				user.setBushoImg(busho_img);
 
 				userList.add(user);
 			}
@@ -80,11 +82,20 @@ public class UserDAO{
 		return userList;
 	}
 	
+
+	/**
+	 * 
+	 * @param sort
+	 * @param order
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<UserBean> selectAllUserSort(String sort, String order) throws ClassNotFoundException, SQLException{
 		 
 		List<UserBean> userList = new ArrayList<UserBean>();
 		
-		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY " + sort + " " + order;
+		String sql = "SELECT u.user_id AS user_id, u.password AS password, u.nickname AS nickname, u.myself AS myself, u.gender AS gender, u.busho_id AS busho_id, b.busho_name AS busho_name, u.birth_date AS birth_date, u.area AS area, b.busho_img AS busho_img FROM user u LEFT OUTER JOIN busho b ON (u.busho_id = b.busho_id) ORDER BY " + sort + " " + order;
 		
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
@@ -103,6 +114,7 @@ public class UserDAO{
 				String busho_name = res.getString("busho_name");
 				Date birth_date = res.getDate("birth_date");
 				String area = res.getString("area");
+				String busho_img = res.getString("busho_img");
 						
 				UserBean user = new UserBean();
 				user.setUserID(user_id);
@@ -115,6 +127,7 @@ public class UserDAO{
 				user.setBushoName(busho_name);
 				user.setBirthDate(birth_date);
 				user.setArea(area);
+				user.setBushoImg(busho_img);
 
 				userList.add(user);
 			}
@@ -254,6 +267,29 @@ public class UserDAO{
 			
 		return count;
 		
+	}
+	
+	public String selectPassword(String user_id) throws ClassNotFoundException, SQLException{
+	
+		String password = "";
+		
+		String sql = "SELECT password FROM user WHERE user_id = ?";
+		
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user_id);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while (res.next()) {
+				password = res.getString("password");
+			}
+		
+		}
+		
+		return password;
 	}
 	
 	public int deleteProfile(String user_id) throws ClassNotFoundException, SQLException{

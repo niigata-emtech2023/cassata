@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.BushoDAO;
 import model.dao.UserDAO;
 import model.entity.BushoBean;
-import model.entity.UserBean;
 
 /**
  * Servlet implementation class RegisterSendServlet
@@ -25,7 +24,7 @@ public class CustomerChangeSendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see  HttpServlet#HttpServlet()
 	 */
 	public CustomerChangeSendServlet() {
 		super();
@@ -57,39 +56,36 @@ public class CustomerChangeSendServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
-
+		
+		UserDAO userDAO = new UserDAO();
+		BushoDAO bushoDAO = new BushoDAO();
+		List<BushoBean> bushoList = null;
+		String busho_name = null;
+		String password = null;
+		
+		try {
+			bushoList = bushoDAO.selectBushoNameAll();
+			busho_name = bushoDAO.selectBushoNameString(busho_id);
+			password = userDAO.selectPassword(user_id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("busho_name", busho_name);
+		request.setAttribute("bushoList", bushoList);
+		
+		// リクエストスコープへの属性の設定
 		request.setAttribute("busho_img", busho_img);
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("user_id", user_id);
+		request.setAttribute("password", password);
 		request.setAttribute("myself", myself);
 		request.setAttribute("gender", gender);
 		request.setAttribute("birth_date", birth_date);
 		request.setAttribute("busho_id", busho_id);
 		request.setAttribute("area", area);
 		
-		
-		
-		List<UserBean> userList = null;
-		List<BushoBean> bushoList = null;
-		List<BushoBean> bushoNameList = null;
-		
-		UserDAO userDAO = new UserDAO();
-		BushoDAO bushoDAO = new BushoDAO();
-		
-
-		try {
-			userList = userDAO. selectAllUser();
-			bushoList = bushoDAO.selectBushoAll(busho_id);
-			bushoNameList = bushoDAO.selectBushoNameAll();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		
-		request.setAttribute("userList", userList);
-		request.setAttribute("bushoList", bushoList);
-		request.setAttribute("bushoNameList", bushoNameList);
-
 		RequestDispatcher rd = request.getRequestDispatcher("changeCustomer.jsp");
 		rd.forward(request, response);
 	}

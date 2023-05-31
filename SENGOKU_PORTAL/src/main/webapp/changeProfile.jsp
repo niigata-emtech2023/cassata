@@ -8,6 +8,7 @@
 </head>
 <body>
 <!--ProfileSendServletから転送-->
+<!-- ヘッダーを置く -->
     <%
 <<<<<<< HEAD
     	//request.setCharacterEncoding("UTF-8");
@@ -48,7 +49,7 @@
     
     新しいパスワードを入力：
     <input type="password" name="new_password_1"><br>
-    もう一度入力：
+    新しいパスワードをもう一度入力：
     <input type="password" name="new_password_2"><br>
     
     <!-- パスワードが一致しなかったら戻される -->

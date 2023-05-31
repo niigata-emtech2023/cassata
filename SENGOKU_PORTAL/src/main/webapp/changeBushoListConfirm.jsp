@@ -9,6 +9,7 @@
 <body>
 
 	<!-- CustomerSendServlet -->
+	<!-- ヘッダーを置く -->
 
     <%
         request.setCharacterEncoding("UTF-8");

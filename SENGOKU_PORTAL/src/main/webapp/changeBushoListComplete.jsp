@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- ChangeBushoServlet -->
-
+	<!-- ヘッダーを置く -->
     <%
         request.setCharacterEncoding("UTF-8");
     %>

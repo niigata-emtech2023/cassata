@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!--ChangeProfileServlet-->
+	<!-- ヘッダーを置く -->
     <%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>
@@ -70,8 +71,5 @@
 		</form>
 	<% } %>
 	
-	
-
-
 </body>
 </html>

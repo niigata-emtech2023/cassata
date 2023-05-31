@@ -45,7 +45,7 @@ public class ShowMyProfileServlet extends HttpServlet {
 		
 		List<UserBean> userList = null;
 		
-		// リクエストオブジェクトのエンコーディング方式の指定
+		//  リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
