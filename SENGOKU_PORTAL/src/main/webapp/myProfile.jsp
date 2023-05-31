@@ -43,16 +43,24 @@
 			<% } %>
 		</div>
 		<div class="profile-box">
-	    	<form method="POST" name="follow" action="FollowServlet">
-				<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
-				<a href="javascript:follow.submit()">フォロー</a>
-			</form>
-		    <form method="POST" name="follower" action="FollowerServlet">
-				<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
-				<a href="javascript:follower.submit()">フォロワー</a>
-			</form>
+			<div class="ff">
+				<span class="follow">
+	    			<form method="POST" name="follow" action="FollowServlet">
+						<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
+						<a href="javascript:follow.submit()">フォロー</a>
+					</form>
+				</span>
+				<span class="follower">
+		    		<form method="POST" name="follower" action="FollowerServlet">
+						<input type="hidden" name="user_id" value="<%= user.getUserID() %>">
+						<a href="javascript:follower.submit()">フォロワー</a>
+					</form>
+				</span>
 				
-			 	<%=user.getNickname()%><br> 
+			</div>
+				<span class="nickname">
+			 		<%=user.getNickname()%><br> 
+			 	</span>
 				ID：<%=user.getUserID()%><br> 
 				
 				<!-- 自己紹介 -->
@@ -100,8 +108,9 @@
 				<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
 				<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
 				<input type="hidden" name="area" value="<%=user.getArea()%>">
-		
-				<input type="submit" value="プロフィール変更">
+				<div class="profile-change">
+					<input type="submit" value="プロフィール変更">
+				</div>
 			</form>	
 		</div>
 	<% } %>
