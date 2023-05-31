@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
 <link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -109,7 +110,7 @@
 				<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
 				<input type="hidden" name="area" value="<%=user.getArea()%>">
 				<div class="profile-change">
-					<input type="submit" value="プロフィール変更">
+					<input class="formButton" type="submit" value="プロフィール変更">
 				</div>
 			</form>	
 		</div>
