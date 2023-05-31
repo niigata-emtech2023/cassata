@@ -34,6 +34,7 @@ tbody {
 	/*border-style: solid;*/
 	margin-top:125px;
 	position: relative;
-	margin-left:300px;
-	margin-right:100px;
+	margin-left: auto;
+    margin-right: auto;
+    width: 60em;
 }
