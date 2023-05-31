@@ -59,9 +59,9 @@
 				</span>
 				
 			</div>
-				<span class="nickname">
+				<div class="nickname">
 			 		<%=user.getNickname()%><br> 
-			 	</span>
+			 	</div>
 				ID：<%=user.getUserID()%><br> 
 				
 				<!-- 自己紹介 -->
