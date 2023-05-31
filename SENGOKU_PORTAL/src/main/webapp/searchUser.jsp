@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/search.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -23,12 +24,15 @@
 		<jsp:param name="current_page" value="searchUser" />
 	</jsp:include>
 	
-	<div class="jsp-main-contents">
-		<form action="SearchUserServlet" method="POST">
-		<p>キーワードを入力してください</p>
-		<input type="text" name="keyword">
-		<input type="submit" value="検索">
+	<div class="name">
+	ユーザ検索
 	</div>
+	
+	<div class="form">
+		<form action="SearchUserServlet" method="POST" class="search_container">
+		<input type="text" name="keyword" placeholder="キーワードを入力してください">
+		<input type="submit" value="検索">
 </form>
+</div>
 </body>
 </html>
