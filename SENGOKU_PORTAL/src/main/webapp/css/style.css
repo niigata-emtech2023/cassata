@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 body {
     font-family: 'Hina Mincho', serif;
 }
@@ -247,7 +248,8 @@ a{
     height: 50px;
     
     z-index: 3;
-
+	
+	padding-left:0px;
 }
 
 
@@ -289,6 +291,8 @@ a{
     height: 50px;
     
     z-index: 3;
+    
+    padding-left:0px;
 
 }
 

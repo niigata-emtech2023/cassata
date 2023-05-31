@@ -27,21 +27,24 @@
 	    <!--  会員登録 -->
 	    <div class="Form">
 	    	<form action="RegisterSendServlet" method="POST">
+		    	<div class="Form-Item">
+		    		<h1>新規登録</h1>
+		    	</div>
 				<div class="Form-Item">
 				   <p class="Form-Item-Label">
-				     <span class="Form-Item-Label-Required">必須</span>ID
+				     <span class="Form-Item-Label-Required">必須</span><span class="formHead">ID</span>
 				   </p>
 				   <input type="text" name="user_id" class="Form-Item-Input" placeholder="半角英数字、8文字以内" pattern="^[0-9a-zA-Z]+$" maxlength="8" required>
 				</div>
 				<div class="Form-Item">
 				   <p class="Form-Item-Label">
-				     <span class="Form-Item-Label-Required">必須</span>パスワード
+				     <span class="Form-Item-Label-Required">必須</span><span class="formHead">パスワード</span>
 				   </p>
 				   <input type="password" name="password" class="Form-Item-Input" placeholder="半角英数字、16文字以内" pattern="^[0-9a-zA-Z]+$" maxlength="16" required>
 				</div>
 				<div class="Form-Item">
 				   <p class="Form-Item-Label">
-				     <span class="Form-Item-Label-Required">必須</span>ニックネーム
+				     <span class="Form-Item-Label-Required">必須</span><span class="formHead">ニックネーム</span>
 				   </p>
 				   <input type="text" name="nickname" class="Form-Item-Input" placeholder="8文字以内" maxlength="8" required>
 				</div>

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/button.css">
 	<link rel="stylesheet" href="css/main-jsp.css">
+	<link rel="stylesheet" href="css/form.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -23,16 +24,33 @@
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<div class="jsp-main-contents">
-		<p>以下の情報でよろしいですか？</p>
-			ID：<%= request.getAttribute("user_id") %><br>
-			パスワード：<%= request.getAttribute("password") %><br>
-			ニックネーム：<%= request.getAttribute("nickname") %><br>
-		<form action="RegisterServlet" method="POST">
-			<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
-			<input type="hidden" name="password" value="<%= request.getAttribute("password") %>">
-			<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname") %>">
-		<input type="submit" value="確定">
-		</form>
+		<div class="Form">
+		    <div class="Form-Item">
+	    		<h1>新規登録確認</h1>
+	    	</div>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">ID：</span><div class="Form-Item-Confirm"><%= request.getAttribute("user_id") %></div>
+			   </p>
+			</div>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">パスワード：</span><div class="Form-Item-Confirm"><%= request.getAttribute("password") %></div>
+			   </p>	
+			</div>	  
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">ニックネーム：</span><div class="Form-Item-Confirm"><%= request.getAttribute("nickname") %></div>
+			   </p>
+			</div>
+			<div class="confirmCheckMessage">以上の情報でよろしいですか？</div>
+			<form action="RegisterServlet" method="POST">
+				<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
+				<input type="hidden" name="password" value="<%= request.getAttribute("password") %>">
+				<input type="hidden" name="nickname" value="<%= request.getAttribute("nickname") %>">
+			<input class="formButton" type="submit" value="確定">
+			</form>
+		</div>
 	</div>
 </body>
 </html>
