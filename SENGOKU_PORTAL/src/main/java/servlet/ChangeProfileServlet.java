@@ -2,6 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -55,19 +58,40 @@ public class ChangeProfileServlet extends HttpServlet {
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
 		
-		java.sql.Date sqlDate= java.sql.Date.valueOf(birth_date);
+		//自己紹介が空白の場合、nullを設定する
+		if(myself.equals("")) {
+			myself = null;
+		}
 		
+		//誕生日が空白の場合、nullを設定する
+		java.sql.Date datesql = null;
 		
-		
+		if(!birth_date.equals("")) {
+			SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = format1.parse(birth_date);
+				
+		        SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+		        String formattedDate = format2.format(date);
+		        datesql = java.sql.Date.valueOf(formattedDate);
+			} catch (ParseException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			} catch (ClassCastException e) {
+				datesql = null;
+			}			
 
-		// DAOの生成
-		UserDAO userdao = new UserDAO();
+		}
+	
+			// DAOの生成
+			UserDAO userdao = new UserDAO();
 
 		int count = 0;	// 処理件数
 
 		try {
 			// DAOの利用
-			count = userdao.changeProfile(password, nickname, gender, busho_id, sqlDate, area, myself, user_id );
+			count = userdao.changeProfile(password, nickname, gender, busho_id, datesql, area, myself, user_id );
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -83,6 +107,7 @@ public class ChangeProfileServlet extends HttpServlet {
 		}
 		// リクエストスコープへの属性の設定
 		request.setAttribute("count", count);
+		request.setAttribute("userList", userList);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("changeProfileComplete.jsp");

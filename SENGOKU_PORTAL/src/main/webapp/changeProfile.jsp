@@ -96,7 +96,7 @@
     <!-- 出身地がnullの場合は何も表示しない　 -->
     出身地：
     <% if(request.getAttribute("area").equals("null")){ %>
-    <input type="text" name="area"><br>
+    <input type="text" name="area">未設定<br>
     <% } else { %>
     <input type="text" name="area" value="<%=request.getAttribute("area")%>"><br>
     <% } %>
