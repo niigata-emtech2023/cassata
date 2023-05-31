@@ -21,6 +21,10 @@ th, td {
     width: 200px;
 }
 
+.change, .delete {
+    width: 50px;
+}
+
 thead, tbody {
     display: block;
 }

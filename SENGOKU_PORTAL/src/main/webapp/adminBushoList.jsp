@@ -54,7 +54,7 @@
 			<th class="era">年代</th>
 			<th class="birth">生年月日</th>
 			<th class="change">変更</th>
-			<th class="delete">削除</th>
+			<th class="delete"> 削除 </th>
 		</tr>
 	</thead>
 		<!-- 武将一覧の表示 -->
