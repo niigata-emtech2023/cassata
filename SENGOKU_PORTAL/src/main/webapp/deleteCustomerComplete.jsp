@@ -16,24 +16,32 @@
 	rel="stylesheet">
 </head>
 <body>
-	<%
-		List<UserBean> userList =(List<UserBean>) request.getAttribute("userList"); 
-	%>
-	<%
-		for(UserBean user: userList){ 
-	%>
-	<!--プロフィール写真：--><img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
-	ニックネーム：<%=user.getNickname() %><br>
-	ID：<%=user.getUserID() %><br>
-	自己紹介：<%=user.getMyself() %><br>	
-	性別：<%=user.getGender() %><br>
-	生年月日：<%=user.getBirthDate() %>	<br>
-	推しの武将：<%=user.getBushoName() %><br>
-	出身地：<%=user.getArea() %><br>
-	<%} %>
-	以上のユーザを削除しました
-	<form action="ShowCustomerServlet" method="POST">
-		<input type="submit" value="一覧へ">
-	</form>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+		<%
+			List<UserBean> userList =(List<UserBean>) request.getAttribute("userList"); 
+		%>
+		<%
+			for(UserBean user: userList){ 
+		%>
+		<!--プロフィール写真：--><img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		ニックネーム：<%=user.getNickname() %><br>
+		ID：<%=user.getUserID() %><br>
+		自己紹介：<%=user.getMyself() %><br>	
+		性別：<%=user.getGender() %><br>
+		生年月日：<%=user.getBirthDate() %>	<br>
+		推しの武将：<%=user.getBushoName() %><br>
+		出身地：<%=user.getArea() %><br>
+		<%} %>
+		以上のユーザを削除しました
+		<form action="ShowCustomerServlet" method="POST">
+			<input type="submit" value="一覧へ">
+		</form>
+	</div>
 </body>
 </html>

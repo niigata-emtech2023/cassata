@@ -17,14 +17,20 @@
 		rel="stylesheet">
 </head>
 <body>
-    <header>
-    </header>
-    <!--  会員登録 -->
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+ 	<div class="jsp-main-contents">
+	    <!--  会員登録 -->
     	<form action="RegisterSendServlet" method="POST">
-		ID：<input type="text" name="user_id"><br>
-		パスワード：<input type="password" name="password">8桁以上<br>
-		ニックネーム：<input type="text" name="nickname"><br>
-		<input type="submit" value="確認画面へ">
-	</form>
+			ID：<input type="text" name="user_id"><br>
+			パスワード：<input type="password" name="password">8桁以上<br>
+			ニックネーム：<input type="text" name="nickname"><br>
+			<input type="submit" value="確認画面へ">
+		</form>
+	</div>
 </body>
 </html>

@@ -16,9 +16,17 @@
 	rel="stylesheet">
 </head>
 <body>
-	<form action="show-toppage-servlet" method="POST">
-    ログアウトしました<br>
-    <input type="submit" value="トップページへ">
-    </form>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+		<form action="show-toppage-servlet" method="POST">
+	    ログアウトしました<br>
+	    <input type="submit" value="トップページへ">
+	    </form>
+	 </div>
 </body>
 </html>

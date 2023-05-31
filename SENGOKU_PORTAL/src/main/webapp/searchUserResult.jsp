@@ -16,7 +16,13 @@
 		rel="stylesheet">
 </head>
 <body>
-<div class="jsp-main-contents">
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 		String keyword = (String)request.getAttribute("keyword");

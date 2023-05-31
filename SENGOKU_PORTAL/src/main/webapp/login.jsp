@@ -16,11 +16,19 @@
 	rel="stylesheet">
 </head>
 <body>
-    ログイン<br>
-	<form action="LoginServlet" method="POST">
-    ID：<input type="text" name="user_id" maxlength="8"><br>
-	パスワード：<input type="password" name="password" maxlength="16"><br>
-	<input type="submit" value="ログイン">
-	</form>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+	    ログイン<br>
+		<form action="LoginServlet" method="POST">
+		    ID：<input type="text" name="user_id" maxlength="8"><br>
+			パスワード：<input type="password" name="password" maxlength="16"><br>
+			<input type="submit" value="ログイン">
+		</form>
+	</div>
 </body>
 </html>

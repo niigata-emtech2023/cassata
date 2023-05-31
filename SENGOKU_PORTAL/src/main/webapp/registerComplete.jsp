@@ -16,16 +16,22 @@
 		rel="stylesheet">
 </head>
 <body>
-
-	<!--  重複したら失敗  -->
-	 <% if((Integer)request.getAttribute("count") != 0){ %>
-		<p>登録が完了しました。</p>
-	<% } else { %>
-		<p>登録に失敗しました。IDが重複している可能性があります。</p>
-	<% } %>
-	<form action="ShowTopPageServlet" method="POST">
-		<input type="submit" value="トップぺージへ">
-	</form>
-
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+		<!--  重複したら失敗  -->
+		 <% if((Integer)request.getAttribute("count") != 0){ %>
+			<p>登録が完了しました。</p>
+		<% } else { %>
+			<p>登録に失敗しました。IDが重複している可能性があります。</p>
+		<% } %>
+		<form action="ShowTopPageServlet" method="POST">
+			<input type="submit" value="トップぺージへ">
+		</form>
+	</div>
 </body>
 </html>

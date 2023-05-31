@@ -16,6 +16,12 @@
 		rel="stylesheet">
 </head>
 <body>
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
 	<div class="jsp-main-contents">
 		<p>以下の情報でよろしいですか？</p>
 			ID：<%= request.getAttribute("user_id") %><br>

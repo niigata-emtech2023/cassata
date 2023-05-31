@@ -16,74 +16,80 @@
 	rel="stylesheet">
 </head>
 <body>
-	<!-- ShowCustomerServlet -->
-	<!-- ヘッダーを置く -->
-    <%
-		List<UserBean> userList 
-		= (List<UserBean>) request.getAttribute("userList");
-	%>
-	<form action="SortCustomerServlet" method="POST">
-		<select name="sort">
-			<option value="user_id">ID順</option>
-			<option value="created_at">登録日順</option>
-			<option value="u.birth_date">生年月日順</option>
-		</select> 
-		<select name="order">
-			<option value="ASC">昇順</option>
-			<option value="DESC">降順</option>
-		</select> 
-		<input type="submit" value="ソート">
-	</form>
-	<table>
-		<tr>
-			<th>アイコン</th>
-			<th>ニックネーム</th>
-			<th>ID</th>
-			<th>好きな武将</th>
-			<th></th>
-			<th></th>
-		</tr>
-		<!-- 顧客一覧の表示 -->
-		
-		<%
-			for (UserBean user : userList) {
+	<jsp:include page="header.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<jsp:include page="navigation-bar.jsp">
+		<jsp:param name="current_page" value="" />
+	</jsp:include>
+	<div class="jsp-main-contents">
+		<!-- ShowCustomerServlet -->
+		<!-- ヘッダーを置く -->
+	    <%
+			List<UserBean> userList 
+			= (List<UserBean>) request.getAttribute("userList");
 		%>
-		<tr>
-			<td>
-			 <% if(user.getBushoImg() == null) {%>
-	    		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
-			<% } else { %>
-				<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">	
-			<% } %><br>			
-			</td>
-			<td><%=user.getNickname()%></td>
-			<td><%=user.getUserID()%></td>
-			<td><%=user.getBushoName()%></td>
-			<td>
-			<form action="CustomerChangeSendServlet" method="POST">
-				<input type="hidden" name="busho_img" value="<%= user.getBushoImg() %>">
-				<input type="hidden" name="nickname" value="<%=user.getNickname() %>">
-				<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
-				<input type="hidden" name="myself" value="<%=user.getMyself() %>">
-				<input type="hidden" name="gender" value="<%=user.getGender() %>">
-				<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
-				<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
-				<input type="hidden" name="area" value="<%=user.getArea()%>">
-				<input type="submit" value="変更">
-			</form>
-			</td>
-			<td>
-			<form action="DeleteCustomerSelectServlet" method="POST">
-				<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
-				<input type="submit" value="削除">
-			</form>
-			</td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-    
-
+		<form action="SortCustomerServlet" method="POST">
+			<select name="sort">
+				<option value="user_id">ID順</option>
+				<option value="created_at">登録日順</option>
+				<option value="u.birth_date">生年月日順</option>
+			</select> 
+			<select name="order">
+				<option value="ASC">昇順</option>
+				<option value="DESC">降順</option>
+			</select> 
+			<input type="submit" value="ソート">
+		</form>
+		<table>
+			<tr>
+				<th>アイコン</th>
+				<th>ニックネーム</th>
+				<th>ID</th>
+				<th>好きな武将</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<!-- 顧客一覧の表示 -->
+			
+			<%
+				for (UserBean user : userList) {
+			%>
+			<tr>
+				<td>
+				 <% if(user.getBushoImg() == null) {%>
+		    		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+				<% } else { %>
+					<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">	
+				<% } %><br>			
+				</td>
+				<td><%=user.getNickname()%></td>
+				<td><%=user.getUserID()%></td>
+				<td><%=user.getBushoName()%></td>
+				<td>
+				<form action="CustomerChangeSendServlet" method="POST">
+					<input type="hidden" name="busho_img" value="<%= user.getBushoImg() %>">
+					<input type="hidden" name="nickname" value="<%=user.getNickname() %>">
+					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
+					<input type="hidden" name="myself" value="<%=user.getMyself() %>">
+					<input type="hidden" name="gender" value="<%=user.getGender() %>">
+					<input type="hidden" name="birth_date" value="<%=user.getBirthDate() %>">
+					<input type="hidden" name="busho_id" value="<%=user.getBushoID() %>">
+					<input type="hidden" name="area" value="<%=user.getArea()%>">
+					<input type="submit" value="変更">
+				</form>
+				</td>
+				<td>
+				<form action="DeleteCustomerSelectServlet" method="POST">
+					<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
+					<input type="submit" value="削除">
+				</form>
+				</td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+    </div>
 </body>
 </html>

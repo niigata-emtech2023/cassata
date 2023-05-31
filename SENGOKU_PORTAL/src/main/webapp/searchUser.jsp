@@ -16,7 +16,6 @@
 	rel="stylesheet">
 </head>
 <body>
-	<div class="jsp-main-contents">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="searchUser" />
 	</jsp:include>
