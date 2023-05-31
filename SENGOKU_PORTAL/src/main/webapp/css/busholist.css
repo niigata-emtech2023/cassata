@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.busho-img {
+  width:200px;
+  height:200px;
+  border-radius:50%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th {
+    background-color: #ccc;
+}
+th, td {
+    border: 1px solid #666;
+    padding: 5px;
+}
+.image, .name, .era, .birth {
+    width: 200px;
+}
+
+thead, tbody {
+    display: block;
+}
+tbody {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.d5{
+	
+	/*border-style: solid;*/
+	margin-top:125px;
+	position: relative;
+	margin-left:300px;
+	margin-right:100px;
+}
