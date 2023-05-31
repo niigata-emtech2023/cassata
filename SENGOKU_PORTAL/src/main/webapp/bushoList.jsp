@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -32,17 +33,22 @@
 	<%
 	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 	%>
-	ソート
 	<form action="BushoListSortServlet" method="POST">
+	<label class="selectbox-003">
 		<select name="sort">
 			<option value="busho_name">五十音順</option>
 			<option value="period_id">年代順</option>
 			<option value="birth_date">生年月日順</option>
-		</select> <select name="order">
+		</select>
+	</label>
+	<label class="selectbox-003">
+		<select name="order">
 			<option value="ASC">昇順</option>
 			<option value="DESC">降順</option>
 		</select>
-		<input type="submit" value="ソート">
+	</label>
+		<input class="formButton" type="submit" value="ソート">
+	
 	</form>
 	<table border="black">
 	<thead>
