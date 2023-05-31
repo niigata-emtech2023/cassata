@@ -4,7 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>プロフィール変更</title> 
+<title>プロフィール変更</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/main-jsp.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 <!--ProfileSendServletから転送-->

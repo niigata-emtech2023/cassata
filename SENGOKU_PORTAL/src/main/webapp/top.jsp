@@ -6,19 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>SENGOKU PORTAL</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/button.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
-	rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="css/main-jsp.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
-	
-
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="top" />
 	</jsp:include>

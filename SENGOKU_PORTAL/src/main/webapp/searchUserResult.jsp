@@ -5,16 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ検索結果</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/button.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
-	rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="css/main-jsp.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+		rel="stylesheet">
 </head>
 <body>
+<div class="jsp-main-contents">
 	<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 		String keyword = (String)request.getAttribute("keyword");
@@ -85,5 +87,6 @@
 		}
 		%>
 	</table>
+	</div>
 </body>
 </html>
