@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!--ProfileChangeSendServlet-->
+	<!-- ヘッダーを置く -->
     <%
         request.setCharacterEncoding("UTF-8");
     %>

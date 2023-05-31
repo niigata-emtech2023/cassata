@@ -82,6 +82,15 @@ public class UserDAO{
 		return userList;
 	}
 	
+
+	/**
+	 * 
+	 * @param sort
+	 * @param order
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public List<UserBean> selectAllUserSort(String sort, String order) throws ClassNotFoundException, SQLException{
 		 
 		List<UserBean> userList = new ArrayList<UserBean>();

@@ -42,7 +42,7 @@ public class ShowCustomerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// リクエストオブジェクトのエンコーディング方式の指定
+		//  リクエストオブジェクトのエンコーディング方式の指定
 		request.setCharacterEncoding("UTF-8");
 
 		List<UserBean> userList = null;

@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!-- ShowCustomerServlet -->
+	<!-- ヘッダーを置く -->
     <%
 		List<UserBean> userList 
 		= (List<UserBean>) request.getAttribute("userList");

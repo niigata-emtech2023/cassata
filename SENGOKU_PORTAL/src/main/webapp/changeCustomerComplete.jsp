@@ -7,6 +7,7 @@
 <title>プロフィール変更確定（管理者専用画面）</title>
 </head>
 <body>
+<!-- ヘッダーを置く -->
     <%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	%>

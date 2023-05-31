@@ -7,6 +7,7 @@
 <title>プロフィール変更確認（管理者専用画面）</title>
 </head>
 <body>
+<!-- ヘッダーを置く -->
     <%
         request.setCharacterEncoding("UTF-8");
     %>

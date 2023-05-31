@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!-- adminBushoList.jsp -->
+	<!-- ヘッダーを置く -->
     <%
 		request.setCharacterEncoding("UTF-8");
 		List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
