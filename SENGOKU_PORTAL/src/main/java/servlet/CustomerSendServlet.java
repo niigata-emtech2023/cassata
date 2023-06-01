@@ -52,8 +52,10 @@ public class CustomerSendServlet extends HttpServlet {
 		String busho_img = request.getParameter("busho_img");
 		String nickname = request.getParameter("nickname");
 		String current_password = request.getParameter("current_password");
-		String new_password_1 = request.getParameter("new_password_1");
-		String new_password_2 = request.getParameter("new_password_2");
+		String new_password_1 = null;
+		String new_password_2 = null;
+		new_password_1 = request.getParameter("new_password_1");
+		new_password_2 = request.getParameter("new_password_2");
 		String myself = request.getParameter("myself");
 		String gender = request.getParameter("gender");
 		String birth_date = request.getParameter("birth_date");
@@ -69,23 +71,25 @@ public class CustomerSendServlet extends HttpServlet {
 		/**
 		 * 新しいパスワードが一致しているかチェック
 		 */
-
-		if(new_password_1.equals(new_password_2)) {
-			passwordCheck = true;
-			
-			if(new_password_1.equals("") || new_password_2.equals("")) {
-				error = "新しいパスワードが空白です";
+		
+		if(new_password_1 != null  && new_password_2 != null) {
+			if(new_password_1.equals(new_password_2)) {
+				passwordCheck = true;
+				
+				if(new_password_1.equals("") || new_password_2.equals("")) {
+					error = "新しいパスワードが空白です";
+					passwordCheck = false;
+				}
+				
+				if(new_password_1.equals(" ") || new_password_2.equals(" ")) {
+					error = "新しいパスワードが空白です";
+					passwordCheck = false;
+				}
+				
+			} else {
 				passwordCheck = false;
+				error = "新しいパスワードが一致していません";
 			}
-			
-			if(new_password_1.equals(" ") || new_password_2.equals(" ")) {
-				error = "新しいパスワードが空白です";
-				passwordCheck = false;
-			}
-			
-		} else {
-			passwordCheck = false;
-			error = "新しいパスワードが一致していません";
 		}
 		
 		
@@ -145,7 +149,7 @@ public class CustomerSendServlet extends HttpServlet {
 			BushoDAO bushoDAO = new BushoDAO();
 			List<BushoBean> bushoList = null;
 			
-			if(!busho_name.equals("null")) {
+			if(busho_name != null) {
 				String busho_id = null;
 				
 				try {
