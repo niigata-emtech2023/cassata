@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 75px;
+  top: 60px;
 }
 
 .name{
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 180px;
+  top: 150px;
 font-size: 50px;
 }
 
@@ -54,4 +54,8 @@ font-size: 50px;
   right:0px;
   top: -6px;
   outline : none;
+}
+.all-position{
+	position: relative; /* 今の位置を基準 */
+	
 }

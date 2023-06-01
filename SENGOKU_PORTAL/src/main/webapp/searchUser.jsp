@@ -23,16 +23,15 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="searchUser" />
 	</jsp:include>
+		<div class="name">
+		ユーザ検索
+		</div>
 	
-	<div class="name">
-	ユーザ検索
-	</div>
-	
-	<div class="form">
-		<form action="SearchUserServlet" method="POST" class="search_container">
-		<input type="text" name="keyword" placeholder="キーワードを入力してください">
-		<input type="submit" value="検索">
-</form>
-</div>
+		<div class="form">
+			<form action="SearchUserServlet" method="POST" class="search_container">
+				<input type="text" name="keyword" placeholder="キーワードを入力してください">
+				<input type="submit" value="検索">
+			</form>
+		</div>
 </body>
 </html>
