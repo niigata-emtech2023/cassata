@@ -24,7 +24,7 @@ th, td {
     
 }
 
-.name, .era, .birth, .profile {
+.name, .era, .birth, .profile, .id {
     width: 100px;
     
 }

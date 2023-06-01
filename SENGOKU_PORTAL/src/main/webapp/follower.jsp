@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/busholist.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -25,21 +26,37 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	
+	<div class="busholist">
 		フォロワー一覧<br>
+		
+	<thead>
+		<tr>
+			<th class="image">アイコン</th>
+			<th class="name">名前</th>
+			<th class="id">ID</th>
+		</tr>
+	</thead>
+		<!-- フォロー一覧の表示 -->
+		<tbody>
+		
 		<%
 			for(FollowBean follow: followList){ 
 		%>
+		<tr>
+			<td class="image">
 			<% if(follow.getBushoImg() != null){ %>
-				<img src="<%=follow.getBushoImg() %>"  alt="武将の顔写真">
+				<img src="<%=follow.getBushoImg() %>" class="busho-img" alt="武将の顔写真">
 			<% } else { %>
-				<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="武将の顔写真">
-			<% } %>
+				<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k" class="busho-img" alt="武将の顔写真">
+			<% } %></td>
 		
-			<%=follow.getNickname()%><br>
-			
-			ID：<%=follow.getUserID() %><br>
+			<td class="name"><%=follow.getNickname()%></td>
+			<td class="id"><%=follow.getUserID() %></td>
+		</tr>
 		<% } %>
+	</tbody>
+	</table>	
 	</div>
 </body>
 </html>

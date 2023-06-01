@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/** フォロー・フォロワー一覧用に作りましたが
+不要になりました **/
 
 .busho-img {
   width:100px;
@@ -7,16 +9,6 @@
   margin: 0 auto;
 }
 
-.name{
-	margin-top:125px;
-	position: relative;
-    width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	top: 10px;
-	font-size: 50px;
-}
 
 .listbox{
 	
