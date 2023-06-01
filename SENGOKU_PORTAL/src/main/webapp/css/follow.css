@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.follow-head-text{
+	font-size:20px;
+	text-align:center;
+	margin: 0 auto;
+}
+
+.followUserBox{
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+	height:70vh;
+	overflow-y:scroll;
+}
+
+.followUser{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	width:90%;
+	border-bottom:1px solid black;
+	border-radius:5px;
+	top:10px;
+	margin:0 auto;
+	padding:10px 0px
+}
+
+.followUser div{
+	width:25%;
+	margin: 0 auto;
+}
+.followUser img{
+	display:block;
+	margin: 0 auto;
+	height:100px;
+	width:100px;
+	border-radius:50%;
+}
+
+.followUser span{
+	font-size:30px;
+}

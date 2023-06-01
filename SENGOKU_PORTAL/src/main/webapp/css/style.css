@@ -25,6 +25,14 @@ body {
 .busho-list-body{
 	overflow-y:hidden;
 }
+
+.customer-body{
+	overflow-y:hidden;
+}
+
+.follow-body{
+	overflow-y:hidden;
+}
 /* ヘッダー  */
 header {
     top: 0;
