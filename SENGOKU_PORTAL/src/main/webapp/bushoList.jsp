@@ -27,51 +27,61 @@
 	</jsp:include>
 	
 	
-	<!--  <div class="jsp-main-contents">-->
-	<div class="busholist">
-	
-	<%
-	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
-	%>
-	<form action="BushoListSortServlet" method="POST">
-	<label class="selectbox-003">
-		<select name="sort">
-			<option value="busho_name">五十音順</option>
-			<option value="period_id">年代順</option>
-			<option value="birth_date">生年月日順</option>
-		</select>
-	</label>
-	<label class="selectbox-003">
-		<select name="order">
-			<option value="ASC">昇順</option>
-			<option value="DESC">降順</option>
-		</select>
-	</label>
-		<input class="formButton" type="submit" value="ソート">
-	
-	</form>
-	<table border="black">
-	<thead>
-		<tr>
-			<th class="image">アイコン</th><th class="name">名前</th><th class="era">年代</th><th class="birth">生年月日</th>
-		</tr>
-	</thead>
-		<!-- 武将一覧の表示 -->
-		<tbody>
-		<%
-		for (BushoBean busho : bushoList) {
-		%>
-		<tr>
-			<td class="image"><img src="<%=busho.getBushoImg()%>" class="busho-img" alt="武将の顔写真"></td>
-			<td class="name"><%=busho.getBushoName()%></td>
-			<td class="era"><%=busho.getPeriodName()%></td>
-			<td class="birth"><%=busho.getBirthDate()%></td>
-		</tr>
-		<%
-		}
-		%>
-	</tbody>
-	</table>
+	<div class="jsp-main-contents">
+		
+	    	<%
+			List<BushoBean> bushoList
+				= (List<BushoBean>) request.getAttribute("bushoList");
+			%>
+			<div class="bushoListFromHead">
+				<div class="bushoHeadForm bushoflex">
+					<form action="BushoListSortServlet" method="POST">
+					<label class="selectbox-003">
+						<select name="sort">
+							<option value="period_id">年代順</option>
+							<option value="birth_date">生年月日順</option>
+						</select>
+					</label>
+					<label class="selectbox-003">
+						<select name="order">
+							<option value="ASC">昇順</option>
+							<option value="DESC">降順</option>
+						</select>
+					</label>
+						<input class="formButton sortButton" type="submit" value="ソート">
+					</form>
+				</div>
+				<div class="busholistheadtext bushoflex">
+					武将一覧
+				</div>
+				<div class="bushoHeadAdd bushoflex">
+
+				</div>
+			</div>
+
+		<div class="bushoList-contents">
+			<%
+				for (BushoBean busho : bushoList) {
+			%>
+				<div class="busho-box">
+					<div class="busho-header-contents">
+						<div class="busho-header-list">
+							<img src="<%=busho.getBushoImg()%>" class="busho-img" alt="武将の画像">
+							<span class="busho-name"><%=busho.getBushoName()%></span>
+							<span class="busho-period"><%=busho.getPeriodName()%>時代</span>
+							<span class="busho-birthDate"><%=busho.getBirthDate()%>生</span>
+						</div>
+		
+					</div>
+					<div class="busho-footer-contents">
+						<%=busho.getCommentary() %>
+					</div>
+				</div>
+			<%
+				}
+			%>
+			
+		</div>
 	</div>
 	<!--  </div>-->
 </body>

@@ -21,6 +21,10 @@ body {
 .profile-body{
 	overflow-y:hidden;
 }
+
+.busho-list-body{
+	overflow-y:hidden;
+}
 /* ヘッダー  */
 header {
     top: 0;

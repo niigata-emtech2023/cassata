@@ -1,58 +1,63 @@
 @charset "UTF-8";
 
-.busho-img {
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  margin: 0 auto;
+.bushoList-contents{
+	padding:20px 0px 20px 0px;
+	width:100%;
+	overflow-y: scroll;
+	margin: 0 auto;
+	height:77vh;
+	background:black;
+}
+.busho-box{
+	margin:10px;
+	width:90%;
+	margin: 0 auto;
+	border:1px solid black;
+	background:white;
+}
+.busho-header-contents{
+	padding:15px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-th {
-    background-color: #ccc;
-}
-th, td {
-    border: 1px solid #666;
-    padding: 5px;
-    text-align: center;
-}
-.image {
-    width: 100px;
-    
+.busho-header-list{
+	display:flex;
+	justify-content:center;
+	align-items:center;
 }
 
-.name, .era, .birth, .profile, .id {
-    width: 100px;
-    
+.busho-header-list span{
+	margin-left:20px;
+}
+.busho-button-list{
+	display:flex;
+	justify-content:center;
+	align-items:center;
 }
 
-.change, .delete {
-    width: 100px;
+.busho-header-list img{
+	height:100px;
+	width:100px;
+	border-radius:50%;
 }
 
-thead, tbody {
-    display: block;
+.busho-name{
+	font-size:50px;
 }
-tbody {
-    overflow-y: scroll;
-    height: 400px;
-}
-
-.busholist{
-	
-	/*border-style: solid;*/
-	margin-top:125px;
-	position: relative;
-    margin-left: 450px;
-    margin-right: auto; 
-	
+.busho-period{
+	font-size:20px;
 }
 
+.busho-birthDate{
+	font-size:20px;
+}
 
-
+.busho-footer-contents{
+	padding:15px;
+	border-top:2px dashed black;
+}
 
 .selectbox-003 {
     display: inline-flex;
@@ -69,12 +74,12 @@ tbody {
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     content: '';
     pointer-events: none;
+    align-items:center;
 }
 
 .selectbox-003 select {
     appearance: none;
     min-width: 100px;
-    height: 50px;
     padding: .4em calc(.8em + 30px) .4em .8em;
     border: 1px solid #cccccc;
     border-radius: 3px;
@@ -84,5 +89,26 @@ tbody {
     cursor: pointer;
 }
 
+.bushoListFromHead{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+
+.busholistheadtext{
+	font-size:50px;
+	text-align:center;
+	
+}
+
+.bushoflex{
+	width:33.333%;
+}
+
+.bushoHeadAdd form{
+	margin: 0 0 0 auto;
+	text-align:right;
+	padding-right:10px;
+}
 
 
