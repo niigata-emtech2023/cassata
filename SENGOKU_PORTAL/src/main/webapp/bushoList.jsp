@@ -27,8 +27,8 @@
 	</jsp:include>
 	
 	
-	<!--  <div class="jsp-main-contents">-->
-	<div class="d5">
+	<div class="jsp-main-contents">
+	<div class="busholist">
 	
 	<%
 	List<BushoBean> bushoList = (List<BushoBean>) request.getAttribute("bushoList");
@@ -73,6 +73,6 @@
 	</tbody>
 	</table>
 	</div>
-	<!--  </div>-->
+	</div>
 </body>
 </html>

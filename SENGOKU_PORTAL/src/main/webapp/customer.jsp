@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>顧客管理（管理者専用画面）</title>
 <link rel="stylesheet" href="css/busholist.css">
-
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
@@ -26,8 +25,8 @@
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	
-	<!--  <div class="jsp-main-contents">-->
-	<div class="d5">
+	<div class="jsp-main-contents">
+	<div class="busholist">
 	
 		<!-- ShowCustomerServlet -->
 		<!-- ヘッダーを置く -->
@@ -100,6 +99,7 @@
 				}
 			%>
 		</table>
+    </div>
     </div>
 </body>
 </html>

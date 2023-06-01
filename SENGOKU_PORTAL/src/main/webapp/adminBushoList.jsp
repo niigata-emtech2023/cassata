@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>武将一覧（管理者専用画面）</title>
-<link rel="stylesheet" href="css/busholist.css">
-
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
 <link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/busholist.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -27,8 +26,8 @@
 		<jsp:param name="current_page" value="busho" />
 	</jsp:include>
 	
-	<!--  <div class="jsp-main-contents">-->
-	<div class="d5">
+	<div class="jsp-main-contents">
+	<div class="busholist">
 	
     	<%
 		List<BushoBean> bushoList
@@ -58,7 +57,7 @@
 			<th class="era">年代</th>
 			<th class="birth">生年月日</th>
 			<th class="change">変更</th>
-			<th class="delete"> 削除 </th>
+			<th class="delete">削除</th>
 		</tr>
 	</thead>
 		<!-- 武将一覧の表示 -->
@@ -95,6 +94,6 @@
 	</form>
 	
 	</div>
-	<!--  </div>-->
+	</div>
 </body>
 </html>

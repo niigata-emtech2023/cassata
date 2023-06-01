@@ -30,7 +30,7 @@ th, td {
 }
 
 .change, .delete {
-    width: 70px;
+    width: 50px;
 }
 
 thead, tbody {
@@ -41,13 +41,12 @@ tbody {
     height: 400px;
 }
 
-.d5{
+.busholist{
 	
 	/*border-style: solid;*/
 	margin-top:125px;
 	position: relative;
-	margin-left: 450px;
-    margin-right: auto;
+	margin: 0 auto;
     width: 60em;
 }
 
