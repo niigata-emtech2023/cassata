@@ -10,10 +10,13 @@
 	display:flex;
 	align-items:center;
 	justify-content:center;
+	position: relative; /* 今の位置を基準 */
+	top: 10px; /* 上から10px */
+	left: 150px; /* 左から20px */
 }
 
 .profile-icon-box{
-	width:50%;
+	width:30%;
 }
 
 .profile-box{
