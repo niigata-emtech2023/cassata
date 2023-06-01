@@ -27,25 +27,35 @@
 	<div class="jsp-main-contents">
 		<div class="Form">
 		    <div class="Form-Item">
+		    	<% if((Integer)request.getAttribute("count") != 0){ %>
 	    		<h1>新規登録完了</h1>
+	    		<% } else { %>
+	    		<h1>新規登録失敗</h1>
+	    		<% } %>
 	    	</div>
-
-			</form>
 			<!--  重複したら失敗  -->
 			<div class="Form-Item">
-			<p class="Form-Item-Label">
-			 <% if((Integer)request.getAttribute("count") != 0){ %>
-				<div class="completeMessage">登録が完了しました。</div>
-			<% } else { %>
-				<div class="completeMessage">登録に失敗しました。IDが重複している可能性があります。</div>
-			<% } %>
-			</p>
+				 <% if((Integer)request.getAttribute("count") != 0){ %>
+				 	<p class="Form-Item-Label">
+						<div class="completeMessage">登録が完了しました。</div>
+					</p>
+				<% } else { %>
+					<p class="Form-Item-Label">
+						<div class="completeMessage">登録に失敗しました。IDが重複している可能性があります。</div>
+					</p>
+				<% } %>
+				
 			</div>
-			<form action="register.jsp" method="POST">
-				<input class="formButton" type="submit" value="新規登録に戻る">
-			</form>
+			<% if((Integer)request.getAttribute("count") != 0){ %>
+				<form action="ShowTopPageServlet" method="POST">
+					<input class="formButton" type="submit" value="トップぺージへ">
+				</form>
+			<% } else { %>
+				<form action="register.jsp" method="POST">
+					<input class="formButton" type="submit" value="新規登録へ戻る">
+				</form>
+			<% } %>
 		</div>
-
 	</div>
 </body>
 </html>
