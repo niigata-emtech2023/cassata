@@ -41,8 +41,8 @@
 			<% } %>
 			</p>
 			</div>
-			<form action="ShowTopPageServlet" method="POST">
-				<input class="formButton" type="submit" value="トップぺージへ">
+			<form action="register.jsp" method="POST">
+				<input class="formButton" type="submit" value="新規登録に戻る">
 			</form>
 		</div>
 
