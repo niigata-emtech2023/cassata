@@ -13,16 +13,18 @@
 }
 
 .profile-icon-box{
-	width:60%;
+	width:50%;
 }
 
 .profile-box{
 	margin-top: 50px;
 	font-size:large;
-	width:40%;
+	width:50%;
+	line-height:30px;
 }
 .nickname{
 	font-size: 30px;
+	margin:10px 0px 10px 0px;
 }
 .ff{
 	display:flex;

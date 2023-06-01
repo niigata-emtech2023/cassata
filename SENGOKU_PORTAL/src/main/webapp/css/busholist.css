@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
 .busho-img {
-  width:200px;
-  height:200px;
+  width:100px;
+  height:100px;
   border-radius:50%;
+  margin: 0 auto;
 }
 
 table {
@@ -18,13 +19,18 @@ th, td {
     padding: 5px;
     text-align: center;
 }
-.image, .name, .era, .birth {
-    width: 200px;
+.image {
+    width: 100px;
+    
+}
+
+.name, .era, .birth {
+    width: 100px;
     
 }
 
 .change, .delete {
-    width: 50px;
+    width: 70px;
 }
 
 thead, tbody {
@@ -40,7 +46,43 @@ tbody {
 	/*border-style: solid;*/
 	margin-top:125px;
 	position: relative;
-	margin-left: auto;
+	margin-left: 450px;
     margin-right: auto;
     width: 60em;
 }
+
+
+
+
+.selectbox-003 {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.selectbox-003::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height:10px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-003 select {
+    appearance: none;
+    min-width: 100px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+
