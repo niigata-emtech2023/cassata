@@ -55,12 +55,6 @@ public class BushoInsertServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String commentary = request.getParameter("commentary");	
 		
-		request.setAttribute("busho_id", busho_id);
-		request.setAttribute("busho_img", busho_img);
-		request.setAttribute("busho_name",busho_name );
-		request.setAttribute("period_id",period_id );
-		request.setAttribute("birth_date",birth_date);
-		request.setAttribute("commentary",commentary);
 
 		// DAOの生成
 		RegisterDAO registerdao = new RegisterDAO();
@@ -69,17 +63,6 @@ public class BushoInsertServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-
-			count = registerdao.bushoRegister(busho_id,busho_img,busho_name,period_id,birth_date,commentary);
-			
-			if(count != 0) {
-				session.setAttribute("busho_id", busho_id);
-				session.setAttribute("busho_img", busho_img);
-				session.setAttribute("busho_name",busho_name );
-				session.setAttribute("period_id",period_id );
-				session.setAttribute("birth_date",birth_date);
-				session.setAttribute("commentary",commentary);
-			}
 			count = registerdao.bushoRegister(busho_id,busho_img,busho_name,period_id,birth_date,commentary);
 
 

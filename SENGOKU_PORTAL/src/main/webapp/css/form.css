@@ -254,6 +254,13 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.chat-form{
+	height:70px;
+	resize:none;
+	margin-right:15px;
+	max-width: 610px;
+}
 @media screen and (max-width: 480px) {
   .Form-Btn {
     margin-top: 24px;

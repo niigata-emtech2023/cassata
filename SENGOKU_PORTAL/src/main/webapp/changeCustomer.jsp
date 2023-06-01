@@ -66,7 +66,7 @@
 			   <p class="Form-Item-Label">
 			     <span class="formHead">ニックネーム</span>
 			   </p>
-			   <input type="text" name="nickname" class="Form-Item-Input" value="<%=request.getAttribute("nickname")%>"  placeholder="8文字以内" maxlength="8">
+			   <input type="text" name="nickname" class="Form-Item-Input" value="<%=request.getAttribute("nickname")%>"  placeholder="8文字以内" maxlength="8" required>
 			</div>
 			
 			<!-- ID -->

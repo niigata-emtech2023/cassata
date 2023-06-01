@@ -65,7 +65,7 @@
 			   <p class="Form-Item-Label">
 			     <span class="formHead">ニックネーム</span>
 			   </p>
-			   <input type="text" name="nickname" class="Form-Item-Input" value="<%=request.getAttribute("nickname")%>"  placeholder="8文字以内" maxlength="8">
+			   <input type="text" name="nickname" class="Form-Item-Input" value="<%=request.getAttribute("nickname")%>"  placeholder="8文字以内" maxlength="8" required>
 			</div>
 			
 			<!-- ID -->
@@ -115,9 +115,9 @@
 			     <span class="formHead">自己紹介</span>
 			   </p>
 			    <% if(request.getAttribute("myself").equals("null")){ %>
-			    	<textarea class="Form-Item-Textarea" name="myself" placeholder="100文字以内" maxlength="100"></textarea><br>
+			    	<textarea class="Form-Item-Textarea" name="myself" placeholder="100文字以内" maxlength="100"></textarea>
 			    <% } else { %>
-			    	<textarea class="Form-Item-Textarea" name="myself" placeholder="100文字以内" maxlength="100"><%=request.getAttribute("myself")%></textarea><br>
+			    	<textarea class="Form-Item-Textarea" name="myself" placeholder="100文字以内" maxlength="100"><%=request.getAttribute("myself")%></textarea>
 			    <% } %>
 			</div>
 		    

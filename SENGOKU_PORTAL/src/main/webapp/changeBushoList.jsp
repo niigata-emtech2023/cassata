@@ -59,7 +59,7 @@
 			   <p class="Form-Item-Label">
 			     <span class="formHead">名前</span>
 			   </p>
-			   <input type="text" name="busho_name" class="Form-Item-Input" value="<%=busho.getBushoName()%>">
+			   <input type="text" name="busho_name" class="Form-Item-Input" value="<%=busho.getBushoName()%>" required>
 			</div>
 			
 			<!-- 推しの武将 -->

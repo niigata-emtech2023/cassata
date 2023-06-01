@@ -506,3 +506,24 @@ a{
 	border:2px solid black;
 }
 
+.chat-send-box{
+	display:flex;
+	margin: 0 auto;
+	justify-content:center;
+	align-items:center;
+}
+
+.chat-all{
+	width:70%;
+	margin-top:20px;
+	height:600px;
+	border-radius:0;
+}
+.chat-box-all{
+	margin-top:10px;
+	max-height:390px;
+}
+
+.chat-body{
+	overflow-y:hidden;
+}
