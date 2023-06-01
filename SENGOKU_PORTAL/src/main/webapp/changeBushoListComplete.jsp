@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>武将の変更確定（管理者専用画面）</title>
+<link rel="icon" href="images/favicon.ico" id="favicon">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -25,21 +27,54 @@
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<div class="jsp-main-contents">
-	    <%
+	   	<%
 	        request.setCharacterEncoding("UTF-8");
 	    %>
+		<div class="Form">
+			<div class="Form-Item">
+	    		<h1>武将情報変更確認</h1>
+	    	</div>
+	    	
+	    	<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">武将の画像</span>
+			   </p>
+			   <div class="Form-Icon">
+					<img src="<%= request.getAttribute("busho_img")%>"  alt="武将の画像">	
+				</div>
+			</div>
+			
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">名前：</span><div class="Form-Item-Confirm"><%= request.getAttribute("busho_name") %></div>
+			   </p>
+			</div>
+			
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">年代：</span><div class="Form-Item-Confirm"><%= request.getAttribute("period_name") %></div>
+			   </p>	
+			</div>
+			
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">生年月日：</span><div class="Form-Item-Confirm"><%= request.getAttribute("birth_date") %></div>
+			   </p>
+			</div>
+			
+			<div class="Form-Item">
+				<%= request.getAttribute("commentary") %>
+			</div>
+			
+			<div class="confirmCheckMessage">以上の内容で登録しました。</div>
+			
+			<form action="ShowBushoListServlet" method="POST">
+				<input class="formButton" type="submit" value="武将一覧に戻る">
+			</form>
+		</div>
 	    
-		顔写真：<img src="<%= request.getAttribute("busho_img") %>" alt="武将の顔写真"><br>
-		名前：<%= request.getAttribute("busho_name") %><br>
-		年代：<%= request.getAttribute("period_name") %><br>
-		生年月日：<%= request.getAttribute("birth_date") %><br>
-		説明文：<%= request.getAttribute("commentary") %><br>
-		
-		以上のデータを変更登録しました。<br>
 	
-		<form action="ShowBushoListServlet" method="POST">
-			<input type="submit" value="武将一覧に戻る">
-		</form>
+
 	</div>
 </body>
 </html>
