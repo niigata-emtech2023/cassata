@@ -18,8 +18,8 @@
 	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 </head>
-<body>
-	<div class="jsp-main-contents">
+<body class="profile-body">
+	<div class="jsp-main-contents profile-contents">
 
 		<jsp:include page="header.jsp">
 			<jsp:param name="current_page" value="myProfile" />
@@ -36,7 +36,7 @@
 		<% for(UserBean user: userList){ %>
 		
 		
-			<div class="profile_contents" >
+			<div class="profile_contents">
 				<div class="profile-icon-box">
 					<% if(user.getBushoImg() != null) {%>
 						<img class="icon" src="<%=user.getBushoImg()%>"  alt="プロフィール写真">

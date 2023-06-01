@@ -1,28 +1,36 @@
 @charset "UTF-8";
+
 .icon{
 	border-radius: 50%;
-	margin:0 auto;
+	box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }
+
+
 .profile_contents{
 	
-	width:90%;
-	margin:0 auto;
+	width:70%;
 	display:flex;
-	align-items:center;
-	justify-content:center;
+	justify-content:left;
 	position: relative; /* 今の位置を基準 */
-	left: 150px; /* 左から150px */
+	margin: 0 auto;
+	box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .profile-icon-box{
-	width:30%;
+	width:40%;
+	background:#FFCCCC;
+	
+	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
 }
 
 .profile-box{
-	margin-top: 50px;
-	font-size:large;
-	width:50%;
+	width:100%;
 	line-height:30px;
+	margin-left:10px;
+	padding:10px 0px 10px 0px;
+	
 }
 .nickname{
 	font-size: 30px;

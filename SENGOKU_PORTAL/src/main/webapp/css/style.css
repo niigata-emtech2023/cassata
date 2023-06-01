@@ -18,7 +18,9 @@ body {
     background-color: #8999d4;
 }
 
-
+.profile-body{
+	overflow-y:hidden;
+}
 /* ヘッダー  */
 header {
     top: 0;
