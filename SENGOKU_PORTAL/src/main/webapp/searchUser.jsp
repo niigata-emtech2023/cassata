@@ -23,6 +23,7 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="searchUser" />
 	</jsp:include>
+	<div class="all-position">
 		<div class="name">
 		ユーザ検索
 		</div>
@@ -33,5 +34,6 @@
 				<input type="submit" value="検索">
 			</form>
 		</div>
+	</div>
 </body>
 </html>
