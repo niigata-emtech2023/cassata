@@ -35,7 +35,7 @@
 				<% if(user.getBushoImg() != null) {%>
 					<img class="icon" src="<%=user.getBushoImg()%>"  alt="アイコン ">
 				<% } else { %>
-					<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+					<img class="icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
 				<% } %>
 			</div>
 			<div class="profile-box">
@@ -64,7 +64,7 @@
 					推しの武将：<%=user.getBushoName()%><br>
 					出身地：<%=user.getArea()%><br>
 					
-					
+					<div class="profile-change">
 					<% if(followCheck) {%>
 						<form action="FollowRemoveServlet" method="POST">
 							<input type="hidden" name="otherUserID" value="<%= user.getUserID() %>">
@@ -75,12 +75,13 @@
 						<form action="FollowSubmitServlet" method="POST">
 							<input type="hidden" name="otherUserID" value="<%= user.getUserID() %>">
 							<input type="hidden" name="myUserID" value="<%= (String)session.getAttribute("user_id") %>">
-							<input class="formButton" type="submit" value="フォローする">	
-				</form>
-			<% } %>
+							<input class="formButton" type="submit" value="フォローする">
+						</form>
+					<% } %>
+					</div>	
 			</div>
-		<% } %>
 		</div>
+		<% } %>
 	</div>
 </body>
 </html>
