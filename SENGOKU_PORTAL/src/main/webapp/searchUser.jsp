@@ -17,7 +17,7 @@
 	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 </head>
-<body>
+<body class="follow-body">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="searchUser" />
 	</jsp:include>

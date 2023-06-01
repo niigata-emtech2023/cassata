@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
 <link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
