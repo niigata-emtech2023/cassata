@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -30,8 +32,14 @@
 			for(UserBean user : userList){ 
 		%>
 		<!--プロフィール写真：-->
-		<img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		<div class="profile_contents" >
+		<div class="profile-icon-box">
+		<img class="icon" src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		</div>
+		<div class="profile-box">
+		<div class="nickname">
 		ニックネーム：<%=user.getNickname() %><br>
+		</div>
 		ID：<%=user.getUserID() %><br>
 		自己紹介：<%=user.getMyself() %><br>
 		性別：<%=user.getGender() %><br>
@@ -44,8 +52,11 @@
 		<form action="DeleteCustomerServlet" method="POST">
 		<input type="hidden" name="user_id" value="<%=user.getUserID() %>">
 		<%} %>
+		<div class="profile-change">
 		<input type="submit" value="削除">
+		</div>
 		</form>
+	</div>
 	</div>
 </body>
 </html>

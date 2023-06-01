@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/profile.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -29,8 +30,15 @@
 		<%
 			for(UserBean user: userList){ 
 		%>
-		<!--プロフィール写真：--><img src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		<!--プロフィール写真：-->
+		<div class="profile_contents" >
+		<div class="profile-icon-box">
+		<img class="icon" src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		</div>
+		<div class="profile-box">
+		<span class="nickname">
 		ニックネーム：<%=user.getNickname() %><br>
+		</span>
 		ID：<%=user.getUserID() %><br>
 		自己紹介：<%=user.getMyself() %><br>	
 		性別：<%=user.getGender() %><br>
@@ -40,8 +48,12 @@
 		<%} %>
 		以上のユーザを削除しました
 		<form action="ShowCustomerServlet" method="POST">
+		<div class="profile-change">
 			<input type="submit" value="一覧へ">
+			</div>
 		</form>
+		</div>
+	</div>
 	</div>
 </body>
 </html>
