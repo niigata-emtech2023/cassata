@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -31,61 +32,114 @@
 		<% 
 			for(UserBean user: userList){ 
 		%>
-			顔写真：
-	    	<% if(user.getBushoImg() == null) {%>
-	    		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
-			<% } else { %>
-				<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">	
-			<% } %><br>
-				
-			ニックネーム：<%=user.getNickname()%><br>
-			ID：<%=user.getUserID()%><br>
-			パスワード：<%=user.getPassword()%><br>
+		
+		 <div class="Form">
+		    <div class="Form-Item">
+	    		<h1>プロフィール変更完了</h1>
+	    	</div>
+	    	<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">アイコン<br>（推しの武将）</span>
+			   </p>
+			   <div class="Form-Icon">
+			    	<% if(user.getBushoImg() == null) {%>
+			    		<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+					<% } else { %>
+						<img src="<%=user.getBushoImg()%>"  alt="プロフィール写真">	
+					<% } %>
+				</div>
+			</div>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">ID：</span><div class="Form-Item-Confirm"><%= user.getUserID() %></div>
+			   </p>
+			</div>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">パスワード：</span><div class="Form-Item-Confirm"><%= user.getPassword() %></div>
+			   </p>	
+			</div>	  
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">ニックネーム：</span><div class="Form-Item-Confirm"><%= user.getNickname() %></div>
+			   </p>
+			</div>
 			
-			<!-- 自己紹介 -->
-		    <% if(user.getMyself() == null){ %>
-		    	自己紹介：未設定<br>	
-		    <% } else { %>
-		    	自己紹介：<%= user.getMyself() %><br>
-		    <% } %>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">自己紹介：</span>
+			     <div class="Form-Item-Confirm">
+				    <% if(user.getMyself() == null){ %>
+				    	未設定
+				    <% } else { %>
+				    	<%= user.getMyself() %>
+				    <% } %>
+			     </div>
+			   </p>
+			</div>
 			
-			<!-- 性別 -->
-	    	<% if(user.getGender() == 1){ %>
-	    		性別：不明<br>
-	    	<% } else if(user.getGender() == 2){ %>
-	    		性別：男性<br>
-	    	<% } else { %>
-	    		性別：女性<br>
-	    	<% } %>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">性別：</span>
+			     <div class="Form-Item-Confirm">
+			    	<% if(user.getGender() == 1){ %>
+			    		不明
+			    	<% } else if(user.getGender() == 2){ %>
+			    		男性
+			    	<% } else { %>
+			    		女性
+			    	<% } %>
+			     </div>
+			   </p>
+			</div>
 			
-			<!-- 生年月日 -->
-	 		<% if(user.getBirthDate() == null){ %>
-	 			生年月日：未設定<br>
-	 		<% } else { %>
-	 			生年月日：<%= user.getBirthDate() %><br>
-	 		<% } %>
-	 		
-	 		<!-- 推しの武将 -->
-	    	<% if(user.getBushoID() == null){ %>
-	    		推しの武将：未設定<br>
-	    	<% } else { %>
-	    		推しの武将：<%= user.getBushoName() %><br>
-	    	<% } %>
-	    	
-	    	<!-- 出身地 -->
-		    <% if(user.getArea() == null || user.getArea().equals("")){%>
-		    	出身地：未設定<br>
-		   	<% } else { %>
-		   		出身地：<%= user.getArea() %><br>
-		   	<% } %>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">生年月日：</span>
+			     <div class="Form-Item-Confirm">
+			 		<% if(user.getBirthDate() == null){ %>
+			 			未設定
+			 		<% } else { %>
+			 			<%= user.getBirthDate() %>
+			 		<% } %>
+			     </div>
+			   </p>
+			</div>
 			
-			以上のデータを変更登録しました。<br>
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">推しの武将：</span>
+			     <div class="Form-Item-Confirm">
+			    	<% if(user.getBushoID() == null){ %>
+			    		未設定
+			    	<% } else { %>
+			    		<%= user.getBushoName() %>
+			    	<% } %>
+			     </div>
+			   </p>
+			</div>
 			
+			<div class="Form-Item">
+			   <p class="Form-Item-Label">
+			     <span class="formHead">出身地：</span>
+			     <div class="Form-Item-Confirm">
+				    <% if(user.getArea() == null || user.getArea().equals("")){%>
+				    	未設定
+				   	<% } else { %>
+				   		<%= user.getArea() %>
+				   	<% } %>
+			     </div>
+			   </p>
+			</div>
+			
+			<div class="confirmCheckMessage">以上の内容で変更しました。</div>
 			<form action="ShowMyProfileServlet" method="POST">
 				<input type="hidden" name="user_id" value="<%=user.getUserID()%>">
-				<input type="submit" value="マイページへ">
+				<input class="formButton" type="submit" value="マイページへ">
 			</form>
-		<% } %>
+			</div>
+		</div>
 	</div>
+	<% } %>
 </body>
 </html>

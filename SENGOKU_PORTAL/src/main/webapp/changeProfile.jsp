@@ -104,7 +104,7 @@
 		    <% if(error == null) {%>
 		    
 		    <% } else { %>
-		    	<%= request.getAttribute("error") %><br>
+		    	<span class="errorMessage"><%= request.getAttribute("error") %><br></span>
 		    <% } %>
 		    
 		    

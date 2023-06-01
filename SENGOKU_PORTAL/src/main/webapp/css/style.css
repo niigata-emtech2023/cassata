@@ -3,6 +3,7 @@
 
 body {
     font-family: 'Hina Mincho', serif;
+    overflow-x:hidden;
 }
 
 ::-webkit-scrollbar {

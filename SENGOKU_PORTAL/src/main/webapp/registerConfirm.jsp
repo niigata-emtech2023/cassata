@@ -43,7 +43,7 @@
 			     <span class="formHead">ニックネーム：</span><div class="Form-Item-Confirm"><%= request.getAttribute("nickname") %></div>
 			   </p>
 			</div>
-			<div class="confirmCheckMessage">以上の情報でよろしいですか？</div>
+			<div class="confirmCheckMessage">以上の内容でよろしいですか？</div>
 			<form action="RegisterServlet" method="POST">
 				<input type="hidden" name="user_id" value="<%= request.getAttribute("user_id") %>">
 				<input type="hidden" name="password" value="<%= request.getAttribute("password") %>">
