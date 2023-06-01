@@ -49,13 +49,11 @@
 		</label>
 		<input class="formButton" type="submit" value="ソート">
 	</form>
-	<form action="bushoInsert.jsp">
-		<input class="formButton" type="submit" value="追加">
-	</form>
+	
 	<table border="black">
 	<thead>
 		<tr>
-			<th class="image">顔写真</th>
+			<th class="image">アイコン</th>
 			<th class="name">名前</th>
 			<th class="era">年代</th>
 			<th class="birth">生年月日</th>
@@ -91,6 +89,11 @@
 		%>
 	</tbody>
 	</table>
+	
+	<form action="bushoInsert.jsp">
+		<input class="formButton" type="submit" value="追加">
+	</form>
+	
 	</div>
 	<!--  </div>-->
 </body>

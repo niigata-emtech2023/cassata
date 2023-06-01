@@ -20,7 +20,7 @@ th, td {
     text-align: center;
 }
 .image {
-    width: 200px;
+    width: 100px;
     
 }
 
@@ -30,7 +30,7 @@ th, td {
 }
 
 .change, .delete {
-    width: 50px;
+    width: 70px;
 }
 
 thead, tbody {

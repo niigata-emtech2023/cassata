@@ -53,7 +53,7 @@
 	<table border="black">
 	<thead>
 		<tr>
-			<th class="image">顔写真</th><th class="name">名前</th><th class="era">年代</th><th class="birth">生年月日</th>
+			<th class="image">アイコン</th><th class="name">名前</th><th class="era">年代</th><th class="birth">生年月日</th>
 		</tr>
 	</thead>
 		<!-- 武将一覧の表示 -->

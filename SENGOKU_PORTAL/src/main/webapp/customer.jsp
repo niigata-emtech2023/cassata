@@ -49,7 +49,7 @@
 				<option value="DESC">降順</option>
 			</select> 
 			</label>
-			<input type="submit" value="ソート">
+			<input class="formButton"  type="submit" value="ソート">
 		</form>
 		<table>
 			<tr>
