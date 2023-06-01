@@ -26,7 +26,7 @@
 		<jsp:param name="current_page" value="busho" />
 	</jsp:include>
 	
-	<div class="jsp-main-contents">
+	<!--  <div class="jsp-main-contents">-->
 	<div class="busholist">
 	
     	<%
@@ -94,6 +94,6 @@
 	</form>
 	
 	</div>
-	</div>
+	<!--  </div>-->
 </body>
 </html>

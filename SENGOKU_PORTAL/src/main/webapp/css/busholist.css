@@ -24,13 +24,13 @@ th, td {
     
 }
 
-.name, .era, .birth {
+.name, .era, .birth, .profile {
     width: 100px;
     
 }
 
 .change, .delete {
-    width: 50px;
+    width: 100px;
 }
 
 thead, tbody {
@@ -46,8 +46,9 @@ tbody {
 	/*border-style: solid;*/
 	margin-top:125px;
 	position: relative;
-	margin: 0 auto;
-    width: 60em;
+    margin-left: 450px;
+    margin-right: auto; 
+	
 }
 
 
@@ -73,7 +74,7 @@ tbody {
 .selectbox-003 select {
     appearance: none;
     min-width: 100px;
-    height: 2.8em;
+    height: 50px;
     padding: .4em calc(.8em + 30px) .4em .8em;
     border: 1px solid #cccccc;
     border-radius: 3px;

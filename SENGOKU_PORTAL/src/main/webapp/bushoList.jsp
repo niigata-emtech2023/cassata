@@ -27,7 +27,7 @@
 	</jsp:include>
 	
 	
-	<div class="jsp-main-contents">
+	<!--  <div class="jsp-main-contents">-->
 	<div class="busholist">
 	
 	<%
@@ -73,6 +73,6 @@
 	</tbody>
 	</table>
 	</div>
-	</div>
+	<!--  </div>-->
 </body>
 </html>
