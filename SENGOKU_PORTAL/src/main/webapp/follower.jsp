@@ -30,6 +30,7 @@
 	<div class="busholist">
 		フォロワー一覧<br>
 		
+		<table border="black">
 	<thead>
 		<tr>
 			<th class="image">アイコン</th>
