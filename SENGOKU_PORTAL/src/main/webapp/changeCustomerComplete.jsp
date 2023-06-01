@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>顧客情報変更完了</title>
+<link rel="icon" href="images/favicon.ico" id="favicon">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">

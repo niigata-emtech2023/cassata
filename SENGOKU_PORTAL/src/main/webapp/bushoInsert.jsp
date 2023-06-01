@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
     <meta charset="UTF-8">
     <title>武将登録</title>
+    <link rel="icon" href="images/favicon.ico" id="favicon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/button.css">
