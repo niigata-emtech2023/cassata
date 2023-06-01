@@ -34,7 +34,11 @@
 		<!--プロフィール写真：-->
 		<div class="profile_contents" >
 		<div class="profile-icon-box">
-		<img class="icon" src="<%=user.getBushoImg() %>" alt="武将の顔写真">	
+		<% if(user.getBushoImg() != null) {%>
+						<img class="icon" src="<%=user.getBushoImg()%>"  alt="プロフィール写真">
+					<% } else { %>
+						<img class="icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="プロフィール写真">
+					<% } %>
 		</div>
 		<div class="profile-box">
 		<div class="nickname">
