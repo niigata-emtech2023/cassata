@@ -81,7 +81,7 @@
 							</form>
 					
 					
-							<form action="DeleteBushoServlet" method="POST">
+							<form action="DeleteBushoSendServlet" method="POST">
 								<input type="hidden" name="busho_id" value="<%=busho.getBushoID()%>">
 								<input class="formButton Right" type="submit" value="削除">
 							</form>

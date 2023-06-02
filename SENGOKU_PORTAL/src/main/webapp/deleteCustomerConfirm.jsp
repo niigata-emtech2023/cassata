@@ -18,14 +18,16 @@
 	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 </head>
-<body>
+<body class="profile-body">
+
+	<div class="jsp-main-contents profile-contents">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	
 		<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 		%>
@@ -70,5 +72,6 @@
 				</form>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

@@ -25,7 +25,7 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	<div class="jsp-main-contents profile-contents">
 		<%
 			List<BushoBean>bushoList = (List<BushoBean>) request.getAttribute("bushoList");
 		%>
@@ -49,7 +49,11 @@
 		生年月日：<%=busho.getBirthDate() %><br>
 		<!--  紹介文：<%=busho.getCommentary() %> <br>-->
 		<%} %>
+		<% if(request.getAttribute("count").equals("0")) { %>
 		以上の武将を削除しました
+		<% } else {%>
+		推しの武将として登録されているため、削除できませんでした
+		<% } %>
 		<form action="ShowBushoListServlet" method="POST">
 		<div class="profile-change">
 			<input class="formButton" type="submit" value="一覧へ">

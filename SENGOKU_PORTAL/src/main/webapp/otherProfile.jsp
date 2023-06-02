@@ -25,7 +25,7 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	<div class="jsp-main-contents profile-contents">
 	    <% 
 	    	List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 	    	boolean followCheck = (boolean)request.getAttribute("followCheck");
@@ -79,7 +79,8 @@
 							<input class="formButton" type="submit" value="フォローする">
 						</form>
 					<% } %>
-					</div>	
+					</div>
+				
 			</div>
 		</div>
 		<% } %>

@@ -19,13 +19,15 @@
 	rel="stylesheet">
 </head>
 <body>
+
+	<div class="jsp-main-contents profile-contents">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+
 		<%
 			List<BushoBean> bushoList = (List<BushoBean>)request.getAttribute("bushoList");
 		%>
@@ -33,31 +35,34 @@
 			for(BushoBean busho : bushoList){ 
 		%>
 		<!--顔写真-->
-		<form action="DeleteBushoServlet" method="POST">
-		<div class="profile_contents" >
-		<div class="profile-icon-box">
-		<% if(busho.getBushoImg() != null) {%>
-						<img class="icon" src="<%=busho.getBushoImg()%>"  alt="武将の顔写真">
-					<% } else { %>
-						<img class="icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="武将の顔写真">
-					<% } %>
-		</div>
-		<div class="profile-box">
-		<div class="nickname">
-		名前：<%=busho.getBushoName() %><br>
-		</div>
-		年代：<%=busho.getPeriodID() %><br>	
-		生年月日：<%=busho.getBirthDate() %><br>
-		紹介文：<%=busho.getCommentary() %><br>	
 		
-		以上の武将を削除してもよろしいですか？<br>
-		<input type="hidden" name="busho_id" value="<%= busho.getBushoID() %>">
-		<%} %>
-		<div class="profile-change">
-		<input class="formButton" type="submit" value="削除">
+		<div class="profile_contents">
+			<div class="profile-icon-box">
+				<% if(busho.getBushoImg() != null) {%>
+					<img class="icon" src="<%=busho.getBushoImg()%>"  alt="武将の顔写真">
+				<% } else { %>
+					<img class="icon" src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="武将の顔写真">
+				<% } %>
+			</div>
+			<div class="profile-box">
+				<div class="nickname">
+					名前：<%=busho.getBushoName() %><br>
+				</div>
+					年代：<%=busho.getPeriodID() %><br>	
+					生年月日：<%=busho.getBirthDate() %><br>
+					紹介文：<%=busho.getCommentary() %><br>	
+					
+					以上の武将を削除してもよろしいですか？<br>
+					<form action="DeleteBushoServlet" method="POST">
+						<input type="hidden" name="busho_id" value="<%= busho.getBushoID() %>">
+						<%} %>
+					<div class="profile-change">
+						<input class="formButton Right" type="submit" value="削除">
+					</div>
+					</form>
+			</div>
+			
 		</div>
-		</form>
-	</div>
 	</div>
 </body>
 </html>
