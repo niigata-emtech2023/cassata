@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
 import model.entity.UserBean;
@@ -58,6 +59,8 @@ public class ChangeProfileServlet extends HttpServlet {
 		String busho_id = request.getParameter("busho_id");
 		String area = request.getParameter("area");
 		
+		HttpSession session = request.getSession();
+		
 		//自己紹介が空白の場合、nullを設定する
 		if(myself.equals("")) {
 			myself = null;
@@ -101,6 +104,10 @@ public class ChangeProfileServlet extends HttpServlet {
 		
 		try {
 			userList = userdao.selectProfile(user_id);
+			
+			//武将の画像を変更
+			String update_busho_img = userdao.selectUserIcon(user_id);
+			session.setAttribute("busho_img", update_busho_img);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

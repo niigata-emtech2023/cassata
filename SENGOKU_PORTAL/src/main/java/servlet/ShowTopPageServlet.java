@@ -45,6 +45,8 @@ public class ShowTopPageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
+		
+		
 		TopPageDAO dao = new TopPageDAO();
 		
 		List<ChatBean> chatList = null;
@@ -71,6 +73,8 @@ public class ShowTopPageServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		
+		
 		
 		
 		request.setAttribute("chatList", chatList);

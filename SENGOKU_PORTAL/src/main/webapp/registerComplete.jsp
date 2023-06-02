@@ -34,7 +34,7 @@
 	    		<% } %>
 	    	</div>
 			<!--  重複したら失敗  -->
-			<div class="Form-Item">
+			<div class="Form-Item registerForm">
 				 <% if((Integer)request.getAttribute("count") != 0){ %>
 				 	<p class="Form-Item-Label">
 						<div class="completeMessage">登録が完了しました。</div>
