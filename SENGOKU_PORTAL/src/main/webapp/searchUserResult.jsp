@@ -80,7 +80,15 @@
 						</div>
 						<div class="follow-name">名前：<span><%=user.getNickname()%></span></div>
 						<div class="follow-id">ID：<span><%=user.getUserID() %></span></div>
-						<div class="follow-id">推しの武将：<span><%=user.getBushoName() %></span></div>
+						
+						<div class="follow-id">
+						<% if(user.getBushoName() == null) {%>
+							推しの武将：<span>未設定</span>
+						<%} else { %>
+							推しの武将：<span><%=user.getBushoName() %></span>
+						<% } %>
+						
+						</div>
 						<div>
 							<form action="ShowOtherProfileServlet" method="POST">
 								<input type="hidden" name="user_id" value="<%=user.getUserID() %>">
