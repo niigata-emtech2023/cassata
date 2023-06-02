@@ -18,7 +18,7 @@
 	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 </head>
-<body>
+<body class="busho-list-body">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="busho" />
 	</jsp:include>
@@ -66,10 +66,20 @@
 				<div class="busho-box">
 					<div class="busho-header-contents">
 						<div class="busho-header-list">
-							<img src="<%=busho.getBushoImg()%>" class="busho-img" alt="武将の画像">
+							<% if(busho.getBushoImg().equals("null") || busho.getBushoImg().equals("")){ %>
+					   			<img src="https://lh3.googleusercontent.com/831pz4j2408xtqvwk3iOIPkzDxXSW_5HrOlTSE-5Pxj9x55WWTMvOUJfoPQLuS7cQWq9xmC4HBdt-nVBoRNjExqLHC5snkP-4uOehzX4cC7Li9elnXUWilEgGaIqWdu7TMVrbGsq=s200-p-k"  alt="武将の画像">	
+					   		<% } else { %>
+								<img src="<%= busho.getBushoImg()%>"  alt="武将の画像">	
+							<% }  %>
 							<span class="busho-name"><%=busho.getBushoName()%></span>
 							<span class="busho-period"><%=busho.getPeriodName()%>時代</span>
-							<span class="busho-birthDate"><%=busho.getBirthDate()%>生</span>
+							<span class="busho-birthDate">
+							<%if(busho.getBirthDate() == null) {%>
+								
+							<% } else { %>
+								<%=busho.getBirthDate()%>生
+							<% } %>
+							</span>
 						</div>
 		
 					</div>

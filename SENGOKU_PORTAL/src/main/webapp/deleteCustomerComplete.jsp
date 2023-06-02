@@ -47,11 +47,40 @@
 		ニックネーム：<%=user.getNickname() %><br>
 		</div>
 		ID：<%=user.getUserID() %><br>
-		自己紹介：<%=user.getMyself() %><br>	
-		性別：<%=user.getGender() %><br>
-		生年月日：<%=user.getBirthDate() %>	<br>
-		推しの武将：<%=user.getBushoName() %><br>
-		出身地：<%=user.getArea() %><br>
+		<!-- 自己紹介 -->
+		<% if(user.getMyself() == null){%>
+			自己紹介：未設定<br>
+		<% } else { %>
+			自己紹介：<%= user.getMyself() %><br>
+		<% } %>
+		
+		<!-- 性別 -->
+		<% if(user.getGender() == 1){ %>
+			性別：不明<br> 
+		<% } else if(user.getGender() == 2){ %>
+			性別：男性<br>
+		<% } else { %>
+			性別：女性<br>
+		<% } %>
+		
+		<% if(user.getBirthDate() == null) {%>
+			生年月日：未設定<br>
+		<% } else { %>
+			生年月日：<%=user.getBirthDate()%><br> 
+		<% } %>
+			
+		<% if(user.getBushoName() == null) {%>
+			推しの武将：未設定<br>
+		<% } else { %>
+			推しの武将：<%=user.getBushoName()%><br>
+		<% } %>
+		
+		<!--  出身地 -->
+		<% if(user.getArea() == null || user.getArea().equals("")){%>
+			出身地：未設定<br>
+		<% } else { %>
+			出身地：<%= user.getArea() %><br>
+		<% } %>
 		<%} %>
 		<% if(request.getAttribute("count").equals(0)) {%>
 			フォローまたはフォロワーが居るため、削除できませんでした

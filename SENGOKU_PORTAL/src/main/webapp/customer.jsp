@@ -78,7 +78,14 @@
 					</td>
 					<td class="nickname"><%=user.getNickname()%></td>
 					<td class="id"><%=user.getUserID()%></td>
-					<td class="name"><%=user.getBushoName()%></td>
+					<td class="name">
+						<% if(user.getBushoName() == null) {%>
+							未設定
+						<% } else { %>
+							<%=user.getBushoName()%>
+						<% } %>
+					
+					</td>
 					<td class="change">
 					<form action="CustomerChangeSendServlet" method="POST">
 						<input type="hidden" name="busho_img" value="<%= user.getBushoImg() %>">

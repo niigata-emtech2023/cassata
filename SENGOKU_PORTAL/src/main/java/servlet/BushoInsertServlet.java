@@ -55,6 +55,10 @@ public class BushoInsertServlet extends HttpServlet {
 		String birth_date = request.getParameter("birth_date");
 		String commentary = request.getParameter("commentary");	
 		
+		
+		if(birth_date.equals("")) {
+			birth_date = null;
+		}
 
 		// DAOの生成
 		RegisterDAO registerdao = new RegisterDAO();
