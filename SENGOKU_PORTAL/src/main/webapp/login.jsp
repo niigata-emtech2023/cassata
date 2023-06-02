@@ -22,6 +22,15 @@
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
+	<%
+		request.setCharacterEncoding("UTF-8");
+	
+		String error = null;
+		
+		if(request.getAttribute("error") != null){
+			error = (String)request.getAttribute("error");
+		}
+	%>
 	<div class="jsp-main-contents">
 		 <div class="Form">
 	    	<form action="LoginServlet" method="POST">
@@ -40,6 +49,12 @@
 				   </p>
 				   <input type="password" name="password" class="Form-Item-Input" placeholder="半角英数字、16文字以内" pattern="^[0-9a-zA-Z]+$" maxlength="16" required>
 				</div>
+				<!-- パスワードが一致しなかったら戻される -->
+			    <% if(error == null) {%>
+			    
+			    <% } else { %>
+			    	<span class="errorMessage"><%= request.getAttribute("error") %><br></span>
+			    <% } %>
 				<input class="formButton" type="submit" value="ログイン">
 			</form>
 		</div>
