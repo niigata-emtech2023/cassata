@@ -55,7 +55,7 @@ public class BushoInsertSendServlet extends HttpServlet {
 				request.setAttribute("birth_date",birth_date);
 				request.setAttribute("commentary",commentary);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("bushoInsertConfilm.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("bushoInsertConfirm.jsp");
 				rd.forward(request, response);
 		
 	}

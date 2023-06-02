@@ -49,10 +49,11 @@
 		生年月日：<%=busho.getBirthDate() %><br>
 		<!--  紹介文：<%=busho.getCommentary() %> <br>-->
 		<%} %>
-		<% if(request.getAttribute("count").equals("0")) { %>
-		以上の武将を削除しました
-		<% } else {%>
+		<% if(request.getAttribute("count").equals(0)) { %>
 		推しの武将として登録されているため、削除できませんでした
+		<% } else {%>
+		以上の武将を削除しました
+		
 		<% } %>
 		<form action="ShowBushoListServlet" method="POST">
 		<div class="profile-change">

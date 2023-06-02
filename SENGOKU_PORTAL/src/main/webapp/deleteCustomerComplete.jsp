@@ -18,15 +18,16 @@
 	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 </head>
-<body>
+<body class="profile-body">
 	<jsp:include page="header.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<jsp:include page="navigation-bar.jsp">
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
-	<div class="jsp-main-contents">
+	<div class="jsp-main-contents profile-contents">
 		<%
+			request.setCharacterEncoding("UTF-8");
 			List<UserBean> userList =(List<UserBean>) request.getAttribute("userList"); 
 		%>
 		<%
@@ -52,10 +53,14 @@
 		推しの武将：<%=user.getBushoName() %><br>
 		出身地：<%=user.getArea() %><br>
 		<%} %>
-		以上のユーザを削除しました
+		<% if(request.getAttribute("count").equals(0)) {%>
+			フォローまたはフォロワーが居るため、削除できませんでした
+		<% } else { %>
+			以上のユーザを削除しました
+		<% } %>
 		<form action="ShowCustomerServlet" method="POST">
 		<div class="profile-change">
-			<input type="submit" value="一覧へ">
+			<input class="formButton RightNormal" type="submit" value="一覧へ">
 			</div>
 		</form>
 		</div>

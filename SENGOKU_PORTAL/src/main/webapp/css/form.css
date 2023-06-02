@@ -23,6 +23,10 @@
 	border: 1px solid 	#CC3333;
 }
 
+.RightNormal{
+	margin-left:15px;
+}
+
 /*--hover--*/
 .formButton:hover {
     color: #5c87a6;

@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/main-jsp.css">
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/form.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -25,23 +27,27 @@
 		<jsp:param name="current_page" value="" />
 	</jsp:include>
 	<div class="jsp-main-contents">
-		<% if((Integer)request.getAttribute("count") != 0){ %>
-			<p>登録が完了しました。</p>
+		<div class="Form">
+		    <div class="Form-Item">
+		    	<% if((Integer)request.getAttribute("count") != 0){ %>
+	    		<h1>新規登録完了</h1>
+	    		<% } else { %>
+	    		<h1>新規登録失敗</h1>
+	    		<% } %>
+	    	</div>
+	    	
+			<% if((Integer)request.getAttribute("count") != 0){ %>
+				<div class="completeMessage"><p>登録が完了しました。</p></div>
 			<form action="ShowBushoListServlet" method="POST">
-			<input type="submit" value="武将一覧へ">
-		</form>
-		<% } else { %>
-			<p>登録に失敗しました。IDが重複している可能性があります。</p>
-			武将ID：<%= request.getAttribute("busho_id") %><br>
-			武将名：<%= request.getAttribute("busho_name") %><br>
-			時代ID：<%= request.getAttribute("period_id") %><br>
-			説明文：<%= request.getAttribute("commentary") %><br>
-			生年月日：<%= request.getAttribute("birth_date") %><br>
-			武将画像：<%= request.getAttribute("busho_img") %><br>
+				<input class="formButton" type="submit" value="武将一覧へ">
+			</form>
+			<% } else { %>
+				<div class="completeMessage"><p>登録に失敗しました。IDが重複している可能性があります。</p></div>
 			<form action="bushoInsert.jsp" method="POST">
-			<input type="submit" value="入力画面へ">
-		</form>
-		<% } %>
+				<input class="formButton" type="submit" value="入力画面へ">
+			</form>
+			<% } %>
+		</div>
 	</div>	
 </body>
 </html>

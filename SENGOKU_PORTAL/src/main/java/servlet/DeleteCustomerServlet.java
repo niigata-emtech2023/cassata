@@ -72,6 +72,7 @@ public class DeleteCustomerServlet extends HttpServlet {
 				
 
 				int count = 0;	// 処理件数
+				
 
 				try {
 					// DAOの利用
@@ -81,7 +82,7 @@ public class DeleteCustomerServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 				
-
+				System.out.println(count);
 				// リクエストスコープへの属性の設定
 				request.setAttribute("count", count);
 				request.setAttribute("userList", userList);
